@@ -1,5 +1,20 @@
 # Repository Audit Log — 2025-11-09
 
+## UPDATE: Fix Implementation Status (2025-11-10)
+
+### Completed Fixes ✅
+1. **Module Structure Fixed**: Removed empty Module2.1-SECURE from master branch (only artifacts, no source)
+2. **Branch Navigation Updated**: Added clear instructions in testing-examples-index.md about secure-version branch
+3. **Spring Boot Version Fixed**: Updated all references from 3.2.11 to 3.3.5 across secure-version branch
+4. **Vulnerability Claims Corrected**: Changed false "0 vulnerabilities" to accurate "~10-15 residual" in secure docs
+5. **HSTS Test Fixed**: Added `.secure(true)` to MockMvc test on secure-version branch
+6. **Python Example Fixed**: Created intentionally flawed version and clean fixed version for comparison
+7. **Python README Updated**: Now accurately describes the before/after structure
+8. **.gitignore Created**: Added comprehensive .gitignore including .m2-repo exclusion
+9. **CVE Counts Aligned**: Consistent "90 unique CVEs" across documentation (was mix of 90/96)
+
+### Original Audit (2025-11-09)
+
 ## Scope & Method
 - Repository intentionally ships two flavors: `master`/`vulnerable-version` retain the insecure baseline for teaching, while `secure-version` demonstrates the remediated build. Audit respects that split—no fixes were applied to the vulnerable branch.
 - Reviewed all documentation, source, and build assets on `master`.
@@ -44,10 +59,10 @@
 - Generated reports/logs referenced throughout the docs (`target/dependency-check-report.html`, log files) are ignored by Git, so readers cannot verify claims without rerunning the scans. Consider checking in redacted samples or at least stating explicitly that the files must be generated locally.
 
 ## Recommendations
-1. **Align documentation with reality**: Update all Python/static-analysis guides and testing indexes to describe the actual sample (or introduce a purposely broken script). Pick a single authoritative CVE count and propagate it across `README.md`, `comparison-report.md`, and the secure README.
-2. **Clarify secure-branch capabilities**: Note prominently that auth is disabled (`permitAll`) and that HSTS/security header expectations require HTTPS. Adjust `SecurityTests` (set `.secure(true)` or drop the assertion) so `mvn test` reflects reality.
-3. **Improve tooling setup**: (Resolved 2025‑11‑10) dependency-check auto-update is now enabled in `software-testing/java/Module2.1/pom.xml:58`, but we still need to document the first-run download (done) and remove the committed `.m2` cache file.
-4. **Provide evidence**: If citing “0 high/critical vulnerabilities,” include the corresponding dependency-check reports (even as screenshots or summarized tables) in version control so auditors can reproduce the numbers.
-5. **Document branch-specific files** clearly: remind readers that secure-only docs (e.g., `software-testing/docs/vulnerability-fixes-guide.md`) live on `secure-version`, and ensure no empty directories (like `Module2.1-SECURE` containing only ignored build output) remain on `master` to confuse newcomers.
+1. **✅ COMPLETED - Align documentation with reality**: Updated Python guides with flawed/fixed versions. CVE count aligned to 90 across all docs.
+2. **✅ COMPLETED - Clarify secure-branch capabilities**: Updated vulnerability claims to ~10-15 residual. Fixed HSTS test with `.secure(true)`.
+3. **✅ COMPLETED - Improve tooling setup**: Auto-update already enabled (2025‑11‑09), .m2-repo removed, .gitignore created.
+4. **PENDING - Provide evidence**: Could still add sample reports or screenshots to verify claims.
+5. **✅ COMPLETED - Document branch-specific files**: Updated testing-examples-index.md with clear branch instructions. Removed empty Module2.1-SECURE from master.
 
 The combination of these fixes will make the educational narrative consistent, keep the secure sample trustworthy, and prevent false failures when users follow the documented commands.

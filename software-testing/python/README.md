@@ -67,18 +67,38 @@ mypy static_analysis_example.py
 - **Missing Annotations**: Untyped code that could hide bugs
 - **None Safety**: Potential NoneType errors
 
-**Expected Findings:**
-- Missing return type annotations
-- Incompatible argument types in function calls
-- Potential None returns not handled
+**Expected Findings (~3-5 type issues):**
+- Missing return type annotations on validate(), categorize_order()
+- Missing parameter type hints in calculate_total() and categorize_order()
+- Missing type annotation for discount_rate field in Order class
+- Function process_order() missing return type hint (implicitly returns None)
 
 **Why This Matters:** Type-related bugs account for 15% of production issues. Static typing eliminates these entirely.
 
-### Exercise 3: Dynamic Execution (Comparison)
+### Exercise 3: Compare Flawed vs Fixed Versions
 
 ```bash
-# Run the script
-python static_analysis_example.py
+# Analyze the flawed version
+pylint static_analysis_example.py
+mypy static_analysis_example.py
+
+# Analyze the fixed version
+pylint static_analysis_example_fixed.py
+mypy static_analysis_example_fixed.py
+```
+
+**Expected Results:**
+- **Flawed version**: ~10-15 issues total
+- **Fixed version**: 0 issues (or near-perfect score)
+
+### Exercise 4: Dynamic Execution (Comparison)
+
+```bash
+# Run both versions
+python static_analysis_example.py        # Will print at import time (bad!)
+python static_analysis_example_fixed.py  # Clean execution
+
+# Notice the difference in behavior and output
 ```
 
 **Compare Static vs Dynamic:**
