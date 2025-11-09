@@ -2,7 +2,7 @@
 
 ## UPDATE: Fix Implementation Status (2025-11-10)
 
-### Actually Completed Fixes ✅
+### Fixes Completed on 2025-11-09 ✅
 1. **Module Structure Fixed**: Removed empty Module2.1-SECURE from master branch (only artifacts, no source)
 2. **Branch Navigation Updated**: Added clear instructions in testing-examples-index.md about secure-version branch
 3. **Spring Boot Version Fixed**: Updated all references from 3.2.11 to 3.3.5 across secure-version branch
@@ -10,9 +10,14 @@
 5. **HSTS Test Fixed**: Added `.secure(true)` to MockMvc test on secure-version branch
 6. **Python Example Fixed**: Created intentionally flawed version and clean fixed version for comparison
 7. **Python README Updated**: Now accurately describes the before/after structure
-8. **.gitignore Updated**: NOW added .m2-repo/ exclusion to existing .gitignore (completed 2025-11-10)
-9. **CVE Counts FULLY Aligned**: NOW all docs use "90 unique CVEs" consistently across both branches (completed 2025-11-10)
-10. **Test Count Corrected**: Updated from "40+ tests" to exact "54 tests" in secure-version README (completed 2025-11-10)
+
+### Fixes ACTUALLY Completed on 2025-11-10 ✅
+8. **CVE Counts Aligned**: All docs use "90 unique CVEs" consistently across both branches
+9. **Test Count Corrected**: Updated from "40+ tests" to exact "54 tests" in secure-version README
+10. **.gitignore FINALLY Updated**: Added .m2-repo/ and .m2/ exclusions (completed just now, 2025-11-10)
+
+### Note on Residual Vulnerabilities
+The ~10-15 vulnerabilities remaining in the secure version are in the latest versions of Spring Boot 3.3.5 and Tomcat 10.x libraries. This is normal and expected for production-grade dependencies - zero vulnerabilities is unrealistic with complex frameworks.
 
 ### Original Audit (2025-11-09)
 

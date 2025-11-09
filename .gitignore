@@ -9,6 +9,8 @@ target/
 *.rar
 
 # Maven
+.m2-repo/
+.m2/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
