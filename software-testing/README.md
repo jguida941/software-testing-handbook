@@ -36,6 +36,7 @@ cd java/Module2.1/
 ./mvnw clean compile dependency-check:check -DskipTests
 open target/dependency-check-report.html  # View 162 vulnerabilities found!
 ```
+> The first run will download the OWASP Dependency-Check/NVD feeds (auto-update is enabled). If you need to prepare offline, run `./mvnw dependency-check:update-only` beforehand.
 
 ## Core Concepts
 
@@ -237,5 +238,5 @@ This handbook is designed for educational purposes. Use these examples to:
 **Remember**: *The 162 vulnerabilities found in our Java example represent real risks that could compromise entire systems. This is why comprehensive testing—both static and dynamic—is not optional but essential for modern software development.*
 
 ---
-*Last Updated: November 2024*
+*Last Updated: November 9, 2025*
 *Handbook Version: 2.0*

@@ -55,7 +55,7 @@
 				<version>11.0.0</version>
 				<configuration>
 					<failOnError>false</failOnError>
-					<autoUpdate>false</autoUpdate>
+					<autoUpdate>true</autoUpdate>
 					<nvdApiKey></nvdApiKey>
 					<formats>
 						<format>HTML</format>

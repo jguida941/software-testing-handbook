@@ -85,6 +85,8 @@ cd /Users/jguida941/new_github_projects/software-testing-handbook/software-testi
 ./mvnw clean verify dependency-check:aggregate
 ```
 
+> Auto-update is enabled, so the first execution downloads the NVD feeds (this can take a few minutes). For air-gapped labs run `./mvnw dependency-check:update-only` ahead of time to seed the database.
+
 #### Step 3: View the reports
 The scan generates reports in the `target` directory:
 - **HTML Report**: `target/dependency-check-report.html` (human-readable)

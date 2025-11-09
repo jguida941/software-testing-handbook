@@ -64,6 +64,8 @@ mvn dependency-check:check
 # Result: Significant reduction in vulnerabilities
 ```
 
+> **Note:** The first run downloads the OWASP Dependency-Check/NVD feeds (auto-update is enabled). Expect a short delay while the database initializes. For restricted networks run `./mvnw dependency-check:update-only` ahead of time.
+
 ---
 
 ## Security Improvements Summary
@@ -162,6 +164,8 @@ curl "http://localhost:8080/greeting?name=T(java.lang.Runtime).getRuntime().exec
 # This should WORK
 curl "http://localhost:8080/greeting?name=John"
 ```
+
+> Security scans in both modules also download the latest CVE data automatically; initial execution may take a few minutes.
 
 ---
 
