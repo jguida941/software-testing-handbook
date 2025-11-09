@@ -37,10 +37,13 @@ An educational security audit project showing:
 
 ### To Use the SECURE Version:
 ```bash
+# IMPORTANT: Module2.1-SECURE only exists on the secure-version branch
+# You MUST switch branches first
+
 # Switch to the secure branch
 git checkout secure-version
 
-# Navigate to secure module
+# NOW the secure module exists
 cd software-testing/java/Module2.1-SECURE
 
 # Run the secure application
@@ -49,17 +52,16 @@ mvn spring-boot:run
 
 ### To Compare Both Versions:
 ```bash
-# Check vulnerable version (DO NOT RUN IN PRODUCTION)
-git checkout vulnerable-version
+# Check vulnerable version (exists on all branches)
 cd software-testing/java/Module2.1
 mvn dependency-check:check
-# See 162+ vulnerabilities
+# Result: 162 vulnerabilities, 90 unique CVEs
 
-# Check secure version
+# Check secure version (ONLY on secure-version branch)
 git checkout secure-version
 cd software-testing/java/Module2.1-SECURE
 mvn dependency-check:check
-# See massive reduction
+# Result: Significant reduction in vulnerabilities
 ```
 
 ---
@@ -92,17 +94,22 @@ mvn dependency-check:check
 
 ## Documentation
 
-Full documentation is in the `secure-version` branch:
+Additional documentation is available on the `secure-version` branch:
 
 ```bash
+# Switch to secure-version branch to access these files:
 git checkout secure-version
+
+# The following files will then be available:
+# - /TECHNICAL-SECURITY-AUDIT-CORRECTED.md - Technical report
+# - /software-testing/docs/vulnerability-fixes-guide.md - Detailed fixes
+# - /software-testing/docs/testing-strategy.md - How to test
+# - /software-testing/docs/comparison-report.md - Before/after
 ```
 
-Then see:
-- `/TECHNICAL-SECURITY-AUDIT-CORRECTED.md` - Accurate technical report
-- `/software-testing/docs/vulnerability-fixes-guide.md` - Detailed fixes
-- `/software-testing/docs/testing-strategy.md` - How to test
-- `/software-testing/docs/comparison-report.md` - Before/after
+Current branch (master) documentation:
+- `/software-testing/README.md` - Main handbook
+- `/software-testing/java/Module2.1/README.md` - Vulnerable version details
 
 ---
 
@@ -141,7 +148,10 @@ git ls-tree --name-only -r secure-version | head
 
 ### Test the Secure Version:
 ```bash
+# FIRST: Switch to secure-version branch (Module2.1-SECURE doesn't exist on master)
 git checkout secure-version
+
+# THEN: Navigate and run
 cd software-testing/java/Module2.1-SECURE
 mvn spring-boot:run
 

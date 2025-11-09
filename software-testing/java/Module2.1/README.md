@@ -5,7 +5,7 @@
 This module demonstrates **dynamic security testing** in action, showcasing how modern dependency scanning tools can uncover critical vulnerabilities that traditional static code analysis would miss. Using OWASP Dependency-Check, we discovered **162 vulnerabilities** including **21 CRITICAL** severity issues in a typical Spring Boot application.
 
 ### Key Findings at a Glance
-- **96 unique CVEs** identified, including actively exploited vulnerabilities
+- **90 unique CVEs** identified, including actively exploited vulnerabilities
 - **Spring4Shell (CVE-2022-22965)** - Remote code execution vulnerability
 - **Ghostcat (CVE-2020-1938)** - Apache Tomcat file read/RCE vulnerability
 - **SnakeYAML (CVE-2022-1471)** - Deserialization leading to RCE
@@ -98,7 +98,7 @@ open target/dependency-check-report.html
 ## Scan Results Summary (November 9, 2025)
 
 ### Statistics
-- **Total Vulnerabilities Found**: 162 (across 96 unique CVEs)
+- **Total Vulnerabilities Found**: 162 (across 90 unique CVEs)
 - **Report Size**: 2.4MB (HTML), 1.6MB (JSON)
 - **OWASP DC Version**: 11.0.0
 - **NVD Database Version**: 11.0 (from November 5, 2025)
