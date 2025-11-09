@@ -225,7 +225,7 @@ class SecurityTests {
     @Test
     @DisplayName("Should include Strict-Transport-Security header")
     void testSecurityHeader_StrictTransportSecurity() throws Exception {
-        mockMvc.perform(get("/greeting"))
+        mockMvc.perform(get("/greeting").secure(true))  // Mark request as HTTPS
                 .andExpect(header().exists("Strict-Transport-Security"));
     }
 

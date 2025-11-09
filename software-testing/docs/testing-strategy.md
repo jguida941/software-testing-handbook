@@ -111,7 +111,7 @@ diff /tmp/vulnerable-deps.txt /tmp/secure-deps.txt | head -50
 ```
 
 **Verify**:
-- Spring Boot: 2.2.4 → 3.2.11
+- Spring Boot: 2.2.4 → 3.3.5
 - Tomcat: 9.0.30 → 10.1.33
 - SnakeYAML: 1.25 → 2.2
 

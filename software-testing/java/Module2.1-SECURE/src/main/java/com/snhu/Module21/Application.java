@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * SECURITY FIXES APPLIED:
  * 1. Removed SpelExpressionParser usage that was vulnerable to code injection
  * 2. Added comprehensive logging for security auditing
- * 3. Application now uses Spring Boot 3.2.11 with all security patches
+ * 3. Application now uses Spring Boot 3.3.5 with all security patches
  *
  * @version 1.0.0 (Secure)
  * @since 2025-11-09

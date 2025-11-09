@@ -23,6 +23,7 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 - **Issues Found**: 162 vulnerabilities (21 CRITICAL, 69 HIGH)
 - **Learning Focus**: Security vulnerability detection, dependency management
 - **Time to Complete**: 30-45 minutes
+- **Secure Version**: Available on `secure-version` branch as Module2.1-SECURE (run `git checkout secure-version`)
 
 ## Examples by Severity of Findings
 
@@ -91,9 +92,18 @@ mypy static_analysis_example.py       # Type checking
 python static_analysis_example.py     # Dynamic execution
 ```
 
-### Java Dynamic Testing
+### Java Dynamic Testing (Vulnerable Version)
 ```bash
 cd java/Module2.1/
+./mvnw clean compile dependency-check:check -DskipTests
+open target/dependency-check-report.html
+```
+
+### Java Security Testing (Secure Version)
+```bash
+# Note: Module2.1-SECURE only exists on secure-version branch
+git checkout secure-version
+cd java/Module2.1-SECURE/
 ./mvnw clean compile dependency-check:check -DskipTests
 open target/dependency-check-report.html
 ```
