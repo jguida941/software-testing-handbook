@@ -81,13 +81,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Copy original suppression.xml (empty in this case) -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
+        <!-- Removed devtools for production security -->
     </dependencies>
 
     <build>
@@ -116,7 +110,7 @@
                     <failOnError>true</failOnError>
                     <!-- Fail on HIGH severity (CVSS 7+) vulnerabilities -->
                     <failBuildOnCVSS>7</failBuildOnCVSS>
-                    <autoUpdate>false</autoUpdate>
+                    <autoUpdate>true</autoUpdate>
                     <formats>
                         <format>HTML</format>
                         <format>JSON</format>
@@ -148,42 +142,5 @@
         </plugins>
     </build>
 
-    <!-- Repository Configuration -->
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
+    <!-- Only use stable Maven Central releases - no snapshots/milestones for production -->
 </project>

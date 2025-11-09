@@ -57,10 +57,11 @@ public class SecurityConfig {
                 // Prevent clickjacking attacks
                 .frameOptions(frame -> frame.deny())
 
-                // Prevent MIME type sniffing
-                .contentTypeOptions(contentType -> contentType.disable())
+                // Prevent MIME type sniffing - enable nosniff header
+                .contentTypeOptions(contentType -> { })
 
-                // XSS protection is enabled by default in modern browsers
+                // Enable XSS protection header explicitly
+                .xssProtection(xss -> { })
 
                 // Control referrer information
                 .referrerPolicy(referrer -> referrer

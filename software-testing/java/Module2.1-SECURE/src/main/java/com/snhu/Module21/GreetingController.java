@@ -3,6 +3,7 @@ package com.snhu.Module21;
 import java.util.concurrent.atomic.AtomicLong;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.springframework.validation.annotation.Validated;
@@ -56,6 +57,7 @@ public class GreetingController {
     @GetMapping("/greeting")
     public ResponseEntity<Greeting> greeting(
             @RequestParam(value = "name", defaultValue = "World")
+            @NotBlank(message = "Name cannot be blank")
             @Size(min = 1, max = 100, message = "Name must be between 1 and 100 characters")
             @Pattern(
                 regexp = "^[a-zA-Z0-9\\s\\-\\.]+$",
@@ -65,6 +67,14 @@ public class GreetingController {
 
         // SECURITY: Input sanitization
         String sanitizedName = name.trim();
+
+        // Additional check for empty string after trimming
+        if (sanitizedName.isEmpty()) {
+            logger.warn("SECURITY: Empty name after trimming detected");
+            return ResponseEntity.badRequest().body(
+                new Greeting(counter.incrementAndGet(), "Name cannot be empty")
+            );
+        }
 
         // SECURITY: Audit logging for monitoring suspicious activity
         logger.info("Greeting request received for name: '{}' from counter: {}",
