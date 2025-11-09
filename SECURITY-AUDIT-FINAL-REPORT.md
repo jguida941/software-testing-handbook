@@ -24,7 +24,7 @@ mvn dependency-check:check
 **Results:**
 - **CRITICAL Vulnerabilities (CVSS 9-10):** 21+
 - **HIGH Vulnerabilities (CVSS 7-8.9):** 69+
-- **Total CVEs:** 96 unique
+- **Total CVEs:** 90 unique
 - **Total Vulnerabilities:** 162+
 
 **Most Critical Issues:**

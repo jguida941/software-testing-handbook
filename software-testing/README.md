@@ -10,7 +10,7 @@ Upon completing this handbook, you will:
 - **Understand** the fundamental differences between static and dynamic testing
 - **Apply** static analysis tools to catch issues before runtime
 - **Execute** dynamic testing to discover runtime vulnerabilities
-- **Analyze** real security vulnerabilities (96 CVEs found in our Java example!)
+- **Analyze** real security vulnerabilities (90 CVEs found in our Java example!)
 - **Implement** a comprehensive testing strategy combining both approaches
 
 ## Key Documents
@@ -72,7 +72,7 @@ Demonstrates static testing through:
 
 #### [Java Security Testing - Module 2.1](./java/Module2.1/)
 **Real-World Impact**: Our OWASP Dependency Check scan discovered:
-- **162 total vulnerabilities** across 96 unique CVEs
+- **162 total vulnerabilities** across 90 unique CVEs
 - **21 CRITICAL vulnerabilities** (CVSS ≥ 9.0)
 - **69 HIGH severity issues**
 - Including **Spring4Shell**, **Ghostcat**, and other actively exploited vulnerabilities
@@ -94,7 +94,7 @@ The Java Module 2.1 example perfectly demonstrates why **both** testing types ar
    - Resource leaks
 
 2. **Dynamic Testing** (what we did) found:
-   - 96 CVEs in dependencies that static analysis alone wouldn't catch
+   - 90 CVEs in dependencies that static analysis alone wouldn't catch
    - Runtime security vulnerabilities
    - Real exploitation risks
 
@@ -156,7 +156,7 @@ software-testing-handbook/
 ### Intermediate Path
 1. Complete Beginner Path
 2. Run Java Module 2.1 security scan
-3. Analyze the 96 CVEs found
+3. Analyze the 90 CVEs found
 4. Research remediation strategies
 
 ### Advanced Path

@@ -18,7 +18,7 @@ Upgrading to Spring Boot 3.3.5 (Java 17) and SnakeYAML 2.2 reduced observed vuln
 **Observed Results (Nov 9, 2025 scan):**
 - **CRITICAL Vulnerabilities (CVSS 9-10):** 21+ observed
 - **HIGH Vulnerabilities (CVSS 7-8.9):** 69+ observed
-- **Total CVEs:** 96 unique
+- **Total CVEs:** 90 unique
 - **Total Vulnerabilities:** 162+ (counts will vary by scan date and database)
 
 **Key Issues Addressed:**

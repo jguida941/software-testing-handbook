@@ -156,7 +156,7 @@ curl -I http://localhost:8080/greeting
 ### Run All Tests
 ```bash
 mvn clean test
-# Expected: 40+ tests, 0 failures
+# Expected: 54 tests passing
 ```
 
 ### Test Categories
