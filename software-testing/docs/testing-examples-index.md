@@ -4,23 +4,40 @@
 
 This index provides a comprehensive catalog of all testing examples in the Software Testing Handbook, organized by testing type, language, and severity of findings.
 
+## Important: Branch Structure
+
+This repository uses three branches:
+- **`master`** (current): Documentation hub linking to other branches
+- **`vulnerable-version`**: Contains intentionally vulnerable code (162 Java vulnerabilities, 18 Python issues)
+- **`secure-version`**: Contains fixed/secure code (15 residual Java vulnerabilities, 0 Python issues in fixed version)
+
+To access the actual code examples, switch branches:
+```bash
+git checkout vulnerable-version  # For vulnerable examples
+git checkout secure-version      # For secure examples
+```
+
 ## Examples by Testing Type
 
 ### Static Testing Examples
 
 #### Python Static Analysis
-- **Location**: [`/python/static_analysis_example.py`](../python/)
+- **Location**: Available on `vulnerable-version` and `secure-version` branches
 - **Tools Used**: Pylint, Mypy
-- **Issues Found**: ~15 code quality and type safety issues
+- **Issues Found**:
+  - `vulnerable-version`: 17 Pylint warnings, 1 Mypy error
+  - `secure-version`: 22 Pylint warnings, 1 Mypy error (flawed) / 0 issues (fixed)
 - **Learning Focus**: Early bug detection, type safety, code maintainability
 - **Time to Complete**: 15-20 minutes
 
 ### Dynamic Testing Examples
 
-#### Java Security Testing (Module 2.1)
-- **Location**: [`/java/Module2.1/`](../java/Module2.1/)
+#### Java Security Testing
+- **Module2.1** (Vulnerable): Available on all branches
+  - **Issues Found**: 162 vulnerabilities (21 CRITICAL, 69 HIGH)
+- **Module2.1-IMPROVED** (Secure): Only on `secure-version` branch
+  - **Issues Found**: 15 vulnerabilities (residual Tomcat CVEs)
 - **Tools Used**: OWASP Dependency Check
-- **Issues Found**: 162 vulnerabilities (21 CRITICAL, 69 HIGH)
 - **Learning Focus**: Security vulnerability detection, dependency management
 - **Time to Complete**: 30-45 minutes
 
@@ -52,14 +69,16 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 - **Documentation Gaps** - Missing docstrings
 - **Complexity Issues** - Refactoring opportunities
 
-## 📊 Comparative Analysis
+## Comparative Analysis
 
-| Example | Language | Testing Type | Tools | Issues Found | Business Impact |
-|---------|----------|--------------|-------|--------------|-----------------|
-| Static Analysis | Python | Static | Pylint, Mypy | ~15 | Code maintainability |
-| Security Scan | Java | Dynamic | OWASP DC | 162 | Critical security risk |
+| Branch | Example | Language | Tools | Issues Found | Business Impact |
+|--------|---------|----------|-------|--------------|-----------------|
+| vulnerable-version | Python Static | Python | Pylint, Mypy | 18 (17+1) | Code maintainability |
+| vulnerable-version | Java Module2.1 | Java | OWASP DC | 162 | Critical security risk |
+| secure-version | Python Fixed | Python | Pylint, Mypy | 0 | Clean code |
+| secure-version | Java Module2.1-IMPROVED | Java | OWASP DC | 15 | Reduced risk |
 
-## 🎯 Learning Paths by Role
+## Learning Paths by Role
 
 ### For Developers
 1. Start with Python static analysis (understand code quality)
@@ -81,39 +100,36 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 2. Understand ROI of early testing (10-100x cost savings)
 3. Plan testing strategy for your team
 
-## 🔗 Quick Command Reference
+## How to Access Examples
 
-### Python Static Testing
+### For Vulnerable Code Examples:
 ```bash
-cd python/
-pylint static_analysis_example.py    # Code quality
-mypy static_analysis_example.py       # Type checking
-python static_analysis_example.py     # Dynamic execution
+git checkout vulnerable-version
+# Python and Java vulnerable examples are available here
 ```
 
-### Java Dynamic Testing
+### For Secure/Fixed Code Examples:
 ```bash
-cd java/Module2.1/
-./mvnw clean compile dependency-check:check -DskipTests
-open target/dependency-check-report.html
+git checkout secure-version
+# Both vulnerable and fixed versions available here
+# Module2.1-IMPROVED only exists on this branch
 ```
 
-## 📈 Metrics Summary
+## Summary of What's Available
 
-### Total Issues Found Across All Examples
-- **Security Vulnerabilities**: 162
-- **Code Quality Issues**: ~10
-- **Type Safety Issues**: ~5
-- **Total**: ~177 issues
+### On `vulnerable-version` Branch:
+- Python example with intentional issues for learning
+- Java Module2.1 with 162 security vulnerabilities
+- Educational documentation explaining the vulnerabilities
 
-### Time Investment vs Value
-| Activity | Time | Issues Found | Value |
-|----------|------|--------------|-------|
-| Python Static Analysis | 20 min | 15 | High (early detection) |
-| Java Security Scan | 45 min | 162 | Critical (security) |
-| **Total** | **65 min** | **177** | **Exceptional ROI** |
+### On `secure-version` Branch:
+- All vulnerable examples PLUS:
+- Fixed Python example showing best practices
+- Module2.1-IMPROVED with remediated vulnerabilities
+- Complete security audit documentation
+- Testing strategies and fix guides
 
-## 🚀 Next Examples to Add
+## Next Examples to Add
 
 ### Planned Additions
 1. **JavaScript** - ESLint and security scanning with npm audit
@@ -127,30 +143,36 @@ open target/dependency-check-report.html
 - API security testing
 - Mobile app testing
 
-## 📚 Cross-References
+## Branch Links
 
-### Theory Documentation
-- [Main README](../README.md) - Handbook overview
-- [Static vs Dynamic Testing](./static-dynamic-testing.md) - Conceptual guide
+### View on GitHub:
+- [Vulnerable Version Branch](https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version)
+- [Secure Version Branch](https://github.com/jguida941/software-testing-handbook/tree/secure-version)
+- [Compare Branches](https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version)
 
-### Tool Documentation
-- [OWASP Dependency Check](https://jeremylong.github.io/DependencyCheck/)
-- [Pylint User Guide](https://pylint.org/)
-- [Mypy Documentation](http://mypy-lang.org/)
+### Local Branch Commands:
+```bash
+# List all branches
+git branch -a
 
-### Vulnerability References
-- [CVE-2022-22965 (Spring4Shell)](https://nvd.nist.gov/vuln/detail/CVE-2022-22965)
-- [CVE-2020-1938 (Ghostcat)](https://nvd.nist.gov/vuln/detail/CVE-2020-1938)
-- [Full vulnerability list](../java/Module2.1/target/dependency-check-report.html)
+# Switch to vulnerable version
+git checkout vulnerable-version
 
-## 💡 Key Insights
+# Switch to secure version
+git checkout secure-version
+
+# Return to master
+git checkout master
+```
+
+## Key Insights
 
 1. **Different Tools, Different Bugs**: Static and dynamic testing find completely different issue categories
 2. **Real Impact**: The 162 vulnerabilities in Java represent actual exploitable security risks
 3. **Cost Efficiency**: Issues found in static analysis cost 10-100x less to fix than production bugs
 4. **Comprehensive Coverage**: Using both approaches catches 70%+ of potential issues
 
-## 🎓 Certification Preparation
+## Certification Preparation
 
 These examples align with:
 - **ISTQB** - Software Testing Certification
@@ -160,7 +182,11 @@ These examples align with:
 
 ---
 
-**Remember**: Each example in this handbook represents real-world scenarios. The 162 vulnerabilities found in Java and 15 issues in Python are typical of what you'll encounter in production systems.
+**Remember**: Each example in this handbook represents real-world scenarios:
+- **vulnerable-version**: 162 Java vulnerabilities, 18 Python issues (17 Pylint + 1 Mypy)
+- **secure-version**: 15 residual Java vulnerabilities, 0 Python issues in fixed version
+
+Switch branches to explore the actual code and run the tests yourself!
 
 ---
 [← Back to Main Documentation](./README.md)
