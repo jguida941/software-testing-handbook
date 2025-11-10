@@ -383,7 +383,7 @@ Module2.1/
 - [Spring Boot Security Best Practices](https://spring.io/projects/spring-security)
 - [CVE Details](https://www.cvedetails.com/)
 
-## Notes for Rubric Compliance
+## Notes
 The generated report includes:
 - Scan date and time
 - Engine version (11.0.0)
@@ -391,9 +391,6 @@ The generated report includes:
 - Comprehensive list of all dependencies
 - Detailed vulnerability information with CVE IDs
 - Severity scores and descriptions
-
-## Contact
-For questions about this security scan or the Module 2.1 project, please refer to the course materials or contact your instructor.
 
 ---
 *Last Updated: November 9, 2025*
