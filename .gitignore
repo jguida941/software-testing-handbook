@@ -36,6 +36,17 @@ buildNumber.properties
 .DS_Store
 Thumbs.db
 
+# Screenshots
+*.png
+*.jpg
+*.jpeg
+
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
 # Logs
 *.log
 logs/
@@ -49,3 +60,7 @@ application-*.properties
 # OWASP Dependency Check
 dependency-check-report.*
 owasp-dependency-check.*.json
+
+# Working files
+audit.md
+agents.md

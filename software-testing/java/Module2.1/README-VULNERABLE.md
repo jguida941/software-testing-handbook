@@ -36,14 +36,13 @@ This vulnerable version exists ONLY for:
 
 ## Safe Alternative Available
 
-✅ **USE THE SECURE VERSION INSTEAD**: `Module2.1-SECURE/`
+✅ **USE THE IMPROVED VERSION INSTEAD**: `Module2.1-IMPROVED/`
 
-The secure version has:
-- All 162 vulnerabilities fixed
-- Modern dependencies (Spring Boot 3.2.11)
-- Security headers configured
-- Input validation implemented
-- Comprehensive security tests
+The improved version has:
+- 91% of vulnerabilities fixed (15 Tomcat CVEs remain)
+- Modern dependencies (Spring Boot 3.3.5 / Java 17)
+- Security headers + validation configured
+- 54 security-focused tests that now pass
 
 ---
 
@@ -107,7 +106,7 @@ CMD ["timeout", "300", "mvn", "spring-boot:run"]
 
 ### Option 2: Use the Secure Version
 ```bash
-cd ../Module2.1-SECURE
+cd ../Module2.1-IMPROVED
 mvn spring-boot:run
 ```
 
@@ -136,7 +135,7 @@ Full vulnerability report available in:
 ## Educational Resources
 
 To learn about fixing these vulnerabilities:
-1. Review the secure version: `Module2.1-SECURE/`
+1. Review the secure version: `Module2.1-IMPROVED/`
 2. Read the fix documentation: `../../docs/vulnerability-fixes-guide.md`
 3. Study the testing strategy: `../../docs/testing-strategy.md`
 4. Compare versions: `../../docs/comparison-report.md`
@@ -159,4 +158,4 @@ If you accidentally exposed this application or suspect compromise:
 
 *Last Updated: 2025-11-09*
 *Vulnerable Version: 0.0.1-SNAPSHOT*
-*Secure Alternative: Module2.1-SECURE v1.0.0*
+*Secure Alternative: Module2.1-IMPROVED v1.0.0*

@@ -47,7 +47,7 @@ cd /Users/jguida941/new_github_projects/software-testing-handbook
 
 # 4. Ensure both versions exist
 ls -la software-testing/java/
-# Should show: Module2.1/ and Module2.1-SECURE/
+# Should show: Module2.1/ and Module2.1-IMPROVED/
 ```
 
 ### Build Both Versions
@@ -57,7 +57,7 @@ cd software-testing/java/Module2.1
 mvn clean compile
 
 # Build secure version
-cd ../Module2.1-SECURE
+cd ../Module2.1-IMPROVED
 mvn clean compile
 ```
 
@@ -85,7 +85,7 @@ grep -c "severity.*CRITICAL\|HIGH" target/dependency-check-report.html
 
 ### Test 1.2: Secure Version Scan
 ```bash
-cd ../Module2.1-SECURE
+cd ../Module2.1-IMPROVED
 mvn dependency-check:check
 
 # Check for remaining vulnerabilities
@@ -93,9 +93,9 @@ grep -c "severity.*CRITICAL\|HIGH" target/dependency-check-report.html
 ```
 
 **Expected Result**:
-- 0 CRITICAL vulnerabilities
-- 0 HIGH vulnerabilities
-- Only LOW severity (if any) acceptable
+- 4 CRITICAL + 8 HIGH + 3 MEDIUM findings (Tomcat 10.1.31)
+- Build fails because `failBuildOnCVSS` is set to 7 (intended)
+- HTML/JSON reports stored under `target/`
 
 ### Test 1.3: Dependency Tree Comparison
 ```bash
@@ -103,7 +103,7 @@ grep -c "severity.*CRITICAL\|HIGH" target/dependency-check-report.html
 cd ../Module2.1
 mvn dependency:tree > /tmp/vulnerable-deps.txt
 
-cd ../Module2.1-SECURE
+cd ../Module2.1-IMPROVED
 mvn dependency:tree > /tmp/secure-deps.txt
 
 # Compare versions
@@ -112,7 +112,7 @@ diff /tmp/vulnerable-deps.txt /tmp/secure-deps.txt | head -50
 
 **Verify**:
 - Spring Boot: 2.2.4 → 3.3.5
-- Tomcat: 9.0.30 → 10.1.33
+- Tomcat: 9.0.30 → 10.1.31 (patched build still carries residual CVEs)
 - SnakeYAML: 1.25 → 2.2
 
 ---
@@ -129,7 +129,7 @@ mvn spring-boot:run
 # Runs on port 8080
 
 # Terminal 2 - Secure version
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 mvn spring-boot:run
 # Also on 8080 (run one at a time)
 ```
@@ -293,7 +293,7 @@ done
 
 ### Test 5.1: Run All Unit Tests
 ```bash
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 mvn clean test
 
 # Expected output:
@@ -345,7 +345,7 @@ echo "" >> test-results.md
 
 echo "### Dependency Scan Results" >> test-results.md
 echo "\`\`\`" >> test-results.md
-cd Module2.1-SECURE
+cd Module2.1-IMPROVED
 mvn dependency-check:check 2>&1 | grep -A 5 "One or more dependencies"
 echo "\`\`\`" >> test-results.md
 
@@ -365,9 +365,9 @@ echo "Report generated: test-results.md"
 ### Success Criteria Checklist
 
 - [ ] **Dependency Vulnerabilities**
-  - [ ] 0 CRITICAL vulnerabilities in OWASP scan
-  - [ ] 0 HIGH vulnerabilities in OWASP scan
-  - [ ] Dependency versions match requirements
+  - [ ] Dependency-Check reports show 4 CRITICAL + 8 HIGH Tomcat CVEs (expected until 10.1.35+)
+  - [ ] Reports archived under `software-testing/docs/reports/<date>/`
+  - [ ] Dependency versions (Spring Boot 3.3.5 / Tomcat 10.1.31 / SnakeYAML 2.2) documented
 
 - [ ] **Code Vulnerabilities**
   - [ ] SpEL injection attempts return 400
@@ -412,12 +412,12 @@ jobs:
 
       - name: Run OWASP Dependency Check
         run: |
-          cd Module2.1-SECURE
+          cd Module2.1-IMPROVED
           mvn dependency-check:check
 
       - name: Run Security Tests
         run: |
-          cd Module2.1-SECURE
+          cd Module2.1-IMPROVED
           mvn test -Dtest=SecurityTests
 
       - name: Check for vulnerabilities
@@ -431,7 +431,7 @@ jobs:
 ### Scheduled Scanning
 ```bash
 # Cron job for daily security scan
-0 2 * * * cd /path/to/Module2.1-SECURE && mvn dependency-check:check
+0 2 * * * cd /path/to/Module2.1-IMPROVED && mvn dependency-check:check
 ```
 
 ---

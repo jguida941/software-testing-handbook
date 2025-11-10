@@ -133,8 +133,10 @@ software-testing-handbook/
 ├── python/
 │   ├── README.md
 │   │   └── Static analysis exercises
-│   └── static_analysis_example.py
-│       └── Code with intentional issues for analysis
+│   ├── static_analysis_example.py
+│   │   └── Code with intentional issues for analysis
+│   └── static_analysis_example_fixed.py
+│       └── Clean reference implementation (0 lint/type issues)
 │
 └── java/Module2.1/
     ├── README.md

@@ -1,19 +1,19 @@
-# Module2.1-SECURE: Fully Secured Spring Boot Application
+# Module2.1-IMPROVED (formerly `Module2.1-SECURE`)
 
-## ✅ Security Status: SAFE
+## ⚠️ Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
 
-This is the **SECURE VERSION** of the Spring Boot application with all 162+ vulnerabilities fixed.
+This is the improved version of the Spring Boot application with **91 %** of the original 162 vulnerabilities mitigated. **15 residual CVEs** (4 CRITICAL / 8 HIGH / 3 MED) remain in Tomcat 10.1.31, which ships with Spring Boot 3.3.5.
 
 ---
 
 ## Security Achievements
 
 ### 🛡️ Vulnerability Remediation
-- **0 CRITICAL vulnerabilities** (was 21) - All critical issues resolved
-- **~10-15 residual vulnerabilities** in latest library versions (was 69 HIGH)
-- **Significant reduction** from 162 total to ~10-15 minor issues
-- **Note**: Some vulnerabilities remain in the latest Spring/Tomcat versions - this is normal for production-grade up-to-date dependencies
-- **95%+ remediation rate** - Only low-impact issues in latest libraries remain
+- **4 CRITICAL vulnerabilities remain** (was 21) – Tomcat 10.1.31
+- **8 HIGH vulnerabilities remain** (was 69) – Tomcat DoS issues
+- **15 total vulnerabilities remain** (was 162 total / 90 unique CVEs) – 91 % reduction
+- **Note**: Upstream Spring Boot 3.3.5 does not yet expose Tomcat 10.1.35+, so these CVEs persist until the dependency is released.
+- **91 % remediation rate** – Dependency-Check still fails because CVSS ≥ 7 findings remain
 
 ### 🔐 Security Features Implemented
 - ✅ Modern Spring Boot 3.3.5 (upgraded from 2.2.4)
@@ -156,8 +156,14 @@ curl -I http://localhost:8080/greeting
 ### Run All Tests
 ```bash
 mvn clean test
-# Expected: 54 tests passing
+# Expected: 54 tests passing (ensure Maven is run with --add-opens / attach flags on JDK 21+)
 ```
+
+> **Heads-up (JDK 21+)**: Mockito needs JVM attach permission. Export  
+> `export MAVEN_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED -Djdk.attach.allowAttachSelf=true"` before running `mvn test`.
+
+> **Heads-up (JDK 21+)**: Mockito’s inline mock maker needs JVM attach permissions. If you are running Java 21 or newer, export  
+> `export MAVEN_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED -Djdk.attach.allowAttachSelf=true"` before running `mvn test` to avoid ByteBuddy attach failures.
 
 ### Test Categories
 1. **Unit Tests**: Basic functionality
@@ -175,7 +181,7 @@ open target/site/jacoco/index.html
 
 ## Project Structure
 ```
-Module2.1-SECURE/
+Module2.1-IMPROVED/
 ├── pom.xml                    # Secured dependencies
 ├── src/
 │   ├── main/
@@ -267,14 +273,12 @@ Minimal impact from security improvements:
 
 ### Verification Commands
 ```bash
-# Verify no vulnerabilities
-mvn dependency-check:check
-grep -c "CRITICAL\|HIGH" target/dependency-check-report.html
-# Should output: 0
+# Verify current vulnerability counts (expected: 15 findings → build fails CVSS≥7 gate)
+mvn dependency-check:check || true
+grep -E "CRITICAL|HIGH" target/dependency-check-report.html
 
-# Verify tests pass
+# Verify tests pass (set MAVEN_OPTS on JDK 21+)
 mvn test
-# Should show: BUILD SUCCESS
 ```
 
 ### Troubleshooting
@@ -286,12 +290,9 @@ mvn test
 
 ## License & Usage
 
-This SECURE version is safe for:
-- ✅ Production use (with additional security measures)
-- ✅ Development and testing
-- ✅ Educational purposes
-- ✅ Security training
-- ✅ Compliance demonstrations
+This improved version is safe for:
+- ⚠️ Production use only with compensating controls for the remaining Tomcat CVEs
+- ✅ Development, testing, and educational comparisons
 
 ---
 
@@ -305,7 +306,6 @@ Security fixes implemented based on:
 
 ---
 
-**Version**: 1.0.0 (Secure)
-**Last Updated**: 2025-11-09
-**Security Status**: ✅ SAFE
-**Vulnerabilities**: 0
+**Version**: 1.0.0 (Improved)
+**Last Updated**: 2025-11-10
+**Security Status**: ⚠️ 15 residual CVEs (4 CRITICAL / 8 HIGH / 3 MED)

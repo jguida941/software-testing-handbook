@@ -76,6 +76,18 @@ public class GreetingController {
             );
         }
 
+        // SECURITY: Block known injection markers that pass regex (e.g., SQL comments)
+        String lower = sanitizedName.toLowerCase();
+        String[] deniedTokens = {"--", "/*", "*/"};
+        for (String token : deniedTokens) {
+            if (lower.contains(token)) {
+                logger.warn("SECURITY: Disallowed token '{}' detected in input", token);
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    new Greeting(counter.incrementAndGet(), "Input contains disallowed characters.")
+                );
+            }
+        }
+
         // SECURITY: Audit logging for monitoring suspicious activity
         logger.info("Greeting request received for name: '{}' from counter: {}",
                    sanitizedName, counter.get() + 1);

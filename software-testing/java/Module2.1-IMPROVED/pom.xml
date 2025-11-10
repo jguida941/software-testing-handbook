@@ -15,10 +15,10 @@
     </parent>
 
     <groupId>com.snhu</groupId>
-    <artifactId>Module2.1-Secure</artifactId>
+    <artifactId>Module2.1-Improved</artifactId>
     <version>1.0.0</version>
-    <name>Module2.1-Secure</name>
-    <description>Secured version of Spring Boot demo project - All 162 vulnerabilities fixed</description>
+    <name>Module2.1-Improved</name>
+    <description>Improved Spring Boot demo project - 91% of vulnerabilities mitigated (15 remain)</description>
 
     <properties>
         <!-- SECURITY FIX: Upgraded from Java 8 to Java 17 (LTS) -->
@@ -137,6 +137,16 @@
                     <source>17</source>
                     <target>17</target>
                     <release>17</release>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <useModulePath>false</useModulePath>
+                    <argLine>--add-opens java.base/java.lang=ALL-UNNAMED -Djdk.attach.allowAttachSelf=true</argLine>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,14 +1,14 @@
 # Security Vulnerability Comparison Report
 
-## Before/After Analysis: Module2.1 vs Module2.1-SECURE
+## Before/After Analysis: Module2.1 vs Module2.1-IMPROVED
 
 ---
 
 ## Executive Summary
 
-This report provides a comprehensive comparison between the vulnerable and secure versions of the Spring Boot application, demonstrating **100% vulnerability remediation** with measurable security improvements across all categories.
+This report provides a comprehensive comparison between the vulnerable and improved versions of the Spring Boot application, demonstrating a **91% vulnerability reduction** with measurable security improvements across all categories.
 
-**Key Achievement**: Successfully eliminated all 162 security vulnerabilities while maintaining full application functionality.
+**Key Achievement**: Reduced 162 security vulnerabilities down to 15 (4 CRITICAL, 8 HIGH, 3 MEDIUM) while maintaining application functionality.
 
 ---
 
@@ -16,24 +16,24 @@ This report provides a comprehensive comparison between the vulnerable and secur
 
 ### Overall Statistics
 
-| Metric | Module2.1 (Vulnerable) | Module2.1-SECURE | Improvement |
-|--------|------------------------|------------------|-------------|
-| **Total Vulnerabilities** | **162** | **~10-15** | **~95% reduction** |
-| CRITICAL (CVSS 9-10) | 21 | 0 | ✅ 100% fixed |
-| HIGH (CVSS 7-8.9) | 69 | 5-8 | ⚠️ ~90% fixed* |
-| MEDIUM (CVSS 4-6.9) | 69 | 5-7 | ⚠️ ~90% fixed* |
-| LOW (CVSS 0-3.9) | 3 | 0-2 | ✅ Mostly fixed |
+| Metric | Module2.1 (Vulnerable) | Module2.1-IMPROVED | Improvement |
+|--------|------------------------|--------------------|-------------|
+| **Total Vulnerabilities** | **162** | **15** | **91% reduction** |
+| CRITICAL (CVSS 9-10) | 21 | 4 | ⚠️ 81% fixed |
+| HIGH (CVSS 7-8.9) | 69 | 8 | ⚠️ 88% fixed |
+| MEDIUM (CVSS 4-6.9) | 69 | 3 | ✅ 96% fixed |
+| LOW (CVSS 0-3.9) | 3 | 0 | ✅ 100% fixed |
 | Code Vulnerabilities | 2 | 0 | ✅ 100% fixed |
-| **Known CVEs** | **90 unique** | **~10-15** | **~85% eliminated** |
+| **Known CVEs** | **90 unique** | **15** | **83% eliminated** |
 
-*Residual vulnerabilities exist in latest Spring Boot 3.3.5 and Tomcat 10.x libraries - these are inherent to current versions
+*Residual vulnerabilities (Tomcat 10.1.31) remain because Spring Boot 3.3.5 has not yet picked up 10.1.35+.
 
 ### Risk Score Comparison
 
 ```
 Vulnerable Version Risk Score: 1,458.6 (CRITICAL)
-Secure Version Risk Score:     ~50-75  (LOW - typical for latest libraries)
-Risk Reduction:                ~95%
+Improved Version Risk Score:   ~150 (MODERATE – Tomcat CVEs)
+Risk Reduction:                ~90%
 ```
 
 ---
@@ -69,11 +69,11 @@ Risk Reduction:                ~95%
 | Privilege Escalation | 2 | HIGH | CVE-2022-27772 |
 | **Custom Code Issues** | **2** | **CRITICAL** | SpEL Injection, Array Bounds |
 
-### Secure Version Attack Surface
+### Improved Version Attack Surface
 
 | Attack Type | Count | Status |
 |-------------|-------|--------|
-| All Types | 0 | ✅ Eliminated |
+| Tomcat CVEs (HTTP/connector) | 15 | ⚠️ Remain until Tomcat 10.1.35+ |
 
 ---
 
@@ -254,7 +254,7 @@ cd Module2.1
 mvn dependency-check:check 2>&1 | grep "One or more"
 
 echo -e "\n✅ Secure Version:"
-cd ../Module2.1-SECURE
+cd ../Module2.1-IMPROVED
 mvn dependency-check:check 2>&1 | grep "One or more"
 
 echo -e "\n🔍 Detailed Comparison:"
@@ -269,7 +269,7 @@ echo "Secure: $(grep -c 'severity' target/dependency-check-report.html) issues"
 ### For Teams Using Vulnerable Version
 
 1. **Immediate Actions**
-   - Switch to Module2.1-SECURE immediately
+   - Switch to Module2.1-IMPROVED immediately
    - Run full security scan
    - Update all dependencies
 
@@ -288,19 +288,19 @@ echo "Secure: $(grep -c 'severity' target/dependency-check-report.html) issues"
 ## Conclusion
 
 ### Key Achievements
-- ✅ **100% vulnerability elimination** (162 → 0)
-- ✅ **Zero high/critical issues** remaining
-- ✅ **Full compliance** with security standards
+- ✅ **91% vulnerability reduction** (162 → 15)
+- ⚠️ **4 CRITICAL / 8 HIGH issues remain** in Tomcat 10.1.31
+- ✅ **Full transparency** via OSS Index + Dependency-Check scripts
 - ✅ **Minimal performance impact** (<2%)
 - ✅ **Comprehensive documentation** for audit
 - ✅ **Educational value** preserved
 
 ### Recommendations
-1. **Use Module2.1-SECURE** for any production or development work
+1. **Use Module2.1-IMPROVED** for any production or development work
 2. **Keep Module2.1** only for educational demonstrations
 3. **Regular updates** - Run dependency checks monthly
 4. **Continuous monitoring** - Integrate security scanning in CI/CD
 5. **Security training** - Use both versions to teach secure coding
 
 ### Final Verdict
-The security remediation project successfully demonstrates that comprehensive security improvements are achievable with minimal effort and impact. The dual-version approach provides exceptional educational value while ensuring production safety.
+The remediation project demonstrates large risk reduction with realistic constraints: even after modernizing Spring Boot, upstream Tomcat CVEs persist. The dual-version approach still offers strong educational value, provided we clearly document residual risk instead of claiming “fully secure.”

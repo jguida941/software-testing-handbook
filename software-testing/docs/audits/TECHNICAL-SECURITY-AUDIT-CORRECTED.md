@@ -6,7 +6,7 @@
 
 ## EXECUTIVE SUMMARY
 
-Upgrading to Spring Boot 3.3.5 (Java 17) and SnakeYAML 2.2 reduced observed vulnerabilities from 162 to approximately 10-15 in this project. Results are from our run on November 9, 2025 and will vary by environment, OWASP database version, and mirror updates.
+Upgrading to Spring Boot 3.3.5 (Java 17) and SnakeYAML 2.2 reduced observed vulnerabilities from 162 to **15** (4 CRITICAL / 8 HIGH / 3 MEDIUM) in this project. Results are from our run on November 9, 2025 and will vary by environment, OWASP database version, and mirror updates.
 
 ---
 
@@ -37,7 +37,7 @@ Upgrading to Spring Boot 3.3.5 (Java 17) and SnakeYAML 2.2 reduced observed vuln
 
 ---
 
-### SECURE VERSION (Module2.1-SECURE)
+### SECURE VERSION (Module2.1-IMPROVED)
 
 **Actual Dependency Versions (via Maven dependency:tree):**
 ```
@@ -50,7 +50,7 @@ Java:             17
 ```
 
 **Observed Results:**
-- Approximately 10-15 remaining vulnerabilities (mostly in latest library versions)
+- 15 remaining vulnerabilities (Tomcat 10.1.31 via Spring Boot 3.3.5)
 - All custom code vulnerabilities FIXED
 - Massive reduction from baseline
 
@@ -89,7 +89,7 @@ Java:             17
 
 ### Verify Actual Versions
 ```bash
-cd Module2.1-SECURE
+cd Module2.1-IMPROVED
 mvn dependency:tree | grep -E "spring-core|tomcat-embed|jackson|snakeyaml"
 ```
 
@@ -101,7 +101,7 @@ mvn dependency-check:check
 # See target/dependency-check-report.html for detailed results
 
 # Secure version
-cd ../Module2.1-SECURE
+cd ../Module2.1-IMPROVED
 mvn dependency-check:check
 # Compare the reports - observe the reduction
 ```
@@ -162,7 +162,7 @@ curl "http://localhost:8080/greeting?name=T(java.lang.Runtime).getRuntime().exec
 
 ## CONCLUSION
 
-The upgrade successfully addresses the critical vulnerabilities identified. The remaining ~10-15 issues are in current library versions awaiting upstream patches. All custom code vulnerabilities have been remediated with proper input validation and secure coding practices.
+The upgrade successfully addresses the custom-code vulnerabilities identified. The remaining 15 issues are in current Tomcat libraries awaiting upstream patches. All custom code vulnerabilities have been remediated with proper input validation and secure coding practices.
 
 **Key Achievement:** Reduced attack surface by >90% through systematic dependency updates and code fixes.
 

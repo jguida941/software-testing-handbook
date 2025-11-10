@@ -9,9 +9,9 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 ### Static Testing Examples
 
 #### Python Static Analysis
-- **Location**: [`/python/static_analysis_example.py`](../python/)
+- **Location**: [`/python/static_analysis_example.py`](../python/) (flawed) and [`/python/static_analysis_example_fixed.py`](../python/) (clean reference)
 - **Tools Used**: Pylint, Mypy
-- **Issues Found**: ~15 code quality and type safety issues
+- **Issues Found**: 23 findings (22 Pylint, 1 Mypy) in the flawed sample; 0 in the fixed sample
 - **Learning Focus**: Early bug detection, type safety, code maintainability
 - **Time to Complete**: 15-20 minutes
 
@@ -23,7 +23,7 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 - **Issues Found**: 162 vulnerabilities (21 CRITICAL, 69 HIGH)
 - **Learning Focus**: Security vulnerability detection, dependency management
 - **Time to Complete**: 30-45 minutes
-- **Secure Version**: Available on `secure-version` branch as Module2.1-SECURE (run `git checkout secure-version`)
+- **Secure Version**: Available on `secure-version` branch as Module2.1-IMPROVED (run `git checkout secure-version`)
 
 ## Examples by Severity of Findings
 
@@ -57,7 +57,7 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 
 | Example | Language | Testing Type | Tools | Issues Found | Business Impact |
 |---------|----------|--------------|-------|--------------|-----------------|
-| Static Analysis | Python | Static | Pylint, Mypy | ~15 | Code maintainability |
+| Static Analysis | Python | Static | Pylint, Mypy | 23 | Code maintainability |
 | Security Scan | Java | Dynamic | OWASP DC | 162 | Critical security risk |
 
 ## 🎯 Learning Paths by Role
@@ -90,6 +90,8 @@ cd python/
 pylint static_analysis_example.py    # Code quality
 mypy static_analysis_example.py       # Type checking
 python static_analysis_example.py     # Dynamic execution
+pylint static_analysis_example_fixed.py  # Should report 0 findings
+mypy static_analysis_example_fixed.py    # Should report 0 findings
 ```
 
 ### Java Dynamic Testing (Vulnerable Version)
@@ -101,9 +103,9 @@ open target/dependency-check-report.html
 
 ### Java Security Testing (Secure Version)
 ```bash
-# Note: Module2.1-SECURE only exists on secure-version branch
+# Note: Module2.1-IMPROVED only exists on secure-version branch
 git checkout secure-version
-cd java/Module2.1-SECURE/
+cd java/Module2.1-IMPROVED/
 ./mvnw clean compile dependency-check:check -DskipTests
 open target/dependency-check-report.html
 ```
@@ -112,16 +114,16 @@ open target/dependency-check-report.html
 
 ### Total Issues Found Across All Examples
 - **Security Vulnerabilities**: 162
-- **Code Quality Issues**: ~10
-- **Type Safety Issues**: ~5
-- **Total**: ~177 issues
+- **Code Quality Issues**: 22 (Pylint)
+- **Type Safety Issues**: 1 (Mypy)
+- **Total**: 185 issues
 
 ### Time Investment vs Value
 | Activity | Time | Issues Found | Value |
 |----------|------|--------------|-------|
-| Python Static Analysis | 20 min | 15 | High (early detection) |
+| Python Static Analysis | 20 min | 23 | High (early detection) |
 | Java Security Scan | 45 min | 162 | Critical (security) |
-| **Total** | **65 min** | **177** | **Exceptional ROI** |
+| **Total** | **65 min** | **185** | **Exceptional ROI** |
 
 ## 🚀 Next Examples to Add
 
@@ -170,7 +172,7 @@ These examples align with:
 
 ---
 
-**Remember**: Each example in this handbook represents real-world scenarios. The 162 vulnerabilities found in Java and 15 issues in Python are typical of what you'll encounter in production systems.
+**Remember**: Each example in this handbook represents real-world scenarios. The 162 vulnerabilities found in Java and 23 static-analysis issues in Python are typical of what you'll encounter in production systems.
 
 ---
 [← Back to Main Documentation](./README.md)

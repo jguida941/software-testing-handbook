@@ -36,18 +36,18 @@ mvn dependency-check:check
 
 ---
 
-### SECURE VERSION (Module2.1-SECURE)
-**Location:** `/software-testing/java/Module2.1-SECURE/`
+### SECURE VERSION (Module2.1-IMPROVED)
+**Location:** `/software-testing/java/Module2.1-IMPROVED/`
 
 **Scan Command:**
 ```bash
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 mvn dependency-check:check
 ```
 
 **Current Results with Spring Boot 3.3.5:**
 - Some HIGH vulnerabilities remain in latest libraries
-- But MASSIVE reduction from 162 to ~10-15 issues
+- But MASSIVE reduction from 162 to 15 issues (4 CRITICAL / 8 HIGH / 3 MEDIUM)
 - All CRITICAL code vulnerabilities FIXED
 - SpEL Injection: FIXED
 - Array Bounds: FIXED
@@ -74,7 +74,7 @@ grep -c "severity" target/dependency-check-report.html
 ### 2. Test Secure Version
 ```bash
 # Navigate to secure version
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 
 # Compile the secure version
 mvn clean compile
@@ -92,7 +92,7 @@ grep -c "severity" target/dependency-check-report.html
 ### 3. Test Security Features
 ```bash
 # Start the secure application
-cd Module2.1-SECURE
+cd Module2.1-IMPROVED
 mvn spring-boot:run
 
 # In another terminal, test injection attempts:
@@ -168,7 +168,7 @@ if (id < 0 || id >= myArray.length) {
 - `/software-testing/docs/comparison-report.md` - Before/after analysis
 
 ### Secure Code
-- `/software-testing/java/Module2.1-SECURE/` - Complete secure version
+- `/software-testing/java/Module2.1-IMPROVED/` - Complete secure version
 - All source files with security fixes
 - 40+ security tests
 
@@ -201,7 +201,7 @@ git push origin secure-version
 
 ### Run All Tests
 ```bash
-cd Module2.1-SECURE
+cd Module2.1-IMPROVED
 mvn test
 ```
 
@@ -219,7 +219,7 @@ The security tests validate:
 
 Both versions are maintained:
 - **Module2.1/** - Shows vulnerable code (educational)
-- **Module2.1-SECURE/** - Shows how to fix vulnerabilities
+- **Module2.1-IMPROVED/** - Shows how to fix vulnerabilities
 
 Use for:
 - Security training
@@ -255,7 +255,7 @@ mvn dependency-check:check
 # See 162+ vulnerabilities
 
 # Check secure version
-cd ../Module2.1-SECURE
+cd ../Module2.1-IMPROVED
 mvn dependency-check:check
 # See massive reduction
 

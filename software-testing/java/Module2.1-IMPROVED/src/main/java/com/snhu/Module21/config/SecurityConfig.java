@@ -38,9 +38,9 @@ public class SecurityConfig {
             )
 
             // Comprehensive security headers configuration
-            .headers(headers -> headers
+            .headers(headers -> {
                 // Content Security Policy - Prevent XSS attacks
-                .contentSecurityPolicy(csp -> csp
+                headers.contentSecurityPolicy(csp -> csp
                     .policyDirectives(
                         "default-src 'self'; " +
                         "script-src 'self'; " +
@@ -52,35 +52,38 @@ public class SecurityConfig {
                         "form-action 'self'; " +
                         "base-uri 'self'"
                     )
-                )
+                );
 
                 // Prevent clickjacking attacks
-                .frameOptions(frame -> frame.deny())
+                headers.frameOptions(frame -> frame.deny());
 
                 // Prevent MIME type sniffing - enable nosniff header
-                .contentTypeOptions(contentType -> { })
+                headers.contentTypeOptions(contentType -> { });
 
                 // Enable XSS protection header explicitly
-                .xssProtection(xss -> { })
+                headers.xssProtection(xss -> { });
 
                 // Control referrer information
-                .referrerPolicy(referrer -> referrer
+                headers.referrerPolicy(referrer -> referrer
                     .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy
                            .STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
-                )
+                );
 
                 // HTTP Strict Transport Security (HSTS) for HTTPS enforcement
-                .httpStrictTransportSecurity(hsts -> hsts
+                headers.httpStrictTransportSecurity(hsts -> hsts
                     .includeSubDomains(true)
                     .maxAgeInSeconds(31536000) // 1 year
                     .preload(true)
-                )
+                );
 
                 // Additional security headers
-                .permissionsPolicy(permissions -> permissions
+                headers.permissionsPolicy(permissions -> permissions
                     .policy("camera=(), microphone=(), geolocation=()")
-                )
-            )
+                );
+
+                headers.addHeaderWriter((request, response) ->
+                    response.setHeader("X-XSS-Protection", "1; mode=block"));
+            })
 
             // Disable CSRF for REST API
             // In production with session-based auth, enable CSRF protection

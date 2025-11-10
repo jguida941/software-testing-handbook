@@ -2,7 +2,7 @@
 
 ## IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
 
-This repository demonstrates security vulnerability remediation by maintaining both vulnerable and secure versions of a Spring Boot application.
+This repository demonstrates security vulnerability remediation by maintaining both vulnerable and significantly improved versions of a Spring Boot application.
 
 ---
 
@@ -27,23 +27,23 @@ An educational security audit project showing:
 - For educational comparison only
 
 ### 3. `secure-version` **RECOMMENDED**
-- All security fixes implemented
-- Upgraded to Spring Boot 3.3.5
-- Contains the secure code and documentation
+- Contains `software-testing/java/Module2.1-IMPROVED` (91 % of CVEs mitigated, 15 remain in Tomcat 10.1.31)
+- Upgraded to Spring Boot 3.3.5 / Java 17
+- Hosts all documentation and reports in `software-testing/docs/`
 
 ---
 
 ## Quick Start
 
-### To Use the SECURE Version:
+### To Use the IMPROVED Version:
 ```bash
 # Switch to the secure branch
 git checkout secure-version
 
-# Navigate to secure module
-cd software-testing/java/Module2.1-SECURE
+# Navigate to improved module
+cd software-testing/java/Module2.1-IMPROVED
 
-# Run the secure application
+# Run the improved application
 mvn spring-boot:run
 ```
 
@@ -55,11 +55,11 @@ cd software-testing/java/Module2.1
 mvn dependency-check:check
 # See 162+ vulnerabilities
 
-# Check secure version
+# Check improved version
 git checkout secure-version
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 mvn dependency-check:check
-# See massive reduction
+# See massive reduction (15 residual Tomcat CVEs remain)
 ```
 
 ---
@@ -69,9 +69,9 @@ mvn dependency-check:check
 | Version | Branch | Vulnerabilities | Status |
 |---------|--------|----------------|---------|
 | Original | `vulnerable-version` | 162+ (21 CRITICAL) | Educational Only |
-| Secure | `secure-version` | ~10-15 (latest libs) | Production Ready* |
+| Improved | `secure-version` | 15 (4 CRITICAL / 8 HIGH / 3 MED) | Significantly improved, not zero |
 
-*With additional security measures
+> Production readiness still requires Tomcat 10.1.35+ or compensating controls (see `software-testing/docs/status/HONEST-SECURITY-STATUS.md`)
 
 ---
 
@@ -92,17 +92,12 @@ mvn dependency-check:check
 
 ## Documentation
 
-Full documentation is in the `secure-version` branch:
+All docs live under `software-testing/docs/` (see [`software-testing/docs/README.md`](software-testing/docs/README.md) for the map).
 
-```bash
-git checkout secure-version
-```
-
-Then see:
-- `/TECHNICAL-SECURITY-AUDIT-CORRECTED.md` - Accurate technical report
-- `/software-testing/docs/vulnerability-fixes-guide.md` - Detailed fixes
-- `/software-testing/docs/testing-strategy.md` - How to test
-- `/software-testing/docs/comparison-report.md` - Before/after
+- Theory & examples: `static-dynamic-testing.md`, `testing-examples-index.md`
+- Audits archive: `software-testing/docs/audits/`
+- Honest status & OSS Index steps: `software-testing/docs/status/`
+- Generated reports: `software-testing/docs/reports/`
 
 ---
 
@@ -139,10 +134,10 @@ git ls-tree --name-only -r secure-version | head
 
 ## Security Testing
 
-### Test the Secure Version:
+### Test the Improved Version:
 ```bash
 git checkout secure-version
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 mvn spring-boot:run
 
 # In another terminal:
@@ -151,6 +146,14 @@ curl "http://localhost:8080/greeting?name=T(java.lang.Runtime).getRuntime().exec
 
 # This should WORK
 curl "http://localhost:8080/greeting?name=John"
+```
+
+### Automated Vulnerability Scans
+```bash
+export OSS_INDEX_USER="you@example.com"
+export OSS_INDEX_TOKEN="token-from-oss-index"
+./scripts/run_scans.sh
+# HTML/JSON reports saved to software-testing/docs/reports/<timestamp>/
 ```
 
 ---
@@ -171,7 +174,7 @@ The `vulnerable-version` branch contains:
 ## Results
 
 - **Before**: 162+ vulnerabilities
-- **After**: ~90% reduction
+- **After**: 91% reduction (162 → 15; 4 CRITICAL + 8 HIGH + 3 MED remain)
 - **All critical custom code issues**: FIXED
 - **Educational value**: PRESERVED
 
@@ -179,7 +182,7 @@ The `vulnerable-version` branch contains:
 
 ## Quick Links
 
-- [View Secure Version](https://github.com/jguida941/software-testing-handbook/tree/secure-version)
+- [View Improved Version](https://github.com/jguida941/software-testing-handbook/tree/secure-version)
 - [View Vulnerable Version](https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version)
 - [Compare Versions](https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version)
 
