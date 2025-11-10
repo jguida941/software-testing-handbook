@@ -19,9 +19,9 @@ An educational security audit project showing:
 
 | Branch | Role | Key Assets |
 |--------|------|------------|
-| `master` (current) | Documentation hub and overview | This README, `agents.md`, `audit.md`, pointers to other branches |
-| `vulnerable-version` | Intentionally vulnerable code for labs | `software-testing/java/Module2.1`, flawed Python example, warning README (added in this release) |
-| `secure-version` | Remediated implementation and reports | `software-testing/java/Module2.1-IMPROVED`, automation scripts, full docs set |
+| `master` (current) | Documentation hub | This README only - links to everything |
+| `vulnerable-version` | Intentionally vulnerable code | Module2.1 (162 vulns), Python (18 issues) |
+| `secure-version` | Fixed + vulnerable code | Module2.1-IMPROVED (15 vulns), Python fixed (0 issues), full docs |
 
 > **Need the secure application?** Run `git checkout secure-version` before following any `Module2.1-IMPROVED` instructions.
 
@@ -64,10 +64,10 @@ mvn dependency-check:check
 
 ## Security Improvements Summary
 
-| Version | Branch | Vulnerabilities | Status |
-|---------|--------|----------------|---------|
-| Original | `vulnerable-version` | 162+ (21 CRITICAL) | Educational Only |
-| Secure | `secure-version` | ~10-15 (latest libs) | Production Ready* |
+| Version | Branch | Java Vulnerabilities | Python Issues | Status |
+|---------|--------|---------------------|---------------|---------|
+| Original | `vulnerable-version` | 162 (21 CRITICAL) | 18 (17 pylint + 1 mypy) | Educational Only |
+| Secure | `secure-version` | 15 (Tomcat CVEs) | 0 (fixed version) | Production Ready* |
 
 *With additional security measures
 
@@ -103,22 +103,125 @@ git checkout secure-version
 # - /software-testing/docs/comparison-report.md - Before/after
 ```
 
-## What's on Each Branch
+## Complete Project Index
 
-### Master Branch (You Are Here)
-- This README only - Documentation hub
-- No code files - everything is on feature branches
+### What's Available on Each Branch
 
-### Vulnerable-Version Branch
-- Java Module2.1 with 162 security vulnerabilities (21 CRITICAL)
-- Python example with 18 issues (17 Pylint + 1 Mypy)
-- Educational documentation
+#### Master Branch (You Are Here)
+- **Purpose**: Central documentation hub
+- **Contents**: This README only
+- **Usage**: Start here, then switch to other branches for code
 
-### Secure-Version Branch
-- Everything from vulnerable-version PLUS:
-- Module2.1-IMPROVED with fixes (15 residual Tomcat CVEs)
-- Python fixed example (0 issues)
-- Complete security documentation and audit reports
+#### Vulnerable-Version Branch
+**Purpose**: Educational vulnerable code examples
+
+**Java Content**:
+- `software-testing/java/Module2.1/`
+  - Spring Boot 2.2.4 application
+  - **162 total vulnerabilities**
+  - 21 CRITICAL (including Spring4Shell, Ghostcat)
+  - 69 HIGH severity
+  - 69 MEDIUM severity
+  - 3 LOW severity
+  - Includes OWASP Dependency Check configuration
+
+**Python Content**:
+- `software-testing/python/static_analysis_example.py`
+  - **18 total issues**
+  - 17 Pylint warnings (style, complexity, missing docstrings)
+  - 1 Mypy type error
+  - Intentionally flawed for learning
+
+**Documentation**:
+- Basic READMEs explaining the vulnerabilities
+- Warning labels about not using in production
+
+#### Secure-Version Branch
+**Purpose**: Demonstrates vulnerability remediation
+
+**Java Content**:
+- `software-testing/java/Module2.1/` - Original vulnerable version (kept for comparison)
+- `software-testing/java/Module2.1-IMPROVED/`
+  - Spring Boot 3.3.5 (upgraded from 2.2.4)
+  - Java 17 (upgraded from Java 8)
+  - **15 residual vulnerabilities** (Tomcat CVEs pending upstream fix)
+  - 91% reduction in vulnerabilities
+  - Security headers implemented
+  - Input validation added
+  - SpEL injection fixed
+
+**Python Content**:
+- `software-testing/python/static_analysis_example.py` - Original flawed version
+- `software-testing/python/static_analysis_example_fixed.py`
+  - **0 issues** (all Pylint and Mypy errors resolved)
+  - Best practices demonstrated
+  - Clean code example
+
+**Complete Documentation Suite**:
+- `/software-testing/docs/vulnerability-analysis-report.md` - Full vulnerability analysis
+- `/software-testing/docs/vulnerability-fixes-guide.md` - How each vulnerability was fixed
+- `/software-testing/docs/testing-strategy.md` - Security testing methodology
+- `/software-testing/docs/comparison-report.md` - Before/after metrics
+- `/software-testing/docs/audits/` - Security audit reports
+- `/scripts/run_scans.sh` - Automated security scanning
+
+---
+- **Purpose**: Central documentation hub
+- **Contents**: This README only
+- **Usage**: Start here, then switch to other branches for code
+
+#### Vulnerable-Version Branch
+**Purpose**: Educational vulnerable code examples
+
+**Java Content**:
+- `software-testing/java/Module2.1/`
+  - Spring Boot 2.2.4 application
+  - **162 total vulnerabilities**
+  - 21 CRITICAL (including Spring4Shell, Ghostcat)
+  - 69 HIGH severity
+  - 69 MEDIUM severity
+  - 3 LOW severity
+  - Includes OWASP Dependency Check configuration
+
+**Python Content**:
+- `software-testing/python/static_analysis_example.py`
+  - **18 total issues**
+  - 17 Pylint warnings (style, complexity, missing docstrings)
+  - 1 Mypy type error
+  - Intentionally flawed for learning
+
+**Documentation**:
+- Basic READMEs explaining the vulnerabilities
+- Warning labels about not using in production
+
+#### 🟢 Secure-Version Branch
+**Purpose**: Demonstrates vulnerability remediation
+
+**Java Content**:
+- `software-testing/java/Module2.1/` - Original vulnerable version (kept for comparison)
+- `software-testing/java/Module2.1-IMPROVED/`
+  - Spring Boot 3.3.5 (upgraded from 2.2.4)
+  - Java 17 (upgraded from Java 8)
+  - **15 residual vulnerabilities** (Tomcat CVEs pending upstream fix)
+  - 91% reduction in vulnerabilities
+  - Security headers implemented
+  - Input validation added
+  - SpEL injection fixed
+
+**Python Content**:
+- `software-testing/python/static_analysis_example.py` - Original flawed version
+- `software-testing/python/static_analysis_example_fixed.py`
+  - **0 issues** (all Pylint and Mypy errors resolved)
+  - Best practices demonstrated
+  - Clean code example
+
+**Complete Documentation Suite**:
+- `/software-testing/docs/vulnerability-analysis-report.md` - Full vulnerability analysis
+- `/software-testing/docs/vulnerability-fixes-guide.md` - How each vulnerability was fixed
+- `/software-testing/docs/testing-strategy.md` - Security testing methodology
+- `/software-testing/docs/comparison-report.md` - Before/after metrics
+- `/software-testing/docs/audits/` - Security audit reports
+- `/scripts/run_scans.sh` - Automated security scanning
 
 ---
 
