@@ -199,7 +199,7 @@ The `vulnerable-version` branch contains:
 Educational use only. Contains intentionally vulnerable code for learning purposes.
 
 
-
+---
 **Created**: November 9, 2025
 **Purpose**: Security Education & Audit Documentation
 **Status**: Complete
