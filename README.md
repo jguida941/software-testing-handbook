@@ -1,4 +1,21 @@
 # Software Testing Handbook - Security Audit Educational Suite
+<!-- Badge splash (secure-version) -->
+<p align="left">
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/secure-version">
+    <img src="https://img.shields.io/badge/branch-secure--version-brightgreen?style=flat-square" alt="Branch">
+  </a>
+  <img src="https://img.shields.io/badge/Dependencies-15%20vulns-yellow?style=flat-square" alt="Vulns">
+  <img src="https://img.shields.io/badge/Critical-4-orange?style=flat-square" alt="Critical">
+  <img src="https://img.shields.io/badge/High-8-orange?style=flat-square" alt="High">
+  <img src="https://img.shields.io/badge/Medium-3-yellow?style=flat-square" alt="Medium">
+  <img src="https://img.shields.io/badge/Spring%20Boot-3.3.5-brightgreen?style=flat-square&logo=springboot" alt="Spring Boot">
+  <img src="https://img.shields.io/badge/Java-17-blue?style=flat-square&logo=openjdk" alt="Java">
+  <img src="https://img.shields.io/badge/Tomcat-10.1.31-lightgrey?style=flat-square&logo=apachetomcat" alt="Tomcat">
+</p>
+
+> Significantly reduced risk. Not zero. See status docs.
+
+
 
 ### IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
 
