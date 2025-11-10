@@ -156,7 +156,8 @@ curl -I http://localhost:8080/greeting
 ### Run All Tests
 ```bash
 mvn clean test
-# Expected: 54 tests passing (ensure Maven is run with --add-opens / attach flags on JDK 21+)
+# Expected: 43 tests passing (14 controller + 27 security + 2 context)  
+# Ensure Maven is run with --add-opens / attach flags on JDK 21+
 ```
 
 > **Heads-up (JDK 21+)**: Mockito needs JVM attach permission. Export  

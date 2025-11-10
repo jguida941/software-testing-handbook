@@ -17,19 +17,13 @@ An educational security audit project showing:
 
 ## Repository Structure - THREE BRANCHES
 
-### 1. `master` (You are here)
-- Base branch with initial vulnerable version
-- Contains this README
+| Branch | Role | Key Assets |
+|--------|------|------------|
+| `master` | Documentation hub / branch map | Overview README, `agents.md`, `audit.md` |
+| `vulnerable-version` | Intentionally vulnerable lab | `software-testing/java/Module2.1`, flawed Python example |
+| `secure-version` (current) | Remediated implementation & docs | `software-testing/java/Module2.1-IMPROVED`, `scripts/`, `software-testing/docs/` |
 
-### 2. `vulnerable-version`
-- Preserved vulnerable code (162+ security issues)
-- **DO NOT USE IN PRODUCTION**
-- For educational comparison only
-
-### 3. `secure-version` **RECOMMENDED**
-- Contains `software-testing/java/Module2.1-IMPROVED` (91 % of CVEs mitigated, 15 remain in Tomcat 10.1.31)
-- Upgraded to Spring Boot 3.3.5 / Java 17
-- Hosts all documentation and reports in `software-testing/docs/`
+> You are currently on `secure-version`. Switch to `master` for the handbook overview or `vulnerable-version` to explore the unpatched code.
 
 ---
 
@@ -37,8 +31,8 @@ An educational security audit project showing:
 
 ### To Use the IMPROVED Version:
 ```bash
-# Switch to the secure branch
-git checkout secure-version
+# Ensure we're on the secure branch (this is the current branch)
+git status -sb
 
 # Navigate to improved module
 cd software-testing/java/Module2.1-IMPROVED
