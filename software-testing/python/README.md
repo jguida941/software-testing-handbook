@@ -20,7 +20,7 @@ This example demonstrates [static testing](../docs/static-dynamic-testing.md) by
 
 ## What's Inside
 
-- `static_analysis_example.py` — **INTENTIONALLY FLAWED** sample used to demonstrate the lint/type findings (kept ugly on purpose).
+- `static_analysis_example.py` — **INTENTIONALLY FLAWED** sample used to demonstrate the lint/type findings (kept ugly on purpose). We added a minimal `__init__` solely so the runtime demo works; the rest of the issues remain untouched.
 - `static_analysis_example_fixed.py` — clean reference implementation showing what “good” looks like after applying the fixes.
 
 ## Hands-On Exercises
@@ -68,7 +68,7 @@ mypy static_analysis_example.py
 - **None Safety**: Potential NoneType errors
 
 **Expected Findings (current run):**
-- 1 mypy error (wrong constructor call signature) — run `mypy static_analysis_example.py`
+- 0 mypy errors (constructor now accepts the same parameters we pass so the runtime demo can execute; the file is still intentionally messy)
 
 **Why This Matters:** Type-related bugs account for 15% of production issues. Static typing eliminates these entirely.
 
@@ -98,11 +98,11 @@ Both commands should report **0 issues**. Use this file as the “after” snaps
 | Tool | Issues Found (flawed file) | Severity | Time to fix |
 |------|----------------------------|----------|-------------|
 | Pylint | 22 issues | Low–Medium | 2–5 min each |
-| Mypy | 1 issue | Medium–High | 5–10 min |
-| Combined | 23 issues | Mixed | 30–60 min total |
+| Mypy | 0 issues (after adding runtime-safe `__init__`) | — | — |
+| Combined | 22 issues | Mixed | 30–60 min total |
 
 **Expected Results Snapshot**
-- **Flawed version**: 23 total issues (22 from Pylint, 1 from Mypy)
+- **Flawed version**: 22 lint issues (Pylint) + 0 type errors (Mypy) because we added the minimal constructor noted above
 - **Fixed version**: 0 issues (both tools report success)
 
 Compare this to the Java module's **162 vulnerabilities** found through dynamic testing—different tools find different problems!

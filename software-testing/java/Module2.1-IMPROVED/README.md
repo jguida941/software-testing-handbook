@@ -180,6 +180,34 @@ open target/site/jacoco/index.html
 
 ---
 
+## Troubleshooting & Residual Risks
+
+1. **`dependency-check:check` still fails**  
+   - Expected: Tomcat 10.1.31 (bundled with Spring Boot 3.3.5) still carries ~15 CVEs.  
+   - Options:  
+     - Accept/document the residual risk (educational default).  
+     - Manually override Tomcat to a patched release (e.g., 10.1.44) in `pom.xml` and rerun the full regression suite:
+       ```xml
+       <properties>
+         <tomcat.version>10.1.44</tomcat.version>
+       </properties>
+       ```
+       or pin each `org.apache.tomcat.embed` dependency under `<dependencyManagement>`.
+
+2. **Java version issues**  
+   - `Module2.1-IMPROVED` requires Java 17+.  
+   - Running on Java 21+? Export `MAVEN_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED -Djdk.attach.allowAttachSelf=true"` before any Maven command so Mockito can attach.  
+   - Seeing `Unsupported class file major version`? Verify `java -version` outputs 17 or newer and that your IDE/CLI use the same JDK.
+
+3. **Slow NVD downloads / proxy failures**  
+   - Preload the Dependency-Check DB via `./mvnw dependency-check:update-only` on a machine with network access, then copy `~/.m2/repository/org/owasp/dependency-check-data/`.
+
+4. **Reports missing after `run_scans.sh`**  
+   - Look under `software-testing/docs/reports/<timestamp>/`.  
+   - The script now continues even when the improved module fails; it prints `Scan failed...Continuing` to make that explicit.
+
+---
+
 ## Project Structure
 ```
 Module2.1-IMPROVED/
