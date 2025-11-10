@@ -17,19 +17,13 @@ An educational security audit project showing:
 
 ## Repository Structure - THREE BRANCHES
 
-### 1. `master` (You are here)
-- Base branch with initial vulnerable version
-- Contains this README
+| Branch | Role | Key Assets |
+|--------|------|------------|
+| `master` (current) | Documentation hub and overview | This README, `agents.md`, `audit.md`, pointers to other branches |
+| `vulnerable-version` | Intentionally vulnerable code for labs | `software-testing/java/Module2.1`, flawed Python example, warning README (added in this release) |
+| `secure-version` | Remediated implementation and reports | `software-testing/java/Module2.1-IMPROVED`, automation scripts, full docs set |
 
-### 2. `vulnerable-version`
-- Preserved vulnerable code (162+ security issues)
-- **DO NOT USE IN PRODUCTION**
-- For educational comparison only
-
-### 3. `secure-version` **RECOMMENDED**
-- All security fixes implemented
-- Upgraded to Spring Boot 3.3.5
-- Contains the secure code and documentation
+> **Need the secure application?** Run `git checkout secure-version` before following any `Module2.1-IMPROVED` instructions.
 
 ---
 
@@ -37,14 +31,14 @@ An educational security audit project showing:
 
 ### To Use the SECURE Version:
 ```bash
-# IMPORTANT: Module2.1-SECURE only exists on the secure-version branch
+# IMPORTANT: Module2.1-IMPROVED only exists on the secure-version branch
 # You MUST switch branches first
 
 # Switch to the secure branch
 git checkout secure-version
 
 # NOW the secure module exists
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 
 # Run the secure application
 mvn spring-boot:run
@@ -59,7 +53,7 @@ mvn dependency-check:check
 
 # Check secure version (ONLY on secure-version branch)
 git checkout secure-version
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 mvn dependency-check:check
 # Result: Significant reduction in vulnerabilities
 ```
@@ -150,11 +144,11 @@ git ls-tree --name-only -r secure-version | head
 
 ### Test the Secure Version:
 ```bash
-# FIRST: Switch to secure-version branch (Module2.1-SECURE doesn't exist on master)
+# FIRST: Switch to secure-version branch (Module2.1-IMPROVED doesn't exist on master)
 git checkout secure-version
 
 # THEN: Navigate and run
-cd software-testing/java/Module2.1-SECURE
+cd software-testing/java/Module2.1-IMPROVED
 mvn spring-boot:run
 
 # In another terminal:

@@ -14,6 +14,11 @@ class Order:
     subtotal: float
     discount_rate = 0.0  # Missing type hint
 
+    def __init__(self, order_id, subtotal, discount_rate=0.0):  # Still intentionally under-documented
+        self.order_id = order_id
+        self.subtotal = subtotal
+        self.discount_rate = discount_rate
+
     # Method without docstring
     def validate(self):
         if self.subtotal < 0:
