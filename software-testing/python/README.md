@@ -20,10 +20,8 @@ This example demonstrates [static testing](../docs/static-dynamic-testing.md) by
 
 ## What's Inside
 
-- `static_analysis_example.py` - A Python module with intentional issues for analysis
-  - Missing type hints that could cause runtime errors
-  - Style violations that hurt maintainability
-  - Potential bugs that static analysis can catch
+- `static_analysis_example.py` — **INTENTIONALLY FLAWED** sample used to demonstrate the lint/type findings (kept ugly on purpose). We added a minimal `__init__` solely so the runtime demo works; the rest of the issues remain untouched.
+- `static_analysis_example_fixed.py` — clean reference implementation showing what “good” looks like after applying the fixes.
 
 ## Hands-On Exercises
 
@@ -43,11 +41,13 @@ pylint static_analysis_example.py
 - **Documentation**: Missing docstrings, unclear code
 - **Refactoring Opportunities**: Code complexity, duplication
 
-**Expected Findings:**
-- Variable naming violations (not following snake_case)
-- Missing module and function docstrings
-- Lines too long (>100 characters)
-- Potentially dangerous default arguments
+**Expected Findings (current run):**
+- 22 total Pylint findings (naming issues, unused imports/vars, docstring gaps, complexity warnings, etc.)
+- Command to count quickly:
+
+```bash
+pylint static_analysis_example.py 2>&1 | grep -E '^static_analysis_example' | wc -l
+```
 
 **Why This Matters:** Teams spend 60% of development time reading code. Clean, consistent code reduces this overhead significantly.
 
@@ -67,38 +67,16 @@ mypy static_analysis_example.py
 - **Missing Annotations**: Untyped code that could hide bugs
 - **None Safety**: Potential NoneType errors
 
-**Expected Findings (~3-5 type issues):**
-- Missing return type annotations on validate(), categorize_order()
-- Missing parameter type hints in calculate_total() and categorize_order()
-- Missing type annotation for discount_rate field in Order class
-- Function process_order() missing return type hint (implicitly returns None)
+**Expected Findings (current run):**
+- 0 mypy errors (constructor now accepts the same parameters we pass so the runtime demo can execute; the file is still intentionally messy)
 
 **Why This Matters:** Type-related bugs account for 15% of production issues. Static typing eliminates these entirely.
 
-### Exercise 3: Compare Flawed vs Fixed Versions
+### Exercise 3: Dynamic Execution (Comparison)
 
 ```bash
-# Analyze the flawed version
-pylint static_analysis_example.py
-mypy static_analysis_example.py
-
-# Analyze the fixed version
-pylint static_analysis_example_fixed.py
-mypy static_analysis_example_fixed.py
-```
-
-**Expected Results:**
-- **Flawed version**: ~10-15 issues total
-- **Fixed version**: 0 issues (or near-perfect score)
-
-### Exercise 4: Dynamic Execution (Comparison)
-
-```bash
-# Run both versions
-python static_analysis_example.py        # Will print at import time (bad!)
-python static_analysis_example_fixed.py  # Clean execution
-
-# Notice the difference in behavior and output
+# Run the script
+python static_analysis_example.py
 ```
 
 **Compare Static vs Dynamic:**
@@ -106,13 +84,26 @@ python static_analysis_example_fixed.py  # Clean execution
 - Runtime might work "by accident" but fail with different inputs
 - Static analysis finds issues across ALL code paths, not just the executed one
 
-## Static Analysis Metrics
+### Exercise 4: Confirm the Fixed Version Is Clean
 
-| Tool | Issues Found | Severity | Fix Time |
-|------|--------------|----------|----------|
-| Pylint | ~8-10 issues | Low-Medium | 2-5 min each |
-| Mypy | ~3-5 issues | Medium-High | 5-10 min each |
-| Combined | ~11-15 issues | Mixed | 30-60 min total |
+```bash
+pylint static_analysis_example_fixed.py
+mypy static_analysis_example_fixed.py
+```
+
+Both commands should report **0 issues**. Use this file as the “after” snapshot when teaching remediation.
+
+## Static Analysis Metrics (Updated)
+
+| Tool | Issues Found (flawed file) | Severity | Time to fix |
+|------|----------------------------|----------|-------------|
+| Pylint | 22 issues | Low–Medium | 2–5 min each |
+| Mypy | 0 issues (after adding runtime-safe `__init__`) | — | — |
+| Combined | 22 issues | Mixed | 30–60 min total |
+
+**Expected Results Snapshot**
+- **Flawed version**: 22 lint issues (Pylint) + 0 type errors (Mypy) because we added the minimal constructor noted above
+- **Fixed version**: 0 issues (both tools report success)
 
 Compare this to the Java module's **162 vulnerabilities** found through dynamic testing—different tools find different problems!
 
@@ -177,7 +168,7 @@ In production systems:
 
 ---
 
-**Remember**: The ~15 issues found here through static analysis are just as important as the 162 vulnerabilities found in the Java module through dynamic testing. Together, they create comprehensive quality assurance.
+**Remember**: The 23 static-analysis findings here are just as important as the 162 vulnerabilities found in the Java module through dynamic testing. Together, they create comprehensive quality assurance.
 
 ---
 [← Back to Main Documentation](../README.md) | [View Java Dynamic Testing Example →](../java/Module2.1/)
