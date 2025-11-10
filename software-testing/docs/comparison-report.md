@@ -1,6 +1,6 @@
 # Security Vulnerability Comparison Report
 
-## Before/After Analysis: Module 2.1 vs Module 2.1 IMPROVED
+### Before/After Analysis: Module 2.1 vs Module 2.1 IMPROVED
 
 
 ## Executive Summary
