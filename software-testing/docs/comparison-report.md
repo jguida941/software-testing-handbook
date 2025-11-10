@@ -1,8 +1,7 @@
 # Security Vulnerability Comparison Report
 
-## Before/After Analysis: Module2.1 vs Module2.1-IMPROVED
+## Before/After Analysis: Module 2.1 vs Module 2.1 IMPROVED
 
----
 
 ## Executive Summary
 
@@ -10,7 +9,6 @@ This report provides a comprehensive comparison between the vulnerable and impro
 
 **Key Achievement**: Reduced 162 security vulnerabilities down to 15 (4 CRITICAL, 8 HIGH, 3 MEDIUM) while maintaining application functionality.
 
----
 
 ## Vulnerability Metrics Comparison
 
@@ -36,7 +34,7 @@ Improved Version Risk Score:   ~150 (MODERATE – Tomcat CVEs)
 Risk Reduction:                ~90%
 ```
 
----
+
 
 ## Technology Stack Comparison
 
@@ -51,7 +49,7 @@ Risk Reduction:                ~90%
 | **Jackson** | 2.10.2 | 2.17.2 | 7 major versions | XXE + 6 CVEs fixed |
 | **SnakeYAML** | 1.25 | 2.2 | Major version | RCE vulnerability fixed |
 
----
+
 
 ## Attack Surface Analysis
 
@@ -75,7 +73,7 @@ Risk Reduction:                ~90%
 |-------------|-------|--------|
 | Tomcat CVEs (HTTP/connector) | 15 | Remain until Tomcat 10.1.35+ |
 
----
+
 
 ## Detailed Vulnerability Comparison
 
@@ -94,7 +92,7 @@ Risk Reduction:                ~90%
 | 9 | CVE-2023-20873 | 9.8 | Spring Boot | Auth Bypass | FIXED |
 | 10 | Array Bounds | 7.5 | GreetingController | DoS/Info Leak | FIXED |
 
----
+
 
 ## Code Quality Improvements
 
@@ -125,7 +123,7 @@ if (id < 0 || id >= myArray.length) {
 }
 ```
 
----
+
 
 ## Security Headers Comparison
 
@@ -139,7 +137,7 @@ if (id < 0 || id >= myArray.length) {
 | Strict-Transport-Security | Missing | max-age=31536000 | HTTPS enforcement |
 | Permissions-Policy | Missing | Restrictive | Feature access control |
 
----
+
 
 ## Performance Impact Analysis
 
@@ -155,7 +153,7 @@ if (id < 0 || id >= myArray.length) {
 
 **Conclusion**: Minimal performance impact for comprehensive security gains.
 
----
+
 
 ## Business Impact Analysis
 
@@ -190,7 +188,7 @@ Potential Cost of Single Breach:
 ROI: 7,400,000% (preventing single breach)
 ```
 
----
+
 
 ## Educational Value Comparison
 
@@ -204,7 +202,7 @@ ROI: 7,400,000% (preventing single breach)
 | **Compliance Template** | ❌ Fails all checks | ✅ Passes all checks |
 | **Training Value** | High (awareness) | High (implementation) |
 
----
+
 
 ## Dependency Tree Comparison
 
@@ -228,7 +226,7 @@ com.snhu:Module2.1-Secure:jar:1.0.0
 └── com.fasterxml.jackson.core:jackson-databind:2.17.2 [0 vulnerabilities]
 ```
 
----
+
 
 ## Testing Coverage Comparison
 
@@ -240,7 +238,6 @@ com.snhu:Module2.1-Secure:jar:1.0.0
 | Penetration Tests | N/A | Comprehensive | Full suite |
 | Code Coverage | ~20% | >80% | +60% |
 
----
 
 ## Verification Commands
 
@@ -262,7 +259,7 @@ echo "Vulnerable: $(grep -c 'severity' ../Module2.1/target/dependency-check-repo
 echo "Secure: $(grep -c 'severity' target/dependency-check-report.html) issues"
 ```
 
----
+
 
 ## Migration Guide
 
@@ -283,7 +280,7 @@ echo "Secure: $(grep -c 'severity' target/dependency-check-report.html) issues"
    - Perform penetration testing
    - Verify with OWASP scan
 
----
+
 
 ## Conclusion
 
@@ -301,6 +298,3 @@ echo "Secure: $(grep -c 'severity' target/dependency-check-report.html) issues"
 3. **Regular updates** - Run dependency checks monthly
 4. **Continuous monitoring** - Integrate security scanning in CI/CD
 5. **Security training** - Use both versions to teach secure coding
-
-### Final Verdict
-The remediation project demonstrates large risk reduction with realistic constraints: even after modernizing Spring Boot, upstream Tomcat CVEs persist. The dual-version approach still offers strong educational value, provided we clearly document residual risk instead of claiming “fully secure.”
