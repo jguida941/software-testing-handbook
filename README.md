@@ -1,10 +1,10 @@
 # Software Testing Handbook - Security Audit Educational Suite
 
-## IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
+### IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
 
 An educational security audit project demonstrating how to identify and fix 162+ real vulnerabilities through a three-branch learning system.
 
----
+
 
 ## Repository Navigation
 
@@ -16,7 +16,7 @@ You are on **master** - the documentation hub for this educational security proj
 | **vulnerable-version** | Intentionally vulnerable code | Learning about vulnerabilities | `git checkout vulnerable-version` |
 | **secure-version** | Fixed code + documentation | Running secure apps, reading docs | `git checkout secure-version` |
 
----
+
 
 ## First Time Here?
 
@@ -25,7 +25,7 @@ You are on **master** - the documentation hub for this educational security proj
 3. **Start with Path 1** if you're unsure where to begin
 4. **Remember:** The vulnerable code is for education only - never deploy it to production!
 
----
+
 
 ## Learning Paths
 
@@ -49,7 +49,7 @@ You are on **master** - the documentation hub for this educational security proj
 3. Study the remediation methodology in the [Testing Strategy](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/testing-strategy.md)
 4. Understand residual risks and mitigation strategies
 
----
+
 
 ## Hands-On Labs
 
@@ -62,7 +62,7 @@ You are on **master** - the documentation hub for this educational security proj
 
 Each lab has step-by-step instructions in its branch-specific README.
 
----
+
 
 ## Documentation by Intent
 
@@ -81,7 +81,6 @@ Each lab has step-by-step instructions in its branch-specific README.
 - [Automated Scanning Script](https://github.com/jguida941/software-testing-handbook/blob/secure-version/scripts/run_scans.sh) - CI/CD ready automation
 - [Security Audit Reports](https://github.com/jguida941/software-testing-handbook/tree/secure-version/software-testing/docs/audits) - Complete audit trail
 
----
 
 ## What's Available Where
 
@@ -102,7 +101,7 @@ Each lab has step-by-step instructions in its branch-specific README.
 - **Purpose:** Learn how to fix vulnerabilities
 - [View branch →](https://github.com/jguida941/software-testing-handbook/tree/secure-version)
 
----
+
 
 ## Security Improvements Summary
 
@@ -115,7 +114,7 @@ Each lab has step-by-step instructions in its branch-specific README.
 
 *Residual CVEs are in Tomcat 10.1.31, pending upstream fixes
 
----
+
 
 ## Safety Guidelines
 
@@ -131,7 +130,6 @@ Each lab has step-by-step instructions in its branch-specific README.
 - Use on systems with sensitive data
 - Skip the security warnings in module READMEs
 
----
 
 ## Quick Start Examples
 
@@ -157,7 +155,7 @@ mvn spring-boot:run
 # Or locally: git diff vulnerable-version secure-version
 ```
 
----
+
 
 ## Quick Links
 
@@ -166,7 +164,7 @@ mvn spring-boot:run
 - [Compare Versions](https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version)
 - [All Documentation](https://github.com/jguida941/software-testing-handbook/tree/secure-version/software-testing/docs)
 
----
+
 
 ## License
 
