@@ -1,4 +1,4 @@
-# Software Testing Handbook – Vulnerable Version
+# Software Testing Handbook: Vulnerable Version
 
 > **⚠️ WARNING:** This branch intentionally contains vulnerable dependencies and insecure code for educational purposes. Do **NOT** deploy to production!
 
