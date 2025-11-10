@@ -1,6 +1,21 @@
 # Software Testing Handbook - Security Audit Educational Suite
+<p align="left">
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/secure-version">
+    <img src="https://img.shields.io/badge/Secure%20version-view-brightgreen?style=flat-square" alt="Secure version">
+  </a>
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version">
+    <img src="https://img.shields.io/badge/Vulnerable%20version-view-red?style=flat-square" alt="Vulnerable version">
+  </a>
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/master">
+    <img src="https://img.shields.io/badge/Docs%20hub-master-blue?style=flat-square" alt="Docs hub">
+  </a>
+  <a href="https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version">
+    <img src="https://img.shields.io/badge/Compare-branches-informational?style=flat-square" alt="Compare branches">
+  </a>
+</p>
 
-### IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
+
+#### IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
 
 An educational security audit project demonstrating how to identify and fix 162+ real vulnerabilities through a three-branch learning system.
 
