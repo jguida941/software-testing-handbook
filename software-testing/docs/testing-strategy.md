@@ -5,7 +5,6 @@
 This document provides a complete testing strategy to verify that all 162+ security vulnerabilities have been successfully remediated. It serves both **educational purposes** (teaching security testing) and **audit requirements** (proving fixes work).
 
 
-
 ## Table of Contents
 1. [Testing Phases](#testing-phases)
 2. [Pre-Testing Setup](#pre-testing-setup)
