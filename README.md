@@ -2,310 +2,169 @@
 
 ## IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
 
-This repository demonstrates security vulnerability remediation by maintaining both vulnerable and secure versions of a Spring Boot application.
+An educational security audit project demonstrating how to identify and fix 162+ real vulnerabilities through a three-branch learning system.
 
 ---
 
-## What This Is
+## Repository Navigation
 
-An educational security audit project showing:
-- **162+ real vulnerabilities** in outdated dependencies
-- **How to fix them** with systematic upgrades
-- **Before/after comparison** for learning
+You are on **master** - the documentation hub for this educational security project.
 
----
-
-## Repository Structure - THREE BRANCHES
-
-| Branch | Role | Key Assets |
-|--------|------|------------|
-| `master` (current) | Documentation hub | This README only - links to everything |
-| `vulnerable-version` | Intentionally vulnerable code | Module2.1 (162 vulns), Python (18 issues) |
-| `secure-version` | Fixed + vulnerable code | Module2.1-IMPROVED (15 vulns), Python fixed (0 issues), full docs |
-
-> **Need the secure application?** Run `git checkout secure-version` before following any `Module2.1-IMPROVED` instructions.
+| Branch | Purpose | When to Use | Switch Command |
+|--------|---------|-------------|----------------|
+| **master** (current) | Documentation & orientation | Finding resources, understanding structure | You are here |
+| **vulnerable-version** | Intentionally vulnerable code | Learning about vulnerabilities | `git checkout vulnerable-version` |
+| **secure-version** | Fixed code + documentation | Running secure apps, reading docs | `git checkout secure-version` |
 
 ---
 
-## Quick Start
+## First Time Here?
 
-### To Use the SECURE Version:
-```bash
-# IMPORTANT: Module2.1-IMPROVED only exists on the secure-version branch
-# You MUST switch branches first
+1. **Clone the repository:** `git clone https://github.com/jguida941/software-testing-handbook.git`
+2. **Choose a learning path** below based on your goals
+3. **Start with Path 1** if you're unsure where to begin
+4. **Remember:** The vulnerable code is for education only - never deploy it to production!
 
-# Switch to the secure branch
-git checkout secure-version
+---
 
-# NOW the secure module exists
-cd software-testing/java/Module2.1-IMPROVED
+## Learning Paths
 
-# Run the secure application
-mvn spring-boot:run
-```
+### Path 1: Security Auditor (Recommended for beginners)
+1. Start here on master to understand the project structure
+2. Switch to `vulnerable-version` to explore 162 real vulnerabilities
+3. Run security scans to identify CVEs and code issues
+4. Switch to `secure-version` to see how each vulnerability was fixed
+5. Review the [Comparison Report](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/comparison-report.md) to understand the impact
 
-### To Compare Both Versions:
-```bash
-# Check vulnerable version (exists on all branches)
-cd software-testing/java/Module2.1
-mvn dependency-check:check
-# Result: 162 vulnerabilities, 90 unique CVEs
+### Path 2: Hands-On Developer
+1. Clone the repo and immediately switch to `vulnerable-version`
+2. Run `mvn dependency-check:check` to see 162 vulnerabilities
+3. Document 5-10 critical vulnerabilities you find interesting
+4. Switch to `secure-version` and compare the code differences
+5. Run the [automated scanning script](https://github.com/jguida941/software-testing-handbook/blob/secure-version/scripts/run_scans.sh) to see CI/CD integration
 
-# Check secure version (ONLY on secure-version branch)
-git checkout secure-version
-cd software-testing/java/Module2.1-IMPROVED
-mvn dependency-check:check
-# Result: Significant reduction in vulnerabilities
-```
+### Path 3: Security Researcher
+1. Review the complete [Security Audit Reports](https://github.com/jguida941/software-testing-handbook/tree/secure-version/software-testing/docs/audits)
+2. Analyze the [Vulnerability Fixes Guide](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/vulnerability-fixes-guide.md)
+3. Study the remediation methodology in the [Testing Strategy](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/testing-strategy.md)
+4. Understand residual risks and mitigation strategies
 
-> **Note:** The first run downloads the OWASP Dependency-Check/NVD feeds (auto-update is enabled). Expect a short delay while the database initializes. For restricted networks run `./mvnw dependency-check:update-only` ahead of time.
+---
+
+## Hands-On Labs
+
+| Lab | What You'll Learn | Branch | Time |
+|-----|------------------|--------|------|
+| **Discover Real Vulnerabilities** | OWASP Dependency Check, CVE analysis | `vulnerable-version` | 15 min |
+| **Fix Critical Security Issues** | Dependency upgrades, code remediation | `secure-version` | 30 min |
+| **Python Static Analysis** | Pylint, Mypy, type safety | Both branches | 20 min |
+| **Automated Security Scanning** | CI/CD integration, scan automation | `secure-version` | 25 min |
+
+Each lab has step-by-step instructions in its branch-specific README.
+
+---
+
+## Documentation by Intent
+
+### Getting Started
+- [Vulnerable Module README](https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version/software-testing/java/Module2.1) - Start here to see vulnerable code
+- [Secure Module README](https://github.com/jguida941/software-testing-handbook/tree/secure-version/software-testing/java/Module2.1-IMPROVED) - Production-ready implementation
+- [Python Examples](https://github.com/jguida941/software-testing-handbook/tree/secure-version/software-testing/python) - Static analysis demonstrations
+
+### Understanding Vulnerabilities
+- [Vulnerability Analysis Report](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/vulnerability-analysis-report.md) - What we found
+- [Vulnerability Fixes Guide](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/vulnerability-fixes-guide.md) - How we fixed each issue
+- [Comparison Report](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/comparison-report.md) - Before/after metrics
+
+### Security Testing & Automation
+- [Testing Strategy](https://github.com/jguida941/software-testing-handbook/blob/secure-version/software-testing/docs/testing-strategy.md) - Comprehensive testing approach
+- [Automated Scanning Script](https://github.com/jguida941/software-testing-handbook/blob/secure-version/scripts/run_scans.sh) - CI/CD ready automation
+- [Security Audit Reports](https://github.com/jguida941/software-testing-handbook/tree/secure-version/software-testing/docs/audits) - Complete audit trail
+
+---
+
+## What's Available Where
+
+### On this branch (master)
+- This README - your navigation hub to all resources
+
+### On vulnerable-version branch
+- **Java:** Module2.1 with 162 vulnerabilities (Spring Boot 2.2.4)
+- **Python:** Flawed example with 18 issues (17 Pylint + 1 Mypy)
+- **Purpose:** Learn what can go wrong
+- [View branch →](https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version)
+
+### On secure-version branch
+- **Java:** Module2.1-IMPROVED with 91% vulnerability reduction (15 residual Tomcat CVEs)
+- **Python:** Fixed example with 0 issues
+- **Documentation:** Complete security analysis and remediation guides
+- **Automation:** Security scanning scripts
+- **Purpose:** Learn how to fix vulnerabilities
+- [View branch →](https://github.com/jguida941/software-testing-handbook/tree/secure-version)
 
 ---
 
 ## Security Improvements Summary
 
-| Version | Branch | Java Vulnerabilities | Python Issues | Status |
-|---------|--------|---------------------|---------------|---------|
-| Original | `vulnerable-version` | 162 (21 CRITICAL) | 18 (17 pylint + 1 mypy) | Educational Only |
-| Secure | `secure-version` | 15 (Tomcat CVEs) | 0 (fixed version) | Production Ready* |
+| Metric | Vulnerable Version | Secure Version | Improvement |
+|--------|-------------------|----------------|-------------|
+| **Java Vulnerabilities** | 162 (21 CRITICAL) | 15 (4 CRITICAL)* | 91% reduction |
+| **Python Issues** | 18 (17 Pylint + 1 Mypy) | 0 | 100% fixed |
+| **Spring Boot** | 2.2.4 | 3.3.5 | Major upgrade |
+| **Java Version** | 8 | 17 | LTS upgrade |
 
-*With additional security measures
-
----
-
-## Key Fixes Applied
-
-1. **Dependency Updates:**
-   - Spring Boot: 2.2.4 → 3.3.5
-   - Java: 8 → 17
-   - Tomcat: 9.0.30 → 10.1.31
-   - SnakeYAML: 1.25 → 2.2
-
-2. **Code Fixes:**
-   - SpEL injection vulnerability patched
-   - Array bounds checking added
-   - Input validation implemented
+*Residual CVEs are in Tomcat 10.1.31, pending upstream fixes
 
 ---
 
-## Documentation
+## Safety Guidelines
 
-Additional documentation is available on the `secure-version` branch:
+### DO:
+- Use for learning and education
+- Run in isolated environments (VMs, containers)
+- Share with other security learners
+- Follow the learning paths above
 
+### DO NOT:
+- Deploy vulnerable-version to production
+- Expose vulnerable code to the internet
+- Use on systems with sensitive data
+- Skip the security warnings in module READMEs
+
+---
+
+## Quick Start Examples
+
+### Example 1: See the vulnerabilities
 ```bash
-# Switch to secure-version branch to access these files:
-git checkout secure-version
-
-# The following files will then be available:
-# - /TECHNICAL-SECURITY-AUDIT-CORRECTED.md - Technical report
-# - /software-testing/docs/vulnerability-fixes-guide.md - Detailed fixes
-# - /software-testing/docs/testing-strategy.md - How to test
-# - /software-testing/docs/comparison-report.md - Before/after
+git checkout vulnerable-version
+cd software-testing/java/Module2.1
+mvn dependency-check:check
+# View the report: open target/dependency-check-report.html
 ```
 
-## Complete Project Index
-
-### What's Available on Each Branch
-
-#### Master Branch (You Are Here)
-- **Purpose**: Central documentation hub
-- **Contents**: This README only
-- **Usage**: Start here, then switch to other branches for code
-
-#### Vulnerable-Version Branch
-**Purpose**: Educational vulnerable code examples
-
-**Java Content**:
-- `software-testing/java/Module2.1/`
-  - Spring Boot 2.2.4 application
-  - **162 total vulnerabilities**
-  - 21 CRITICAL (including Spring4Shell, Ghostcat)
-  - 69 HIGH severity
-  - 69 MEDIUM severity
-  - 3 LOW severity
-  - Includes OWASP Dependency Check configuration
-
-**Python Content**:
-- `software-testing/python/static_analysis_example.py`
-  - **18 total issues**
-  - 17 Pylint warnings (style, complexity, missing docstrings)
-  - 1 Mypy type error
-  - Intentionally flawed for learning
-
-**Documentation**:
-- Basic READMEs explaining the vulnerabilities
-- Warning labels about not using in production
-
-#### Secure-Version Branch
-**Purpose**: Demonstrates vulnerability remediation
-
-**Java Content**:
-- `software-testing/java/Module2.1/` - Original vulnerable version (kept for comparison)
-- `software-testing/java/Module2.1-IMPROVED/`
-  - Spring Boot 3.3.5 (upgraded from 2.2.4)
-  - Java 17 (upgraded from Java 8)
-  - **15 residual vulnerabilities** (Tomcat CVEs pending upstream fix)
-  - 91% reduction in vulnerabilities
-  - Security headers implemented
-  - Input validation added
-  - SpEL injection fixed
-
-**Python Content**:
-- `software-testing/python/static_analysis_example.py` - Original flawed version
-- `software-testing/python/static_analysis_example_fixed.py`
-  - **0 issues** (all Pylint and Mypy errors resolved)
-  - Best practices demonstrated
-  - Clean code example
-
-**Complete Documentation Suite**:
-- `/software-testing/docs/vulnerability-analysis-report.md` - Full vulnerability analysis
-- `/software-testing/docs/vulnerability-fixes-guide.md` - How each vulnerability was fixed
-- `/software-testing/docs/testing-strategy.md` - Security testing methodology
-- `/software-testing/docs/comparison-report.md` - Before/after metrics
-- `/software-testing/docs/audits/` - Security audit reports
-- `/scripts/run_scans.sh` - Automated security scanning
-
----
-- **Purpose**: Central documentation hub
-- **Contents**: This README only
-- **Usage**: Start here, then switch to other branches for code
-
-#### Vulnerable-Version Branch
-**Purpose**: Educational vulnerable code examples
-
-**Java Content**:
-- `software-testing/java/Module2.1/`
-  - Spring Boot 2.2.4 application
-  - **162 total vulnerabilities**
-  - 21 CRITICAL (including Spring4Shell, Ghostcat)
-  - 69 HIGH severity
-  - 69 MEDIUM severity
-  - 3 LOW severity
-  - Includes OWASP Dependency Check configuration
-
-**Python Content**:
-- `software-testing/python/static_analysis_example.py`
-  - **18 total issues**
-  - 17 Pylint warnings (style, complexity, missing docstrings)
-  - 1 Mypy type error
-  - Intentionally flawed for learning
-
-**Documentation**:
-- Basic READMEs explaining the vulnerabilities
-- Warning labels about not using in production
-
-#### 🟢 Secure-Version Branch
-**Purpose**: Demonstrates vulnerability remediation
-
-**Java Content**:
-- `software-testing/java/Module2.1/` - Original vulnerable version (kept for comparison)
-- `software-testing/java/Module2.1-IMPROVED/`
-  - Spring Boot 3.3.5 (upgraded from 2.2.4)
-  - Java 17 (upgraded from Java 8)
-  - **15 residual vulnerabilities** (Tomcat CVEs pending upstream fix)
-  - 91% reduction in vulnerabilities
-  - Security headers implemented
-  - Input validation added
-  - SpEL injection fixed
-
-**Python Content**:
-- `software-testing/python/static_analysis_example.py` - Original flawed version
-- `software-testing/python/static_analysis_example_fixed.py`
-  - **0 issues** (all Pylint and Mypy errors resolved)
-  - Best practices demonstrated
-  - Clean code example
-
-**Complete Documentation Suite**:
-- `/software-testing/docs/vulnerability-analysis-report.md` - Full vulnerability analysis
-- `/software-testing/docs/vulnerability-fixes-guide.md` - How each vulnerability was fixed
-- `/software-testing/docs/testing-strategy.md` - Security testing methodology
-- `/software-testing/docs/comparison-report.md` - Before/after metrics
-- `/software-testing/docs/audits/` - Security audit reports
-- `/scripts/run_scans.sh` - Automated security scanning
-
----
-
-## Educational Use Cases
-
-This repository is perfect for:
-- Learning about common vulnerabilities
-- Understanding dependency management
-- Security testing practice
-- Demonstrating remediation processes
-- Training on secure coding
-
----
-
-## Quick Commands
-
+### Example 2: Run the secure version
 ```bash
-# Clone the repository
-git clone https://github.com/jguida941/software-testing-handbook.git
-cd software-testing-handbook
-
-# List all branches
-git branch -a
-
-# Switch to secure version (RECOMMENDED)
 git checkout secure-version
-
-# See what's in each branch
-git ls-tree --name-only -r vulnerable-version | head
-git ls-tree --name-only -r secure-version | head
-```
-
----
-
-## Security Testing
-
-### Test the Secure Version:
-```bash
-# FIRST: Switch to secure-version branch (Module2.1-IMPROVED doesn't exist on master)
-git checkout secure-version
-
-# THEN: Navigate and run
 cd software-testing/java/Module2.1-IMPROVED
 mvn spring-boot:run
-
-# In another terminal:
-# This should be BLOCKED (400 Bad Request)
-curl "http://localhost:8080/greeting?name=T(java.lang.Runtime).getRuntime().exec('calc')"
-
-# This should WORK
-curl "http://localhost:8080/greeting?name=John"
+# Test it: curl http://localhost:8080/health
 ```
 
-> Security scans in both modules also download the latest CVE data automatically; initial execution may take a few minutes.
-
----
-
-## Warning About Vulnerable Version
-
-The `vulnerable-version` branch contains:
-- CVE-2022-22965 (Spring4Shell) - RCE
-- CVE-2022-1471 (SnakeYAML) - RCE
-- CVE-2020-1938 (Ghostcat) - File disclosure
-- SpEL Injection - Direct code execution
-- 150+ other vulnerabilities
-
-**NEVER run the vulnerable version in production or on important systems!**
-
----
-
-## Results
-
-- **Before**: 162+ vulnerabilities
-- **After**: ~90% reduction
-- **All critical custom code issues**: FIXED
-- **Educational value**: PRESERVED
+### Example 3: Compare both versions
+```bash
+# Online: https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version
+# Or locally: git diff vulnerable-version secure-version
+```
 
 ---
 
 ## Quick Links
 
-- [View Secure Version](https://github.com/jguida941/software-testing-handbook/tree/secure-version)
-- [View Vulnerable Version](https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version)
+- [Secure Version Branch](https://github.com/jguida941/software-testing-handbook/tree/secure-version)
+- [Vulnerable Version Branch](https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version)
 - [Compare Versions](https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version)
+- [All Documentation](https://github.com/jguida941/software-testing-handbook/tree/secure-version/software-testing/docs)
 
 ---
 
@@ -315,6 +174,6 @@ Educational use only. Contains intentionally vulnerable code for learning purpos
 
 ---
 
-**Created**: November 9, 2025
-**Purpose**: Security Education & Audit Documentation
-**Status**: Complete
+**Created**: November 2025
+**Purpose**: Security Education & Vulnerability Remediation Training
+**Status**: Active Learning Resource
