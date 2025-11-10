@@ -47,3 +47,4 @@ application-*.properties
 # OWASP Dependency Check
 dependency-check-report.*
 owasp-dependency-check.*.json
+software-testing/docs/reports/
