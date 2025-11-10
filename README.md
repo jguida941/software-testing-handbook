@@ -19,7 +19,7 @@ An educational security audit project showing:
 
 | Branch | Role | Key Assets |
 |--------|------|------------|
-| `master` | Documentation hub / branch map | Overview README, `agents.md`, `audit.md` |
+| `master` | Documentation hub / branch map | Navigation README only - links to all resources |
 | `vulnerable-version` | Intentionally vulnerable lab | `software-testing/java/Module2.1`, flawed Python example |
 | `secure-version` (current) | Remediated implementation & docs | `software-testing/java/Module2.1-IMPROVED`, `scripts/`, `software-testing/docs/` |
 
@@ -104,7 +104,7 @@ mvn dependency-check:check
 - **Vulnerability reports**: [`vulnerability-analysis-report.md`](software-testing/docs/vulnerability-analysis-report.md), [`vulnerability-fixes-guide.md`](software-testing/docs/vulnerability-fixes-guide.md)
 - **Audits archive**: [`software-testing/docs/audits/`](software-testing/docs/audits/) - Full security audit reports
 - **Status reports**: [`software-testing/docs/status/`](software-testing/docs/status/) - Current security status & setup guides
-- **Generated reports**: `software-testing/docs/reports/` - Scan outputs (created by scripts)
+- **Generated reports**: `software-testing/docs/reports/` - Scan outputs (directory created when scripts run)
 
 ---
 
