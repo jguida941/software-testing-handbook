@@ -42,7 +42,7 @@ pylint static_analysis_example.py
 - **Refactoring Opportunities**: Code complexity, duplication
 
 **Expected Findings (current run):**
-- 22 total Pylint findings (naming issues, unused imports/vars, docstring gaps, complexity warnings, etc.)
+- 18 total Pylint findings (naming issues, unused imports/vars, docstring gaps, complexity warnings, etc.)
 - Command to count quickly:
 
 ```bash
@@ -68,7 +68,7 @@ mypy static_analysis_example.py
 - **None Safety**: Potential NoneType errors
 
 **Expected Findings (current run):**
-- 0 mypy errors (constructor now accepts the same parameters we pass so the runtime demo can execute; the file is still intentionally messy)
+- 0 mypy errors (type checking now passes after minimal fixes for runtime compatibility)
 
 **Why This Matters:** Type-related bugs account for 15% of production issues. Static typing eliminates these entirely.
 
@@ -97,12 +97,12 @@ Both commands should report **0 issues**. Use this file as the “after” snaps
 
 | Tool | Issues Found (flawed file) | Severity | Time to fix |
 |------|----------------------------|----------|-------------|
-| Pylint | 22 issues | Low–Medium | 2–5 min each |
-| Mypy | 0 issues (after adding runtime-safe `__init__`) | — | — |
-| Combined | 22 issues | Mixed | 30–60 min total |
+| Pylint | 18 issues | Low–Medium | 2–5 min each |
+| Mypy | 0 issues (type checking passes) | — | — |
+| Combined | 18 issues | Mixed | 30–60 min total |
 
 **Expected Results Snapshot**
-- **Flawed version**: 22 lint issues (Pylint) + 0 type errors (Mypy) because we added the minimal constructor noted above
+- **Flawed version**: 18 lint issues (Pylint) + 0 type errors (Mypy)
 - **Fixed version**: 0 issues (both tools report success)
 
 Compare this to the Java module's **162 vulnerabilities** found through dynamic testing—different tools find different problems!
@@ -168,7 +168,7 @@ In production systems:
 
 ---
 
-**Remember**: The 23 static-analysis findings here are just as important as the 162 vulnerabilities found in the Java module through dynamic testing. Together, they create comprehensive quality assurance.
+**Remember**: The 18 static-analysis findings here are just as important as the 162 vulnerabilities found in the Java module through dynamic testing. Together, they create comprehensive quality assurance.
 
 ---
 [← Back to Main Documentation](../README.md) | [View Java Dynamic Testing Example →](../java/Module2.1/)

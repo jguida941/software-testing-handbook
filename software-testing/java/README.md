@@ -6,7 +6,8 @@ The `java/` directory houses hands-on examples that highlight how dynamic testin
 
 | Module | Description | Key Takeaways |
 |--------|-------------|---------------|
-| [`Module2.1`](./Module2.1/) | Spring Boot REST API instrumented with OWASP Dependency-Check | Shows how vulnerable transitive dependencies (e.g., Spring4Shell, Ghostcat) are discovered and documented |
+| [`Module2.1`](./Module2.1/) | **VULNERABLE** - Spring Boot 2.2.4 with 162+ vulnerabilities | Shows how vulnerable transitive dependencies (e.g., Spring4Shell, Ghostcat) are discovered and documented |
+| [`Module2.1-IMPROVED`](./Module2.1-IMPROVED/) | **SECURE** - Spring Boot 3.3.5 with 91% vulnerabilities fixed | Demonstrates remediation techniques, still has 15 Tomcat CVEs remaining |
 
 ## How to Use These Examples
 

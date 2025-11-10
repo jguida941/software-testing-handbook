@@ -84,14 +84,27 @@ mvn dependency-check:check
 
 ---
 
-## Documentation
+## Documentation & Navigation
 
-All docs live under `software-testing/docs/` (see [`software-testing/docs/README.md`](software-testing/docs/README.md) for the map).
+### Key README Files
+| Location | Purpose | Link |
+|----------|---------|------|
+| Root | Main project overview (this file) | You are here |
+| Project Map | Complete file structure | [`PROJECT_STRUCTURE.md`](PROJECT_STRUCTURE.md) |
+| Testing Handbook | Complete testing concepts & overview | [`software-testing/README.md`](software-testing/README.md) |
+| Documentation Hub | All docs, audits, reports | [`software-testing/docs/README.md`](software-testing/docs/README.md) |
+| Java Examples | Both vulnerable & secure modules | [`software-testing/java/README.md`](software-testing/java/README.md) |
+| Python Examples | Static analysis demonstrations | [`software-testing/python/README.md`](software-testing/python/README.md) |
+| Vulnerable Module | Module2.1 with 162+ vulnerabilities | [`software-testing/java/Module2.1/README.md`](software-testing/java/Module2.1/README.md) |
+| Secure Module | Module2.1-IMPROVED with fixes | [`software-testing/java/Module2.1-IMPROVED/README.md`](software-testing/java/Module2.1-IMPROVED/README.md) |
+| Vulnerability Warning | Warning about Module2.1 | [`software-testing/java/Module2.1/README-VULNERABLE.md`](software-testing/java/Module2.1/README-VULNERABLE.md) |
 
-- Theory & examples: `static-dynamic-testing.md`, `testing-examples-index.md`
-- Audits archive: `software-testing/docs/audits/`
-- Honest status & OSS Index steps: `software-testing/docs/status/`
-- Generated reports: `software-testing/docs/reports/`
+### Key Documentation Files
+- **Theory & examples**: [`static-dynamic-testing.md`](software-testing/docs/static-dynamic-testing.md), [`testing-examples-index.md`](software-testing/docs/testing-examples-index.md)
+- **Vulnerability reports**: [`vulnerability-analysis-report.md`](software-testing/docs/vulnerability-analysis-report.md), [`vulnerability-fixes-guide.md`](software-testing/docs/vulnerability-fixes-guide.md)
+- **Audits archive**: [`software-testing/docs/audits/`](software-testing/docs/audits/) - Full security audit reports
+- **Status reports**: [`software-testing/docs/status/`](software-testing/docs/status/) - Current security status & setup guides
+- **Generated reports**: `software-testing/docs/reports/` - Scan outputs (created by scripts)
 
 ---
 
@@ -119,9 +132,9 @@ git branch -a
 # Switch to secure version (RECOMMENDED)
 git checkout secure-version
 
-# See what's in each branch
-git ls-tree --name-only -r vulnerable-version | head
-git ls-tree --name-only -r secure-version | head
+# See what's in each branch (using remote references)
+git ls-tree --name-only -r origin/vulnerable-version | head
+git ls-tree --name-only -r origin/secure-version | head
 ```
 
 ---

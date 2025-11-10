@@ -55,7 +55,7 @@ mvn test -Dtest=SecurityTests
 # Run OWASP dependency check
 mvn dependency-check:check
 
-# Check report (should show 0 high/critical)
+# Check report (expect 4 critical / 8 high / 3 medium Tomcat CVEs)
 open target/dependency-check-report.html
 ```
 

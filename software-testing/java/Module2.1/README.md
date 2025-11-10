@@ -73,7 +73,7 @@ The OWASP Dependency-Check plugin is already configured in `pom.xml`:
 
 #### Step 1: Navigate to the project directory
 ```bash
-cd /Users/jguida941/new_github_projects/software-testing-handbook/software-testing/java/Module2.1
+cd software-testing/java/Module2.1
 ```
 
 #### Step 2: Run the dependency check
@@ -98,7 +98,7 @@ open target/dependency-check-report.html
 ## Scan Results Summary (November 9, 2025)
 
 ### Statistics
-- **Total Vulnerabilities Found**: 162 (across 96 unique CVEs)
+- **Total Vulnerabilities Found**: 162 (across 90 unique CVEs)
 - **Report Size**: 2.4MB (HTML), 1.6MB (JSON)
 - **OWASP DC Version**: 11.0.0
 - **NVD Database Version**: 11.0 (from November 5, 2025)
