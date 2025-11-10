@@ -10,11 +10,11 @@ import os
 # Class without proper documentation
 @dataclass
 class Order:
-    order_id: int
+    order_id: str
     subtotal: float
     discount_rate = 0.0  # Missing type hint
 
-    def __init__(self, order_id, subtotal, discount_rate=0.0):  # Still intentionally under-documented
+    def __init__(self, order_id: str, subtotal: float, discount_rate: float = 0.0):  # Intentionally mismatched type hints
         self.order_id = order_id
         self.subtotal = subtotal
         self.discount_rate = discount_rate
@@ -39,7 +39,7 @@ def calculate_total(o, t):  # Poor parameter names
     # Overly complex expression that could be simplified
     total = s + tax
 
-    # Unnecessary variable assignment
+    # Unnecessary variable assignment with wrong annotation
     result = total
 
     # Line too long - exceeds 79 characters recommended by PEP 8
