@@ -1,9 +1,8 @@
-# Module2.1-IMPROVED
+# Module2.1: IMPROVED
 
 ## Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
 
 This is the improved version of the Spring Boot application with **91 %** of the original 162 vulnerabilities mitigated. **15 residual CVEs** (4 CRITICAL / 8 HIGH / 3 MED) remain in Tomcat 10.1.31, which ships with Spring Boot 3.3.5.
-
 
 
 ## Security Achievements
