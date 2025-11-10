@@ -1,10 +1,9 @@
-# Software Testing Handbook - Security Audit Educational Suite
+# Software Testing Handbook: Security Audit Educational Suite
 
-## IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
+### IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
 
 This repository demonstrates security vulnerability remediation by maintaining both vulnerable and significantly improved versions of a Spring Boot application.
 
----
 
 ## What This Is
 
@@ -13,9 +12,9 @@ An educational security audit project showing:
 - **How to fix them** with systematic upgrades
 - **Before/after comparison** for learning
 
----
 
-## Repository Structure - THREE BRANCHES
+
+## Repository Structure: THREE BRANCHES
 
 | Branch | Role | Key Assets |
 |--------|------|------------|
@@ -25,7 +24,7 @@ An educational security audit project showing:
 
 > You are currently on `secure-version`. Switch to `master` for the handbook overview or `vulnerable-version` to explore the unpatched code.
 
----
+
 
 ## Quick Start
 
@@ -56,7 +55,7 @@ mvn dependency-check:check
 # See massive reduction (15 residual Tomcat CVEs remain)
 ```
 
----
+
 
 ## Security Improvements Summary
 
@@ -67,7 +66,7 @@ mvn dependency-check:check
 
 > Production readiness still requires Tomcat 10.1.35+ or compensating controls (see `software-testing/docs/status/HONEST-SECURITY-STATUS.md`)
 
----
+
 
 ## Key Fixes Applied
 
@@ -82,7 +81,7 @@ mvn dependency-check:check
    - Array bounds checking added
    - Input validation implemented
 
----
+
 
 ## Documentation & Navigation
 
@@ -106,7 +105,7 @@ mvn dependency-check:check
 - **Status reports**: [`software-testing/docs/status/`](software-testing/docs/status/) - Current security status & setup guides
 - **Generated reports**: `software-testing/docs/reports/` - Scan outputs (directory created when scripts run)
 
----
+
 
 ## Educational Use Cases
 
@@ -117,7 +116,7 @@ This repository is perfect for:
 - Demonstrating remediation processes
 - Training on secure coding
 
----
+
 
 ## Quick Commands
 
@@ -137,7 +136,7 @@ git ls-tree --name-only -r origin/vulnerable-version | head
 git ls-tree --name-only -r origin/secure-version | head
 ```
 
----
+
 
 ## Security Testing
 
@@ -163,7 +162,7 @@ export OSS_INDEX_TOKEN="token-from-oss-index"
 # HTML/JSON reports saved to software-testing/docs/reports/<timestamp>/
 ```
 
----
+
 
 ## Warning About Vulnerable Version
 
@@ -176,7 +175,7 @@ The `vulnerable-version` branch contains:
 
 **NEVER run the vulnerable version in production or on important systems!**
 
----
+
 
 ## Results
 
@@ -185,7 +184,7 @@ The `vulnerable-version` branch contains:
 - **All critical custom code issues**: FIXED
 - **Educational value**: PRESERVED
 
----
+
 
 ## Quick Links
 
@@ -193,13 +192,13 @@ The `vulnerable-version` branch contains:
 - [View Vulnerable Version](https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version)
 - [Compare Versions](https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version)
 
----
+
 
 ## License
 
 Educational use only. Contains intentionally vulnerable code for learning purposes.
 
----
+
 
 **Created**: November 9, 2025
 **Purpose**: Security Education & Audit Documentation
