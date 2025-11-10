@@ -1,6 +1,8 @@
 # Software Testing Handbook - Security Audit Educational Suite
 <p align="left">
-<!-- Secure metrics -->
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/secure-version">
+    <img alt="Secure Branch" src="https://img.shields.io/badge/BRANCH-secure--version-2EA043?style=for-the-badge&logo=github&logoColor=white">
+  </a>
   <a href="https://github.com/jguida941/software-testing-handbook/tree/secure-version">
     <img alt="Vulnerabilities (secure)" src="https://img.shields.io/badge/VULNERABILITIES-15-F1C40F?style=for-the-badge">
   </a>
@@ -11,8 +13,6 @@
   <img alt="Spring Boot 3.3.5" src="https://img.shields.io/badge/Spring%20Boot-3.3.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
   <img alt="Java 17" src="https://img.shields.io/badge/Java-17-007396?style=for-the-badge&logo=openjdk&logoColor=white">
   <img alt="Tomcat 10.1.31" src="https://img.shields.io/badge/Tomcat-10.1.31-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black">
-
-</p>
 
 > Significantly reduced risk. Not zero. See status docs.
 
