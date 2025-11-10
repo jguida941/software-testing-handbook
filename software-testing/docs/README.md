@@ -10,11 +10,12 @@ This folder holds every guide, audit, and reference for the Software Testing Han
 | Example catalog | `testing-examples-index.md` | Lists every hands-on lab (Python + Java). |
 | Vulnerability findings | `vulnerability-analysis-report.md` | Summarises dependency-check results. |
 | Fix instructions | `vulnerability-fixes-guide.md` | Step-by-step remediation notes. |
+| Before/after metrics | `comparison-report.md` | Detailed comparison of vulnerable vs secure versions. |
 | Testing strategy | `testing-strategy.md` | How to run scans/tests in each module. |
 | Automated scans | `../../scripts/run_scans.sh` | Runs OSS Index + dependency-check for vulnerable & improved modules. |
 | Honest status & OSS Index | `status/` (see below) | Current CVE counts + OSS Index setup. |
 | Audit history | `audits/` | Full audit trails, chronological. |
-| Reports | `reports/` | Saved dependency-check outputs (HTML/JSON). |
+| Reports | `reports/` (created by scripts) | Saved dependency-check outputs (HTML/JSON) - directory created when scripts run. |
 
 ## Status & Setup
 
