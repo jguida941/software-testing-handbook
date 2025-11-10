@@ -1,8 +1,8 @@
-# Honest Security Assessment (Module2.1-IMPROVED)
+# Honest Security Assessment (Module 2.1-IMPROVED)
 
 ## Snapshot (2025-11-10)
 
-| Metric | Vulnerable (`Module2.1`) | Improved (`Module2.1-IMPROVED`) |
+| Metric | Vulnerable (`Module2.1`) | Improved (`Module 2.1-IMPROVED`) |
 |--------|-------------------------|----------------------------------|
 | Total vulnerabilities | 162 | 15 |
 | Critical (CVSS ≥ 9) | 21 | 4 (Tomcat 10.1.31) |
