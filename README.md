@@ -1,4 +1,4 @@
-# Software Testing Handbook: Security Audit Educational Suite
+# Software Testing Handbook - Security Audit Educational Suite
 
 ### IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
 
