@@ -1,11 +1,21 @@
 # Software Testing Handbook – Vulnerable Version
 
-> **Warning:** This branch intentionally contains vulnerable dependencies and insecure code for educational purposes. Do **not** deploy it to production systems.
+> **⚠️ WARNING:** This branch intentionally contains vulnerable dependencies and insecure code for educational purposes. Do **NOT** deploy to production!
 
 ## Branch Purpose
-- Preserve the original `Module2.1` Spring Boot application with 162 known vulnerabilities
-- Provide the intentionally flawed Python static-analysis example
-- Serve as the "before" snapshot when comparing against `secure-version`
+- Preserve the original vulnerable `Module2.1` Spring Boot application with **162 known vulnerabilities**
+- Provide the intentionally flawed Python static-analysis example (17 pylint issues, 1 mypy error)
+- Serve as the "before" snapshot for security education
+
+## What's on This Branch vs Others
+
+| Content | This Branch (vulnerable-version) | secure-version | master |
+|---------|----------------------------------|----------------|--------|
+| Module2.1 (vulnerable) | ✅ Full vulnerable implementation | ✅ Also included for comparison | ❌ |
+| Module2.1-IMPROVED | ❌ Placeholder only | ✅ Full secure version | ❌ |
+| Python flawed example | ✅ Only flawed version | ✅ Both flawed + fixed | ❌ |
+| Python fixed example | ❌ Not here | ✅ `static_analysis_example_fixed.py` | ❌ |
+| Documentation | Basic READMEs | Full docs + audits | Overview only |
 
 ## Getting Started
 ```bash
@@ -20,8 +30,8 @@ cd software-testing/java/Module2.1
 ```bash
 cd software-testing/python
 python3 static_analysis_example.py  # intentionally flawed runtime
-pylint static_analysis_example.py   # expect 22 issues
-mypy static_analysis_example.py     # expect 1 issue
+pylint static_analysis_example.py   # expect 17 issues
+mypy static_analysis_example.py     # expect 1 type error
 ```
 
 ## Looking for the Fixes?

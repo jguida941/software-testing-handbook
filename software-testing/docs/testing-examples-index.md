@@ -11,7 +11,7 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 #### Python Static Analysis
 - **Location**: [`/python/static_analysis_example.py`](../python/)
 - **Tools Used**: Pylint, Mypy
-- **Issues Found**: ~15 code quality and type safety issues
+- **Issues Found**: 18 issues (17 pylint, 1 mypy)
 - **Learning Focus**: Early bug detection, type safety, code maintainability
 - **Time to Complete**: 15-20 minutes
 
@@ -52,14 +52,14 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 - **Documentation Gaps** - Missing docstrings
 - **Complexity Issues** - Refactoring opportunities
 
-## 📊 Comparative Analysis
+## Comparative Analysis
 
 | Example | Language | Testing Type | Tools | Issues Found | Business Impact |
 |---------|----------|--------------|-------|--------------|-----------------|
-| Static Analysis | Python | Static | Pylint, Mypy | ~15 | Code maintainability |
+| Static Analysis | Python | Static | Pylint, Mypy | 18 | Code maintainability |
 | Security Scan | Java | Dynamic | OWASP DC | 162 | Critical security risk |
 
-## 🎯 Learning Paths by Role
+## Learning Paths by Role
 
 ### For Developers
 1. Start with Python static analysis (understand code quality)
@@ -81,7 +81,7 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 2. Understand ROI of early testing (10-100x cost savings)
 3. Plan testing strategy for your team
 
-## 🔗 Quick Command Reference
+## Quick Command Reference
 
 ### Python Static Testing
 ```bash
@@ -98,22 +98,22 @@ cd java/Module2.1/
 open target/dependency-check-report.html
 ```
 
-## 📈 Metrics Summary
+## Metrics Summary
 
 ### Total Issues Found Across All Examples
-- **Security Vulnerabilities**: 162
-- **Code Quality Issues**: ~10
-- **Type Safety Issues**: ~5
-- **Total**: ~177 issues
+- **Security Vulnerabilities (Java)**: 162
+- **Code Quality Issues (Python pylint)**: 17
+- **Type Safety Issues (Python mypy)**: 1
+- **Total**: 180 issues
 
 ### Time Investment vs Value
 | Activity | Time | Issues Found | Value |
 |----------|------|--------------|-------|
-| Python Static Analysis | 20 min | 15 | High (early detection) |
+| Python Static Analysis | 20 min | 18 | High (early detection) |
 | Java Security Scan | 45 min | 162 | Critical (security) |
-| **Total** | **65 min** | **177** | **Exceptional ROI** |
+| **Total** | **65 min** | **180** | **Exceptional ROI** |
 
-## 🚀 Next Examples to Add
+## Next Examples to Add
 
 ### Planned Additions
 1. **JavaScript** - ESLint and security scanning with npm audit
@@ -127,7 +127,7 @@ open target/dependency-check-report.html
 - API security testing
 - Mobile app testing
 
-## 📚 Cross-References
+## Cross-References
 
 ### Theory Documentation
 - [Main README](../README.md) - Handbook overview
@@ -143,14 +143,14 @@ open target/dependency-check-report.html
 - [CVE-2020-1938 (Ghostcat)](https://nvd.nist.gov/vuln/detail/CVE-2020-1938)
 - [Full vulnerability list](../java/Module2.1/target/dependency-check-report.html)
 
-## 💡 Key Insights
+## Key Insights
 
 1. **Different Tools, Different Bugs**: Static and dynamic testing find completely different issue categories
 2. **Real Impact**: The 162 vulnerabilities in Java represent actual exploitable security risks
 3. **Cost Efficiency**: Issues found in static analysis cost 10-100x less to fix than production bugs
 4. **Comprehensive Coverage**: Using both approaches catches 70%+ of potential issues
 
-## 🎓 Certification Preparation
+## Certification Preparation
 
 These examples align with:
 - **ISTQB** - Software Testing Certification
@@ -160,7 +160,7 @@ These examples align with:
 
 ---
 
-**Remember**: Each example in this handbook represents real-world scenarios. The 162 vulnerabilities found in Java and 15 issues in Python are typical of what you'll encounter in production systems.
+**Remember**: Each example in this handbook represents real-world scenarios. The 162 vulnerabilities found in Java and 18 issues in Python are typical of what you'll encounter in production systems.
 
 ---
-[← Back to Main Documentation](./README.md)
+[← Back to Main Documentation](../README.md)

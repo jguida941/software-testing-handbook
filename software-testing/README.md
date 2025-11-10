@@ -10,7 +10,7 @@ Upon completing this handbook, you will:
 - **Understand** the fundamental differences between static and dynamic testing
 - **Apply** static analysis tools to catch issues before runtime
 - **Execute** dynamic testing to discover runtime vulnerabilities
-- **Analyze** real security vulnerabilities (162 vulnerabilities across 96 CVEs in our Java example!)
+- **Analyze** real security vulnerabilities (162 vulnerabilities across 90 unique CVEs in our Java example!)
 - **Implement** a comprehensive testing strategy combining both approaches
 
 ## Key Documents
