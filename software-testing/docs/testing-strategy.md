@@ -4,7 +4,7 @@
 
 This document provides a complete testing strategy to verify that all 162+ security vulnerabilities have been successfully remediated. It serves both **educational purposes** (teaching security testing) and **audit requirements** (proving fixes work).
 
----
+
 
 ## Table of Contents
 1. [Testing Phases](#testing-phases)
@@ -16,7 +16,7 @@ This document provides a complete testing strategy to verify that all 162+ secur
 7. [Phase 5: Automated Test Suite](#phase-5-automated-test-suite)
 8. [Test Results Documentation](#test-results-documentation)
 
----
+
 
 ## Testing Phases
 
@@ -28,7 +28,7 @@ This document provides a complete testing strategy to verify that all 162+ secur
 | 4 | Penetration Testing | Custom scripts | All attacks fail |
 | 5 | Automated Tests | JUnit/Maven | 100% pass rate |
 
----
+
 
 ## Pre-Testing Setup
 
@@ -61,7 +61,7 @@ cd ../Module2.1-IMPROVED
 mvn clean compile
 ```
 
----
+
 
 ## Phase 1: Dependency Vulnerability Testing
 
@@ -115,7 +115,7 @@ diff /tmp/vulnerable-deps.txt /tmp/secure-deps.txt | head -50
 - Tomcat: 9.0.30 → 10.1.31 (patched build still carries residual CVEs)
 - SnakeYAML: 1.25 → 2.2
 
----
+
 
 ## Phase 2: Code Vulnerability Testing
 
@@ -176,7 +176,7 @@ curl "http://localhost:8080/number/6"
 # Both: Should work (last valid index)
 ```
 
----
+
 
 ## Phase 3: Security Header Verification
 
@@ -213,7 +213,7 @@ check_header "Referrer-Policy"
 check_header "Strict-Transport-Security"
 ```
 
----
+
 
 ## Phase 4: Penetration Testing
 
@@ -287,7 +287,7 @@ for payload in $(cat /path/to/fuzzing-wordlist.txt); do
 done
 ```
 
----
+
 
 ## Phase 5: Automated Test Suite
 
@@ -330,7 +330,7 @@ mvn clean verify
 # - Any configured security scanners
 ```
 
----
+
 
 ## Test Results Documentation
 
@@ -391,7 +391,7 @@ echo "Report generated: test-results.md"
   - [ ] No unexpected error responses
   - [ ] Fuzzing reveals no issues
 
----
+
 
 ## Continuous Testing Strategy
 
@@ -434,7 +434,7 @@ jobs:
 0 2 * * * cd /path/to/Module2.1-IMPROVED && mvn dependency-check:check
 ```
 
----
+
 
 ## Troubleshooting
 
@@ -466,7 +466,6 @@ jobs:
    mvn dependency-check:update-only
    ```
 
----
 
 ## Conclusion
 
