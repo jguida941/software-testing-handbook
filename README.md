@@ -103,9 +103,22 @@ git checkout secure-version
 # - /software-testing/docs/comparison-report.md - Before/after
 ```
 
-Current branch (master) documentation:
-- `/software-testing/README.md` - Main handbook
-- `/software-testing/java/Module2.1/README.md` - Vulnerable version details
+## What's on Each Branch
+
+### Master Branch (You Are Here)
+- This README only - Documentation hub
+- No code files - everything is on feature branches
+
+### Vulnerable-Version Branch
+- Java Module2.1 with 162 security vulnerabilities (21 CRITICAL)
+- Python example with 18 issues (17 Pylint + 1 Mypy)
+- Educational documentation
+
+### Secure-Version Branch
+- Everything from vulnerable-version PLUS:
+- Module2.1-IMPROVED with fixes (15 residual Tomcat CVEs)
+- Python fixed example (0 issues)
+- Complete security documentation and audit reports
 
 ---
 
