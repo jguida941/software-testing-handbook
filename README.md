@@ -1,18 +1,23 @@
 # Software Testing Handbook: Vulnerable Version
-<!-- Badge splash (vulnerable-version) -->
 <p align="left">
-  <img src="https://img.shields.io/badge/branch-vulnerable--version-red?style=flat-square" alt="Branch">
-  <img src="https://img.shields.io/badge/Vulnerabilities-162-red?style=flat-square" alt="Total vulns">
-  <img src="https://img.shields.io/badge/Critical-21-red?style=flat-square" alt="Critical">
-  <img src="https://img.shields.io/badge/High-69-orange?style=flat-square" alt="High">
-  <img src="https://img.shields.io/badge/Medium-69-yellow?style=flat-square" alt="Medium">
-  <img src="https://img.shields.io/badge/Low-3-lightgrey?style=flat-square" alt="Low">
-  <img src="https://img.shields.io/badge/Spring%20Boot-2.2.4-inactive?style=flat-square&logo=springboot" alt="Spring Boot">
-  <img src="https://img.shields.io/badge/Java-8-blue?style=flat-square&logo=openjdk" alt="Java">
-  <img src="https://img.shields.io/badge/Tomcat-9.0.30-lightgrey?style=flat-square&logo=apachetomcat" alt="Tomcat">
-</p>
+<!-- Vulnerable snapshot (links to vulnerable branch) -->
+  <br/>
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version">
+    <img alt="Vulnerable Branch" src="https://img.shields.io/badge/BRANCH-vulnerable--version-DB4545?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version">
+    <img alt="Vulnerabilities (vulnerable)" src="https://img.shields.io/badge/VULNERABILITIES-162-DB4545?style=for-the-badge">
+  </a>
+  <img alt="Critical (vulnerable)" src="https://img.shields.io/badge/CRITICAL-21-DB4545?style=for-the-badge">
+  <img alt="High (vulnerable)" src="https://img.shields.io/badge/HIGH-69-FD7E14?style=for-the-badge">
+  <img alt="Medium (vulnerable)" src="https://img.shields.io/badge/MEDIUM-69-F1C40F?style=for-the-badge">
+  <img alt="Low (vulnerable)" src="https://img.shields.io/badge/LOW-3-9CA3AF?style=for-the-badge">
+  <img alt="Spring Boot 2.2.4" src="https://img.shields.io/badge/Spring%20Boot-2.2.4-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+  <img alt="Java 8" src="https://img.shields.io/badge/Java-8-007396?style=for-the-badge&logo=openjdk&logoColor=white">
+  <img alt="Tomcat 9.0.30" src="https://img.shields.io/badge/Tomcat-9.0.30-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black">
 
-> ##### **⚠️ WARNING:** This branch intentionally contains vulnerable dependencies and insecure code for educational purposes. Do **NOT** deploy to production!
+
+> ##### **WARNING:** This branch intentionally contains vulnerable dependencies and insecure code for educational purposes. Do **NOT** deploy to production!
 
 ## Branch Purpose
 - Preserve the original vulnerable `Module2.1` Spring Boot application with **162 known vulnerabilities**
