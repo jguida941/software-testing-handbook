@@ -202,7 +202,7 @@ echo "Checking Security Headers..."
 HEADERS=$(curl -sI http://localhost:8080/greeting)
 
 check_header() {
-    echo "$HEADERS" | grep -q "$1" && echo "✅ $1 present" || echo "❌ $1 MISSING"
+    echo "$HEADERS" | grep -q "$1" && echo "PASS: $1 present" || echo "FAIL: $1 MISSING"
 }
 
 check_header "X-Content-Type-Options"
@@ -234,10 +234,10 @@ test_payload() {
     RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "$BASE_URL/greeting?name=$PAYLOAD")
 
     if [ "$RESPONSE" == "$EXPECTED" ]; then
-        echo "✅ PASS: $NAME (Got $RESPONSE)"
+        echo "PASS: $NAME (Got $RESPONSE)"
         ((PASSED++))
     else
-        echo "❌ FAIL: $NAME (Expected $EXPECTED, Got $RESPONSE)"
+        echo "FAIL: $NAME (Expected $EXPECTED, Got $RESPONSE)"
         ((FAILED++))
     fi
 }
@@ -268,7 +268,7 @@ echo "=== Results ==="
 echo "Passed: $PASSED"
 echo "Failed: $FAILED"
 
-[ $FAILED -eq 0 ] && echo "✅ ALL SECURITY TESTS PASSED!" || echo "❌ SECURITY ISSUES DETECTED!"
+[ $FAILED -eq 0 ] && echo "ALL SECURITY TESTS PASSED!" || echo "SECURITY ISSUES DETECTED!"
 ```
 
 Run: `bash security-tests.sh`

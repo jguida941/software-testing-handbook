@@ -19,11 +19,11 @@ This report provides a comprehensive comparison between the vulnerable and impro
 | Metric | Module2.1 (Vulnerable) | Module2.1-IMPROVED | Improvement |
 |--------|------------------------|--------------------|-------------|
 | **Total Vulnerabilities** | **162** | **15** | **91% reduction** |
-| CRITICAL (CVSS 9-10) | 21 | 4 | ⚠️ 81% fixed |
-| HIGH (CVSS 7-8.9) | 69 | 8 | ⚠️ 88% fixed |
-| MEDIUM (CVSS 4-6.9) | 69 | 3 | ✅ 96% fixed |
-| LOW (CVSS 0-3.9) | 3 | 0 | ✅ 100% fixed |
-| Code Vulnerabilities | 2 | 0 | ✅ 100% fixed |
+| CRITICAL (CVSS 9-10) | 21 | 4 | 81% fixed |
+| HIGH (CVSS 7-8.9) | 69 | 8 | 88% fixed |
+| MEDIUM (CVSS 4-6.9) | 69 | 3 | 96% fixed |
+| LOW (CVSS 0-3.9) | 3 | 0 | 100% fixed |
+| Code Vulnerabilities | 2 | 0 | 100% fixed |
 | **Known CVEs** | **90 unique** | **15** | **83% eliminated** |
 
 *Residual vulnerabilities (Tomcat 10.1.31) remain because Spring Boot 3.3.5 has not yet picked up 10.1.35+.
@@ -73,7 +73,7 @@ Risk Reduction:                ~90%
 
 | Attack Type | Count | Status |
 |-------------|-------|--------|
-| Tomcat CVEs (HTTP/connector) | 15 | ⚠️ Remain until Tomcat 10.1.35+ |
+| Tomcat CVEs (HTTP/connector) | 15 | Remain until Tomcat 10.1.35+ |
 
 ---
 
@@ -83,16 +83,16 @@ Risk Reduction:                ~90%
 
 | # | CVE | CVSS | Component | Risk | Status |
 |---|-----|------|-----------|------|--------|
-| 1 | CVE-2022-22965 | 9.8 | Spring Framework | Remote Code Execution | ✅ FIXED |
-| 2 | CVE-2022-1471 | 9.8 | SnakeYAML | Unsafe Deserialization | ✅ FIXED |
-| 3 | CVE-2020-1938 | 9.8 | Tomcat (Ghostcat) | File Read/RCE | ✅ FIXED |
-| 4 | CVE-2017-8046 | 9.8 | Spring Data REST | RCE via PATCH | ✅ FIXED |
-| 5 | CVE-2018-1273 | 9.8 | Spring Data Commons | Property Binder RCE | ✅ FIXED |
-| 6 | CVE-2024-50379 | 9.8 | Tomcat | TOCTOU Race Condition | ✅ FIXED |
-| 7 | CVE-2016-1000027 | 9.8 | Spring Framework | Deserialization RCE | ✅ FIXED |
-| 8 | Custom SpEL | 10.0 | GreetingController | Direct Code Execution | ✅ FIXED |
-| 9 | CVE-2023-20873 | 9.8 | Spring Boot | Auth Bypass | ✅ FIXED |
-| 10 | Array Bounds | 7.5 | GreetingController | DoS/Info Leak | ✅ FIXED |
+| 1 | CVE-2022-22965 | 9.8 | Spring Framework | Remote Code Execution | FIXED |
+| 2 | CVE-2022-1471 | 9.8 | SnakeYAML | Unsafe Deserialization | FIXED |
+| 3 | CVE-2020-1938 | 9.8 | Tomcat (Ghostcat) | File Read/RCE | FIXED |
+| 4 | CVE-2017-8046 | 9.8 | Spring Data REST | RCE via PATCH | FIXED |
+| 5 | CVE-2018-1273 | 9.8 | Spring Data Commons | Property Binder RCE | FIXED |
+| 6 | CVE-2024-50379 | 9.8 | Tomcat | TOCTOU Race Condition | FIXED |
+| 7 | CVE-2016-1000027 | 9.8 | Spring Framework | Deserialization RCE | FIXED |
+| 8 | Custom SpEL | 10.0 | GreetingController | Direct Code Execution | FIXED |
+| 9 | CVE-2023-20873 | 9.8 | Spring Boot | Auth Bypass | FIXED |
+| 10 | Array Bounds | 7.5 | GreetingController | DoS/Info Leak | FIXED |
 
 ---
 
@@ -131,13 +131,13 @@ if (id < 0 || id >= myArray.length) {
 
 | Header | Vulnerable | Secure | Protection |
 |--------|------------|--------|------------|
-| X-Content-Type-Options | ❌ Missing | ✅ nosniff | MIME sniffing prevention |
-| X-Frame-Options | ❌ Missing | ✅ DENY | Clickjacking prevention |
-| X-XSS-Protection | ❌ Missing | ✅ 1; mode=block | XSS filtering |
-| Content-Security-Policy | ❌ Missing | ✅ Configured | XSS/injection prevention |
-| Referrer-Policy | ❌ Missing | ✅ strict-origin | Privacy protection |
-| Strict-Transport-Security | ❌ Missing | ✅ max-age=31536000 | HTTPS enforcement |
-| Permissions-Policy | ❌ Missing | ✅ Restrictive | Feature access control |
+| X-Content-Type-Options | Missing | nosniff | MIME sniffing prevention |
+| X-Frame-Options | Missing | DENY | Clickjacking prevention |
+| X-XSS-Protection | Missing | 1; mode=block | XSS filtering |
+| Content-Security-Policy | Missing | Configured | XSS/injection prevention |
+| Referrer-Policy | Missing | strict-origin | Privacy protection |
+| Strict-Transport-Security | Missing | max-age=31536000 | HTTPS enforcement |
+| Permissions-Policy | Missing | Restrictive | Feature access control |
 
 ---
 
@@ -249,15 +249,15 @@ com.snhu:Module2.1-Secure:jar:1.0.0
 #!/bin/bash
 echo "=== Vulnerability Comparison ==="
 
-echo -e "\n📊 Vulnerable Version:"
+echo -e "\nVulnerable Version:"
 cd Module2.1
 mvn dependency-check:check 2>&1 | grep "One or more"
 
-echo -e "\n✅ Secure Version:"
+echo -e "\nSecure Version:"
 cd ../Module2.1-IMPROVED
 mvn dependency-check:check 2>&1 | grep "One or more"
 
-echo -e "\n🔍 Detailed Comparison:"
+echo -e "\nDetailed Comparison:"
 echo "Vulnerable: $(grep -c 'severity' ../Module2.1/target/dependency-check-report.html) issues"
 echo "Secure: $(grep -c 'severity' target/dependency-check-report.html) issues"
 ```
