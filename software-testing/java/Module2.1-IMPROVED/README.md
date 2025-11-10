@@ -321,7 +321,7 @@ This improved version is safe for:
 -Production use only with compensating controls for the remaining Tomcat CVEs
 -Development, testing, and educational comparisons
 
----
+
 
 ## Credits
 
@@ -332,7 +332,7 @@ Security fixes implemented based on:
 - Industry security standards
 
 
-
+---
 **Version**: 1.0.0 (Improved)
 **Last Updated**: 2025-11-10
 **Security Status**:  15 residual CVEs (4 CRITICAL / 8 HIGH / 3 MED)
