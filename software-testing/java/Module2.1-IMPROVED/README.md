@@ -1,10 +1,10 @@
-# Module2.1-IMPROVED (formerly `Module2.1-SECURE`)
+# Module2.1-IMPROVED
 
 ## Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
 
 This is the improved version of the Spring Boot application with **91 %** of the original 162 vulnerabilities mitigated. **15 residual CVEs** (4 CRITICAL / 8 HIGH / 3 MED) remain in Tomcat 10.1.31, which ships with Spring Boot 3.3.5.
 
----
+
 
 ## Security Achievements
 
@@ -25,7 +25,7 @@ This is the improved version of the Spring Boot application with **91 %** of t
 -Latest dependency versions
 -Comprehensive security tests
 
----
+
 
 ## Quick Start
 
@@ -59,7 +59,7 @@ mvn dependency-check:check
 open target/dependency-check-report.html
 ```
 
----
+
 
 ## API Endpoints
 
@@ -91,7 +91,7 @@ curl "http://localhost:8080/health"
 # Response: OK - Secure Version 1.0.0
 ```
 
----
+
 
 ## Security Improvements
 
@@ -132,7 +132,7 @@ if (id < 0 || id >= myArray.length) { // Double-checked
 }
 ```
 
----
+
 
 ## Security Headers
 
@@ -149,7 +149,7 @@ Verify headers:
 curl -I http://localhost:8080/greeting
 ```
 
----
+
 
 ## Testing
 
@@ -178,7 +178,7 @@ open target/site/jacoco/index.html
 # Expected: >80% coverage
 ```
 
----
+
 
 ## Troubleshooting & Residual Risks
 
@@ -206,7 +206,7 @@ open target/site/jacoco/index.html
    - Look under `software-testing/docs/reports/<timestamp>/`.  
    - The script now continues even when the improved module fails; it prints `Scan failed...Continuing` to make that explicit.
 
----
+
 
 ## Project Structure
 ```
@@ -232,7 +232,7 @@ Module2.1-IMPROVED/
 └── README.md                   # This file
 ```
 
----
+
 
 ## Continuous Security
 
@@ -258,7 +258,7 @@ mvn versions:display-dependency-updates
 mvn versions:use-latest-versions
 ```
 
----
+
 
 ## Documentation
 
@@ -272,7 +272,6 @@ mvn versions:use-latest-versions
 - Learn about each vulnerability and its fix
 - Use for security training and awareness
 
----
 
 ## Production Deployment
 
@@ -286,7 +285,7 @@ mvn versions:use-latest-versions
 7. **Container scanning** if using Docker
 8. **Secret management** for credentials
 
----
+
 
 ## Performance
 
@@ -296,7 +295,7 @@ Minimal impact from security improvements:
 - Request latency: +2ms (validation overhead)
 - Acceptable trade-off for security
 
----
+
 
 ## Support
 
@@ -315,7 +314,7 @@ mvn test
 - **Port conflicts**: Change port in application.properties
 - **Build failures**: Run `mvn clean` and retry
 
----
+
 
 ## License & Usage
 
@@ -333,7 +332,7 @@ Security fixes implemented based on:
 - CVE database analysis
 - Industry security standards
 
----
+
 
 **Version**: 1.0.0 (Improved)
 **Last Updated**: 2025-11-10
