@@ -1,4 +1,4 @@
-# Module 2.1 - Spring Boot Application Security Analysis
+# Module 2.1: Spring Boot Application Security Analysis
 
 ## Executive Summary
 
@@ -23,7 +23,7 @@ This module exemplifies [dynamic testing](../../docs/static-dynamic-testing.md) 
 - Discovering vulnerabilities that only manifest during execution
 - Demonstrating the complementary nature of static and dynamic approaches
 
----
+
 
 ## Project Overview
 This is a Spring Boot 2.2.4 application configured with OWASP Dependency-Check for vulnerability scanning. The project demonstrates security vulnerability detection in Java dependencies through dynamic analysis.
