@@ -1,18 +1,19 @@
 # Software Testing Handbook - Security Audit Educational Suite
 <p align="left">
+
+  <!-- Primary navigation -->
   <a href="https://github.com/jguida941/software-testing-handbook/tree/secure-version">
-    <img src="https://img.shields.io/badge/Secure%20version-view-brightgreen?style=flat-square" alt="Secure version">
+    <img alt="Secure Version" src="https://img.shields.io/badge/SECURE%20VERSION-VIEW-2EA043?style=for-the-badge&logo=github&logoColor=white">
   </a>
   <a href="https://github.com/jguida941/software-testing-handbook/tree/vulnerable-version">
-    <img src="https://img.shields.io/badge/Vulnerable%20version-view-red?style=flat-square" alt="Vulnerable version">
-  </a>
-  <a href="https://github.com/jguida941/software-testing-handbook/tree/master">
-    <img src="https://img.shields.io/badge/Docs%20hub-master-blue?style=flat-square" alt="Docs hub">
+    <img alt="Vulnerable Version" src="https://img.shields.io/badge/VULNERABLE%20VERSION-VIEW-DB4545?style=for-the-badge&logo=github&logoColor=white">
   </a>
   <a href="https://github.com/jguida941/software-testing-handbook/compare/vulnerable-version...secure-version">
-    <img src="https://img.shields.io/badge/Compare-branches-informational?style=flat-square" alt="Compare branches">
+    <img alt="Compare Branches" src="https://img.shields.io/badge/COMPARE-branches-6F42C1?style=for-the-badge&logo=github&logoColor=white">
   </a>
-</p>
+  <a href="https://github.com/jguida941/software-testing-handbook/tree/master">
+    <img alt="Docs Hub" src="https://img.shields.io/badge/DOCS-HUB-0A84FF?style=for-the-badge&logo=readthedocs&logoColor=white">
+  </a>
 
 
 #### IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
