@@ -61,12 +61,12 @@ Java:             17
 ### 1. SpEL Injection (Custom Code)
 **Issue:** Direct evaluation of user input via SpelExpressionParser
 **Fix:** Removed parser, added input validation with regex patterns
-**Status:** FIXED
+**Status:** ✅ FIXED
 
 ### 2. Array Bounds Violation
 **Issue:** No bounds checking on array access
 **Fix:** Added @Min/@Max validation annotations and defensive checks
-**Status:** FIXED
+**Status:** ✅ FIXED
 
 ---
 

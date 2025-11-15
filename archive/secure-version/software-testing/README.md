@@ -236,10 +236,10 @@ This handbook is designed for educational purposes. Use these examples to:
 
 ---
 
-**Remember**: *The 162 vulnerabilities found in our Java example represent real risks that could compromise entire systems. This is why comprehensive testing both static and dynamic is not optional but essential for modern software development.*
+**Remember**: *The 162 vulnerabilities found in our Java example represent real risks that could compromise entire systems. This is why comprehensive testing—both static and dynamic—is not optional but essential for modern software development.*
 
 ---
-*Last Updated: November 2025*
+*Last Updated: November 2024*
 *Handbook Version: 2.0*
 # Software Testing Handbook
 
