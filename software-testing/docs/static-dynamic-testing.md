@@ -1,5 +1,5 @@
 # Static and Dynamic Testing
-A concise overview of how static and dynamic testing complement each other in software quality assurance._
+_A concise overview of how static and dynamic testing complement each other in software quality assurance._
 
 This document explains the purpose, methods, and differences between static and dynamic software testing.
 
@@ -35,11 +35,11 @@ AI-based static analysis tools, such as CodeRabbit, can automatically review cod
 
 ### Static Tool Highlights
 
-| Tool   | Reason                                                                    |
-|--------|---------------------------------------------------------------------------|
-| Pylint | Finds style, naming, and logic issues without running the program.        |
+| Tool | Reason |
+| --- | --- |
+| Pylint | Finds style, naming, and logic issues without running the program. |
 | Flake8 | Combines PyFlakes and pycodestyle checks for logic and formatting issues. |
-| Mypy   | Checks type consistency using annotations before execution.               |
+| Mypy | Checks type consistency using annotations before execution. |
 
 Overall, static testing helps detect and correct defects early, reducing issues that appear during execution and improving software quality.
 
@@ -70,11 +70,11 @@ Common forms include:
 
 ### Dynamic Tool Highlights
 
-| Tool              | Reason                                                                  |
-|-------------------|-------------------------------------------------------------------------|
-| pytest / unittest | Execute tests to verify behavior and assertions at runtime.             |
-| coverage.py       | Runs the program or tests and reports which code paths executed.        |
-| Selenium          | Drives the application through the UI to observe real runtime behavior. |
+| Tool | Reason |
+| --- | --- |
+| pytest / unittest | Execute tests to verify behavior and assertions at runtime. |
+| coverage.py | Runs the program or tests and reports which code paths executed. |
+| Selenium | Drives the application through the UI to observe real runtime behavior. |
 
 ## Differences Between Static and Dynamic Testing
 

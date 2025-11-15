@@ -18,7 +18,7 @@
     <artifactId>Module2.1-Improved</artifactId>
     <version>1.0.0</version>
     <name>Module2.1-Improved</name>
-    <description>Improved Spring Boot demo project - 91% of vulnerabilities mitigated (18 Tomcat CVEs remain)</description>
+    <description>Improved Spring Boot demo project - 91% of vulnerabilities mitigated (15 remain)</description>
 
     <properties>
         <!-- SECURITY FIX: Upgraded from Java 8 to Java 17 (LTS) -->

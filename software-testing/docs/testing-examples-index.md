@@ -55,10 +55,10 @@ This index provides a comprehensive catalog of all testing examples in the Softw
 
 ## 📊 Comparative Analysis
 
-| Example         | Language | Testing Type | Tools        | Issues Found | Business Impact        |
-|-----------------|----------|--------------|--------------|--------------|------------------------|
-| Static Analysis | Python   | Static       | Pylint, Mypy | 23           | Code maintainability   |
-| Security Scan   | Java     | Dynamic      | OWASP DC     | 162          | Critical security risk |
+| Example | Language | Testing Type | Tools | Issues Found | Business Impact |
+|---------|----------|--------------|-------|--------------|-----------------|
+| Static Analysis | Python | Static | Pylint, Mypy | 23 | Code maintainability |
+| Security Scan | Java | Dynamic | OWASP DC | 162 | Critical security risk |
 
 ## 🎯 Learning Paths by Role
 
@@ -119,11 +119,11 @@ open target/dependency-check-report.html
 - **Total**: 185 issues
 
 ### Time Investment vs Value
-| Activity               | Time       | Issues Found | Value                  |
-|------------------------|------------|--------------|------------------------|
-| Python Static Analysis | 20 min     | 23           | High (early detection) |
-| Java Security Scan     | 45 min     | 162          | Critical (security)    |
-| **Total**              | **65 min** | **185**      | **Exceptional ROI**    |
+| Activity | Time | Issues Found | Value |
+|----------|------|--------------|-------|
+| Python Static Analysis | 20 min | 23 | High (early detection) |
+| Java Security Scan | 45 min | 162 | Critical (security) |
+| **Total** | **65 min** | **185** | **Exceptional ROI** |
 
 ## 🚀 Next Examples to Add
 
