@@ -1,4 +1,4 @@
-# Module 2.1 - Spring Boot Application Security Analysis
+# Module 2.1: Spring Boot Application Security Analysis
 
 ## Executive Summary
 
@@ -23,7 +23,7 @@ This module exemplifies [dynamic testing](../../docs/static-dynamic-testing.md) 
 - Discovering vulnerabilities that only manifest during execution
 - Demonstrating the complementary nature of static and dynamic approaches
 
----
+
 
 ## Project Overview
 This is a Spring Boot 2.2.4 application configured with OWASP Dependency-Check for vulnerability scanning. The project demonstrates security vulnerability detection in Java dependencies through dynamic analysis.
@@ -73,7 +73,7 @@ The OWASP Dependency-Check plugin is already configured in `pom.xml`:
 
 #### Step 1: Navigate to the project directory
 ```bash
-cd /Users/jguida941/new_github_projects/software-testing-handbook/software-testing/java/Module2.1
+cd software-testing/java/Module2.1
 ```
 
 #### Step 2: Run the dependency check
@@ -98,7 +98,7 @@ open target/dependency-check-report.html
 ## Scan Results Summary (November 9, 2025)
 
 ### Statistics
-- **Total Vulnerabilities Found**: 162 (across 96 unique CVEs)
+- **Total Vulnerabilities Found**: 162 (across 90 unique CVEs)
 - **Report Size**: 2.4MB (HTML), 1.6MB (JSON)
 - **OWASP DC Version**: 11.0.0
 - **NVD Database Version**: 11.0 (from November 5, 2025)
@@ -383,7 +383,7 @@ Module2.1/
 - [Spring Boot Security Best Practices](https://spring.io/projects/spring-security)
 - [CVE Details](https://www.cvedetails.com/)
 
-## Notes for Rubric Compliance
+## Notes
 The generated report includes:
 - Scan date and time
 - Engine version (11.0.0)
@@ -391,9 +391,6 @@ The generated report includes:
 - Comprehensive list of all dependencies
 - Detailed vulnerability information with CVE IDs
 - Severity scores and descriptions
-
-## Contact
-For questions about this security scan or the Module 2.1 project, please refer to the course materials or contact your instructor.
 
 ---
 *Last Updated: November 9, 2025*

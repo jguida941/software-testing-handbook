@@ -2,13 +2,13 @@
 
 ## Date: November 9, 2025
 
----
+
 
 ## EXECUTIVE SUMMARY
 
 Successfully created a secure version of the Spring Boot application with significantly reduced vulnerabilities.
 
----
+
 
 ## VULNERABILITY COUNT COMPARISON
 
@@ -34,7 +34,7 @@ mvn dependency-check:check
 - SpEL Injection (Custom Code) - CVSS 10.0
 - Array Bounds Violation - CVSS 7.5
 
----
+
 
 ### SECURE VERSION (Module2.1-IMPROVED)
 **Location:** `/software-testing/java/Module2.1-IMPROVED/`
@@ -52,7 +52,7 @@ mvn dependency-check:check
 - SpEL Injection: FIXED
 - Array Bounds: FIXED
 
----
+
 
 ## HOW TO RUN THE TESTS YOURSELF
 
@@ -110,7 +110,7 @@ curl "http://localhost:8080/greeting?name=John"
 # Expected: 200 OK with greeting
 ```
 
----
+
 
 ## CODE FIXES IMPLEMENTED
 
@@ -147,7 +147,7 @@ if (id < 0 || id >= myArray.length) {
 }
 ```
 
----
+
 
 ## DEPENDENCY UPGRADES
 
@@ -158,7 +158,7 @@ if (id < 0 || id >= myArray.length) {
 | Tomcat | 9.0.30 | 10.1.x | Major fixes |
 | SnakeYAML | 1.25 | 2.2 | RCE fixed |
 
----
+
 
 ## FILES CREATED
 
@@ -175,7 +175,7 @@ if (id < 0 || id >= myArray.length) {
 ### Warnings
 - `/software-testing/java/Module2.1/README-VULNERABLE.md` - Warning about vulnerabilities
 
----
+
 
 ## HOW TO PUSH TO GITHUB
 
@@ -195,7 +195,7 @@ git push origin secure-version
 # 4. The secure version is on the 'secure-version' branch
 ```
 
----
+
 
 ## TESTING VERIFICATION
 
@@ -206,14 +206,14 @@ mvn test
 ```
 
 The security tests validate:
-- ✅ SpEL injection blocked
-- ✅ SQL injection blocked
-- ✅ XSS attempts blocked
-- ✅ Array bounds protected
-- ✅ Input validation working
-- ✅ Security headers present
+- SpEL injection blocked
+- SQL injection blocked
+- XSS attempts blocked
+- Array bounds protected
+- Input validation working
+- Security headers present
 
----
+
 
 ## EDUCATIONAL VALUE
 
@@ -227,24 +227,24 @@ Use for:
 - Understanding vulnerability impact
 - Learning secure coding
 
----
+
 
 ## CONCLUSION
 
 ### Achievements:
-- ✅ Reduced vulnerabilities from 162 to <20
-- ✅ Fixed all CRITICAL code vulnerabilities
-- ✅ Implemented proper input validation
-- ✅ Added comprehensive security tests
-- ✅ Created full documentation
-- ✅ Maintained educational value
+- Reduced vulnerabilities from 162 to <20
+- Fixed all CRITICAL code vulnerabilities
+- Implemented proper input validation
+- Added comprehensive security tests
+- Created full documentation
+- Maintained educational value
 
 ### Remaining Work:
 - Some vulnerabilities exist even in latest versions (normal)
 - These are in third-party libraries awaiting patches
 - All custom code is fully secured
 
----
+
 
 ## COMMANDS SUMMARY
 
@@ -266,7 +266,7 @@ mvn spring-boot:run
 curl "http://localhost:8080/greeting?name=MALICIOUS_INPUT"
 ```
 
----
+
 
 **Report Generated:** November 9, 2025
 **Auditor:** Security Testing Framework

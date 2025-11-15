@@ -1,31 +1,30 @@
-# Module2.1-IMPROVED (formerly `Module2.1-SECURE`)
+# Module 2.1: IMPROVED
 
-## ⚠️ Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
+### Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
 
 This is the improved version of the Spring Boot application with **91 %** of the original 162 vulnerabilities mitigated. **15 residual CVEs** (4 CRITICAL / 8 HIGH / 3 MED) remain in Tomcat 10.1.31, which ships with Spring Boot 3.3.5.
 
----
 
 ## Security Achievements
 
-### 🛡️ Vulnerability Remediation
-- **4 CRITICAL vulnerabilities remain** (was 21) – Tomcat 10.1.31
-- **8 HIGH vulnerabilities remain** (was 69) – Tomcat DoS issues
-- **15 total vulnerabilities remain** (was 162 total / 90 unique CVEs) – 91 % reduction
+### Vulnerability Remediation
+- **4 CRITICAL vulnerabilities remain** (was 21) -Tomcat 10.1.31
+- **8 HIGH vulnerabilities remain** (was 69) -Tomcat DoS issues
+- **15 total vulnerabilities remain** (was 162 total / 90 unique CVEs) -91 % reduction
 - **Note**: Upstream Spring Boot 3.3.5 does not yet expose Tomcat 10.1.35+, so these CVEs persist until the dependency is released.
-- **91 % remediation rate** – Dependency-Check still fails because CVSS ≥ 7 findings remain
+- **91 % remediation rate** -Dependency-Check still fails because CVSS ≥ 7 findings remain
 
-### 🔐 Security Features Implemented
-- ✅ Modern Spring Boot 3.3.5 (upgraded from 2.2.4)
-- ✅ Java 17 LTS (upgraded from Java 8)
-- ✅ Input validation and sanitization
-- ✅ Security headers configured
-- ✅ SpEL injection prevention
-- ✅ Array bounds protection
-- ✅ Latest dependency versions
-- ✅ Comprehensive security tests
+### Security Features Implemented
+-Modern Spring Boot 3.3.5 (upgraded from 2.2.4)
+-Java 17 LTS (upgraded from Java 8)
+-Input validation and sanitization
+-Security headers configured
+-SpEL injection prevention
+-Array bounds protection
+-Latest dependency versions
+-Comprehensive security tests
 
----
+
 
 ## Quick Start
 
@@ -55,11 +54,11 @@ mvn test -Dtest=SecurityTests
 # Run OWASP dependency check
 mvn dependency-check:check
 
-# Check report (should show 0 high/critical)
+# Check report (expect 4 critical / 8 high / 3 medium Tomcat CVEs)
 open target/dependency-check-report.html
 ```
 
----
+
 
 ## API Endpoints
 
@@ -91,7 +90,7 @@ curl "http://localhost:8080/health"
 # Response: OK - Secure Version 1.0.0
 ```
 
----
+
 
 ## Security Improvements
 
@@ -132,7 +131,7 @@ if (id < 0 || id >= myArray.length) { // Double-checked
 }
 ```
 
----
+
 
 ## Security Headers
 
@@ -149,7 +148,7 @@ Verify headers:
 curl -I http://localhost:8080/greeting
 ```
 
----
+
 
 ## Testing
 
@@ -178,7 +177,7 @@ open target/site/jacoco/index.html
 # Expected: >80% coverage
 ```
 
----
+
 
 ## Troubleshooting & Residual Risks
 
@@ -206,7 +205,7 @@ open target/site/jacoco/index.html
    - Look under `software-testing/docs/reports/<timestamp>/`.  
    - The script now continues even when the improved module fails; it prints `Scan failed...Continuing` to make that explicit.
 
----
+
 
 ## Project Structure
 ```
@@ -232,7 +231,7 @@ Module2.1-IMPROVED/
 └── README.md                   # This file
 ```
 
----
+
 
 ## Continuous Security
 
@@ -258,7 +257,7 @@ mvn versions:display-dependency-updates
 mvn versions:use-latest-versions
 ```
 
----
+
 
 ## Documentation
 
@@ -272,7 +271,6 @@ mvn versions:use-latest-versions
 - Learn about each vulnerability and its fix
 - Use for security training and awareness
 
----
 
 ## Production Deployment
 
@@ -286,7 +284,7 @@ mvn versions:use-latest-versions
 7. **Container scanning** if using Docker
 8. **Secret management** for credentials
 
----
+
 
 ## Performance
 
@@ -296,7 +294,7 @@ Minimal impact from security improvements:
 - Request latency: +2ms (validation overhead)
 - Acceptable trade-off for security
 
----
+
 
 ## Support
 
@@ -315,15 +313,15 @@ mvn test
 - **Port conflicts**: Change port in application.properties
 - **Build failures**: Run `mvn clean` and retry
 
----
+
 
 ## License & Usage
 
 This improved version is safe for:
-- ⚠️ Production use only with compensating controls for the remaining Tomcat CVEs
-- ✅ Development, testing, and educational comparisons
+-Production use only with compensating controls for the remaining Tomcat CVEs
+-Development, testing, and educational comparisons
 
----
+
 
 ## Credits
 
@@ -333,8 +331,8 @@ Security fixes implemented based on:
 - CVE database analysis
 - Industry security standards
 
----
 
+---
 **Version**: 1.0.0 (Improved)
 **Last Updated**: 2025-11-10
-**Security Status**: ⚠️ 15 residual CVEs (4 CRITICAL / 8 HIGH / 3 MED)
+**Security Status**:  15 residual CVEs (4 CRITICAL / 8 HIGH / 3 MED)
