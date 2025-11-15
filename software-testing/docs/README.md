@@ -18,7 +18,7 @@ This folder holds every guide, audit, and reference for the Software Testing Han
 
 ## Status & Setup
 
-- `status/HONEST-SECURITY-STATUS.md` – Snapshot of the latest “secure” (Module2.1-IMPROVED) risk, including the 15 residual Tomcat CVEs.
+- `status/HONEST-SECURITY-STATUS.md` – Snapshot of the latest “secure” (Module2.1-IMPROVED) risk, including the 18 residual Tomcat CVEs.
 - `status/OSS-INDEX-SETUP.md` – How to create OSS Index API tokens and run the automated scan script.
 
 ## Audit Archive

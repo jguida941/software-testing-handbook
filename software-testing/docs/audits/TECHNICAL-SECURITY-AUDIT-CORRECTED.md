@@ -6,7 +6,7 @@
 
 ## EXECUTIVE SUMMARY
 
-Upgrading to Spring Boot 3.3.5 (Java 17) and SnakeYAML 2.2 reduced observed vulnerabilities from 162 to **15** (4 CRITICAL / 8 HIGH / 3 MEDIUM) in this project. Results are from our run on November 9, 2025 and will vary by environment, OWASP database version, and mirror updates.
+Upgrading to Spring Boot 3.3.5 (Java 17) and SnakeYAML 2.2 reduced observed vulnerabilities from 162 to **18** (5 CRITICAL / 9 HIGH / 4 MEDIUM) in this project. Results are from our run on November 15, 2025 and will vary by environment, OWASP database version, and mirror updates.
 
 ---
 
@@ -50,7 +50,7 @@ Java:             17
 ```
 
 **Observed Results:**
-- 15 remaining vulnerabilities (Tomcat 10.1.31 via Spring Boot 3.3.5)
+- 18 remaining vulnerabilities (Tomcat 10.1.31 via Spring Boot 3.3.5)
 - All custom code vulnerabilities FIXED
 - Massive reduction from baseline
 
@@ -162,7 +162,7 @@ curl "http://localhost:8080/greeting?name=T(java.lang.Runtime).getRuntime().exec
 
 ## CONCLUSION
 
-The upgrade successfully addresses the custom-code vulnerabilities identified. The remaining 15 issues are in current Tomcat libraries awaiting upstream patches. All custom code vulnerabilities have been remediated with proper input validation and secure coding practices.
+The upgrade successfully addresses the custom-code vulnerabilities identified. The remaining 18 issues are in current Tomcat libraries awaiting upstream patches. All custom code vulnerabilities have been remediated with proper input validation and secure coding practices.
 
 **Key Achievement:** Reduced attack surface by >90% through systematic dependency updates and code fixes.
 

@@ -53,7 +53,7 @@ mvn dependency-check:check
 git checkout secure-version
 cd software-testing/java/Module2.1-IMPROVED
 mvn dependency-check:check
-# See massive reduction (15 residual Tomcat CVEs remain)
+# See massive reduction (18 residual Tomcat CVEs remain)
 ```
 
 ---
@@ -63,7 +63,7 @@ mvn dependency-check:check
 | Version | Branch | Vulnerabilities | Status |
 |---------|--------|----------------|---------|
 | Original | `vulnerable-version` | 162+ (21 CRITICAL) | Educational Only |
-| Improved | `secure-version` | 15 (4 CRITICAL / 8 HIGH / 3 MED) | Significantly improved, not zero |
+| Improved | `secure-version` | 18 (5 CRITICAL / 9 HIGH / 4 MED) | Significantly improved, not zero |
 
 > Production readiness still requires Tomcat 10.1.35+ or compensating controls (see `software-testing/docs/status/HONEST-SECURITY-STATUS.md`)
 
@@ -168,7 +168,7 @@ The `vulnerable-version` branch contains:
 ## Results
 
 - **Before**: 162+ vulnerabilities
-- **After**: 91% reduction (162 → 15; 4 CRITICAL + 8 HIGH + 3 MED remain)
+- **After**: 91% reduction (162 → 18; 5 CRITICAL + 9 HIGH + 4 MED remain)
 - **All critical custom code issues**: FIXED
 - **Educational value**: PRESERVED
 

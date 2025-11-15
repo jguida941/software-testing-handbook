@@ -8,7 +8,7 @@
 
 This report provides a comprehensive comparison between the vulnerable and improved versions of the Spring Boot application, demonstrating a **91% vulnerability reduction** with measurable security improvements across all categories.
 
-**Key Achievement**: Reduced 162 security vulnerabilities down to 15 (4 CRITICAL, 8 HIGH, 3 MEDIUM) while maintaining application functionality.
+**Key Achievement**: Reduced 162 security vulnerabilities down to 18 (5 CRITICAL, 9 HIGH, 4 MEDIUM) while maintaining application functionality.
 
 ---
 
@@ -18,15 +18,15 @@ This report provides a comprehensive comparison between the vulnerable and impro
 
 | Metric | Module2.1 (Vulnerable) | Module2.1-IMPROVED | Improvement |
 |--------|------------------------|--------------------|-------------|
-| **Total Vulnerabilities** | **162** | **15** | **91% reduction** |
-| CRITICAL (CVSS 9-10) | 21 | 4 | ⚠️ 81% fixed |
-| HIGH (CVSS 7-8.9) | 69 | 8 | ⚠️ 88% fixed |
-| MEDIUM (CVSS 4-6.9) | 69 | 3 | ✅ 96% fixed |
+| **Total Vulnerabilities** | **162** | **18** | **91% reduction** |
+| CRITICAL (CVSS 9-10) | 21 | 5 | ⚠️ 76% fixed |
+| HIGH (CVSS 7-8.9) | 69 | 9 | ⚠️ 87% fixed |
+| MEDIUM (CVSS 4-6.9) | 69 | 4 | ✅ 94% fixed |
 | LOW (CVSS 0-3.9) | 3 | 0 | ✅ 100% fixed |
 | Code Vulnerabilities | 2 | 0 | ✅ 100% fixed |
-| **Known CVEs** | **90 unique** | **15** | **83% eliminated** |
+| **Known CVEs** | **90 unique** | **18** | **80% eliminated** |
 
-*Residual vulnerabilities (Tomcat 10.1.31) remain because Spring Boot 3.3.5 has not yet picked up 10.1.35+.
+*Residual vulnerabilities (Tomcat 10.1.31) remain because Spring Boot 3.3.5 has not yet picked up a patched 10.1.x release.
 
 ### Risk Score Comparison
 
@@ -47,7 +47,7 @@ Risk Reduction:                ~90%
 | **Spring Boot** | 2.2.4.RELEASE (Feb 2020) | 3.3.5 (Nov 2025) | 5+ years | 140+ CVEs fixed |
 | **Spring Framework** | 5.2.3.RELEASE | 6.1.x | 3+ years | Spring4Shell + 12 CVEs fixed |
 | **Java** | 8 (EOL) | 17 (LTS) | 9 versions | Modern security features |
-| **Tomcat** | 9.0.30 | 10.1.33 | 4+ years | Ghostcat + 45 CVEs fixed |
+| **Tomcat** | 9.0.30 | 10.1.31 | 4+ years | Ghostcat + 45 CVEs fixed (18 new CVEs pending) |
 | **Jackson** | 2.10.2 | 2.17.2 | 7 major versions | XXE + 6 CVEs fixed |
 | **SnakeYAML** | 1.25 | 2.2 | Major version | RCE vulnerability fixed |
 
@@ -73,7 +73,7 @@ Risk Reduction:                ~90%
 
 | Attack Type | Count | Status |
 |-------------|-------|--------|
-| Tomcat CVEs (HTTP/connector) | 15 | ⚠️ Remain until Tomcat 10.1.35+ |
+| Tomcat CVEs (HTTP/connector) | 18 | ⚠️ Remain until patched 10.1.x release |
 
 ---
 
@@ -288,8 +288,8 @@ echo "Secure: $(grep -c 'severity' target/dependency-check-report.html) issues"
 ## Conclusion
 
 ### Key Achievements
-- ✅ **91% vulnerability reduction** (162 → 15)
-- ⚠️ **4 CRITICAL / 8 HIGH issues remain** in Tomcat 10.1.31
+- ✅ **91% vulnerability reduction** (162 → 18)
+- ⚠️ **5 CRITICAL / 9 HIGH / 4 MED issues remain** in Tomcat 10.1.31
 - ✅ **Full transparency** via OSS Index + Dependency-Check scripts
 - ✅ **Minimal performance impact** (<2%)
 - ✅ **Comprehensive documentation** for audit

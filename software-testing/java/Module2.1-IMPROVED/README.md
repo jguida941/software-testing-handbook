@@ -2,16 +2,16 @@
 
 ## ⚠️ Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
 
-This is the improved version of the Spring Boot application with **91 %** of the original 162 vulnerabilities mitigated. **15 residual CVEs** (4 CRITICAL / 8 HIGH / 3 MED) remain in Tomcat 10.1.31, which ships with Spring Boot 3.3.5.
+This is the improved version of the Spring Boot application with **91 %** of the original 162 vulnerabilities mitigated. **18 residual CVEs** (5 CRITICAL / 9 HIGH / 4 MED) remain in Tomcat 10.1.31, which ships with Spring Boot 3.3.5.
 
 ---
 
 ## Security Achievements
 
 ### 🛡️ Vulnerability Remediation
-- **4 CRITICAL vulnerabilities remain** (was 21) – Tomcat 10.1.31
-- **8 HIGH vulnerabilities remain** (was 69) – Tomcat DoS issues
-- **15 total vulnerabilities remain** (was 162 total / 90 unique CVEs) – 91 % reduction
+- **5 CRITICAL vulnerabilities remain** (was 21) – Tomcat 10.1.31
+- **9 HIGH vulnerabilities remain** (was 69) – Tomcat DoS/issues
+- **18 total vulnerabilities remain** (was 162 total / 90 unique CVEs) – 91 % reduction
 - **Note**: Upstream Spring Boot 3.3.5 does not yet expose Tomcat 10.1.35+, so these CVEs persist until the dependency is released.
 - **91 % remediation rate** – Dependency-Check still fails because CVSS ≥ 7 findings remain
 
@@ -55,7 +55,7 @@ mvn test -Dtest=SecurityTests
 # Run OWASP dependency check
 mvn dependency-check:check
 
-# Check report (should show 0 high/critical)
+# Check report (expected: 5 CRITICAL / 9 HIGH / 4 MED tied to tomcat-embed-core-10.1.31)
 open target/dependency-check-report.html
 ```
 
@@ -100,7 +100,7 @@ curl "http://localhost:8080/health"
 |-----------|-------------|-------------|------------|
 | Spring Boot | 2.2.4.RELEASE | 3.3.5 | 140+ |
 | Java | 8 | 17 | Multiple |
-| Tomcat | 9.0.30 | 10.1.33 | 46 |
+| Tomcat | 9.0.30 | 10.1.31 | 46 (18 newly disclosed CVEs still open) |
 | SnakeYAML | 1.25 | 2.2 | 8 |
 | Jackson | 2.10.2 | 2.17.2 | 6 |
 
@@ -183,7 +183,7 @@ open target/site/jacoco/index.html
 ## Troubleshooting & Residual Risks
 
 1. **`dependency-check:check` still fails**  
-   - Expected: Tomcat 10.1.31 (bundled with Spring Boot 3.3.5) still carries ~15 CVEs.  
+   - Expected: Tomcat 10.1.31 (bundled with Spring Boot 3.3.5) still carries 18 CVEs (5 CRIT / 9 HIGH / 4 MED).  
    - Options:  
      - Accept/document the residual risk (educational default).  
      - Manually override Tomcat to a patched release (e.g., 10.1.44) in `pom.xml` and rerun the full regression suite:
@@ -302,7 +302,7 @@ Minimal impact from security improvements:
 
 ### Verification Commands
 ```bash
-# Verify current vulnerability counts (expected: 15 findings → build fails CVSS≥7 gate)
+# Verify current vulnerability counts (expected: 18 findings – all from tomcat-embed-core-10.1.31)
 mvn dependency-check:check || true
 grep -E "CRITICAL|HIGH" target/dependency-check-report.html
 
@@ -337,4 +337,4 @@ Security fixes implemented based on:
 
 **Version**: 1.0.0 (Improved)
 **Last Updated**: 2025-11-10
-**Security Status**: ⚠️ 15 residual CVEs (4 CRITICAL / 8 HIGH / 3 MED)
+**Security Status**: ⚠️ 18 residual CVEs (5 CRITICAL / 9 HIGH / 4 MED)

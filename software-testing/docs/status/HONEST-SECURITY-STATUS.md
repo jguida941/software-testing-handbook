@@ -4,13 +4,13 @@
 
 | Metric | Vulnerable (`Module2.1`) | Improved (`Module2.1-IMPROVED`) |
 |--------|-------------------------|----------------------------------|
-| Total vulnerabilities | 162 | 15 |
-| Critical (CVSS ≥ 9) | 21 | 4 (Tomcat 10.1.31) |
-| High (CVSS 7–8.9) | 69 | 8 |
-| Medium (CVSS 4–6.9) | 69 | 3 |
+| Total vulnerabilities | 162 | 18 |
+| Critical (CVSS ≥ 9) | 21 | 5 (Tomcat 10.1.31) |
+| High (CVSS 7–8.9) | 69 | 9 |
+| Medium (CVSS 4–6.9) | 69 | 4 |
 | Low | 3 | 0 |
 
-> **Status**: 91 % reduction, **not** zero. Dependency-Check still fails the CVSS≥7 threshold because of Tomcat CVEs bundled with Spring Boot 3.3.5.
+> **Status**: 91 % reduction, **not** zero. Dependency-Check still fails the CVSS≥7 threshold because of the 18 Tomcat CVEs bundled with Spring Boot 3.3.5.
 
 ## Why Issues Remain
 
