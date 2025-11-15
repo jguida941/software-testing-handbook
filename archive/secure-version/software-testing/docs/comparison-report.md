@@ -16,15 +16,15 @@ This report provides a comprehensive comparison between the vulnerable and impro
 
 ### Overall Statistics
 
-| Metric | Module2.1 (Vulnerable) | Module2.1-IMPROVED | Improvement |
-|--------|------------------------|--------------------|-------------|
-| **Total Vulnerabilities** | **162** | **15** | **91% reduction** |
-| CRITICAL (CVSS 9-10) | 21 | 4 | ⚠️ 81% fixed |
-| HIGH (CVSS 7-8.9) | 69 | 8 | ⚠️ 88% fixed |
-| MEDIUM (CVSS 4-6.9) | 69 | 3 | ✅ 96% fixed |
-| LOW (CVSS 0-3.9) | 3 | 0 | ✅ 100% fixed |
-| Code Vulnerabilities | 2 | 0 | ✅ 100% fixed |
-| **Known CVEs** | **90 unique** | **15** | **83% eliminated** |
+| Metric                    | Module2.1 (Vulnerable) | Module2.1-IMPROVED | Improvement        |
+|---------------------------|------------------------|--------------------|--------------------|
+| **Total Vulnerabilities** | **162**                | **15**             | **91% reduction**  |
+| CRITICAL (CVSS 9-10)      | 21                     | 4                  | ⚠️ 81% fixed       |
+| HIGH (CVSS 7-8.9)         | 69                     | 8                  | ⚠️ 88% fixed       |
+| MEDIUM (CVSS 4-6.9)       | 69                     | 3                  | ✅ 96% fixed        |
+| LOW (CVSS 0-3.9)          | 3                      | 0                  | ✅ 100% fixed       |
+| Code Vulnerabilities      | 2                      | 0                  | ✅ 100% fixed       |
+| **Known CVEs**            | **90 unique**          | **15**             | **83% eliminated** |
 
 *Residual vulnerabilities (Tomcat 10.1.31) remain because Spring Boot 3.3.5 has not yet picked up 10.1.35+.
 

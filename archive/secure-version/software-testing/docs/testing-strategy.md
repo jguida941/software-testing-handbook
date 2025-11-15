@@ -2,7 +2,11 @@
 
 ## Overview
 
-This document provides a complete testing strategy to verify that all 162+ security vulnerabilities have been successfully remediated. It serves both **educational purposes** (teaching security testing) and **audit requirements** (proving fixes work).
+This document provides a complete testing strategy to verify remediation of the 162 tracked vulnerabilities in the Java Spring Boot application. It serves both **educational purposes** (teaching security testing) and **audit requirements** (proving which fixes work and which residual risks remain under mitigation).
+
+**Current status**: 144 vulnerabilities are fixed (≈91%); 18 Tomcat CVEs (5 CRITICAL, 9 HIGH, 4 MEDIUM) remain open because Spring Boot 3.3.5 still bundles `tomcat-embed-core-10.1.31`. All tests and scans described below should therefore confirm:
+- Only the known Tomcat CVEs are reported by OWASP Dependency-Check
+- No application-level or non-Tomcat dependency vulnerabilities reappear
 
 ---
 
@@ -20,13 +24,13 @@ This document provides a complete testing strategy to verify that all 162+ secur
 
 ## Testing Phases
 
-| Phase | Focus | Tools | Expected Outcome |
-|-------|-------|-------|------------------|
-| 1 | Dependency Vulnerabilities | OWASP DC | 0 HIGH/CRITICAL |
-| 2 | Code Vulnerabilities | Manual/Automated | All injections blocked |
-| 3 | Security Headers | curl, browser | All headers present |
-| 4 | Penetration Testing | Custom scripts | All attacks fail |
-| 5 | Automated Tests | JUnit/Maven | 100% pass rate |
+| Phase | Focus                      | Tools            | Expected Outcome       |
+|-------|----------------------------|------------------|------------------------|
+| 1     | Dependency Vulnerabilities | OWASP DC         | Only the 18 known Tomcat CVEs appear (5 CRIT / 9 HIGH / 4 MED) |
+| 2     | Code Vulnerabilities       | Manual/Automated | All injections blocked |
+| 3     | Security Headers           | curl, browser    | All headers present    |
+| 4     | Penetration Testing        | Custom scripts   | All attacks fail       |
+| 5     | Automated Tests            | JUnit/Maven      | 43/43 tests pass       |
 
 ---
 
@@ -66,7 +70,7 @@ mvn clean compile
 ## Phase 1: Dependency Vulnerability Testing
 
 ### Objective
-Verify that all 162 dependency vulnerabilities are fixed.
+Verify that dependency scanning reports only the 18 known Tomcat CVEs (5 CRITICAL, 9 HIGH, 4 MEDIUM) and no regressions in other components.
 
 ### Test 1.1: Baseline Vulnerability Scan (Vulnerable Version)
 ```bash
@@ -88,12 +92,37 @@ grep -c "severity.*CRITICAL\|HIGH" target/dependency-check-report.html
 cd ../Module2.1-IMPROVED
 mvn dependency-check:check
 
-# Check for remaining vulnerabilities
-grep -c "severity.*CRITICAL\|HIGH" target/dependency-check-report.html
+# Summarize remaining vulnerabilities (expects Tomcat-only findings)
+python - <<'PY'
+import json, sys
+from pathlib import Path
+data=json.loads(Path('target/dependency-check-report.json').read_text())
+counts={'CRITICAL':0,'HIGH':0,'MEDIUM':0}
+expected={'CRITICAL':5,'HIGH':9,'MEDIUM':4}
+unexpected=[]
+for dep in data.get('dependencies', []):
+    file=dep.get('fileName','')
+    for vuln in dep.get('vulnerabilities') or []:
+        sev=vuln.get('severity','UNKNOWN')
+        if file != 'tomcat-embed-core-10.1.31.jar':
+            unexpected.append(f"{vuln.get('name')} ({sev}) in {file}")
+        if sev in counts:
+            counts[sev]+=1
+print('Counts:', counts)
+for key, expected_value in expected.items():
+    if counts.get(key, 0) != expected_value:
+        print('Unexpected counts detected; investigate the dependency tree!')
+        sys.exit(1)
+if unexpected:
+    print('Unexpected vulnerabilities detected:')
+    for item in unexpected:
+        print('-', item)
+    sys.exit(1)
+PY
 ```
 
 **Expected Result**:
-- 4 CRITICAL + 8 HIGH + 3 MEDIUM findings (Tomcat 10.1.31)
+- 5 CRITICAL + 9 HIGH + 4 MEDIUM findings (all from tomcat-embed-core-10.1.31)
 - Build fails because `failBuildOnCVSS` is set to 7 (intended)
 - HTML/JSON reports stored under `target/`
 
@@ -297,7 +326,7 @@ cd software-testing/java/Module2.1-IMPROVED
 mvn clean test
 
 # Expected output:
-# Tests run: 40+, Failures: 0, Errors: 0, Skipped: 0
+# Tests run: 43, Failures: 0, Errors: 0, Skipped: 0
 ```
 
 ### Test 5.2: Run Security-Specific Tests
@@ -305,7 +334,7 @@ mvn clean test
 # Run only security tests
 mvn test -Dtest=SecurityTests
 
-# Expected: All 30+ security tests pass
+# Expected: All 27 security tests pass
 ```
 
 ### Test 5.3: Run With Coverage
@@ -365,7 +394,7 @@ echo "Report generated: test-results.md"
 ### Success Criteria Checklist
 
 - [ ] **Dependency Vulnerabilities**
-  - [ ] Dependency-Check reports show 4 CRITICAL + 8 HIGH Tomcat CVEs (expected until 10.1.35+)
+  - [ ] Dependency-Check reports show exactly 5 CRITICAL + 9 HIGH + 4 MEDIUM Tomcat CVEs (expected until a patched 10.1.x ships)
   - [ ] Reports archived under `software-testing/docs/reports/<date>/`
   - [ ] Dependency versions (Spring Boot 3.3.5 / Tomcat 10.1.31 / SnakeYAML 2.2) documented
 
@@ -422,10 +451,35 @@ jobs:
 
       - name: Check for vulnerabilities
         run: |
-          if grep -q "CRITICAL\|HIGH" target/dependency-check-report.html; then
-            echo "Security vulnerabilities found!"
-            exit 1
-          fi
+          cd Module2.1-IMPROVED
+          python - <<'PY'
+import json, sys
+from pathlib import Path
+data=json.loads(Path('target/dependency-check-report.json').read_text())
+allowed={'tomcat-embed-core-10.1.31.jar'}
+expected={'CRITICAL':5,'HIGH':9,'MEDIUM':4}
+counts={'CRITICAL':0,'HIGH':0,'MEDIUM':0}
+violations=[]
+for dep in data.get('dependencies', []):
+    file=dep.get('fileName','')
+    vulns=dep.get('vulnerabilities') or []
+    for vuln in vulns:
+        sev=vuln.get('severity','UNKNOWN')
+        if file not in allowed:
+            violations.append(f"{vuln.get('name')} ({sev}) in {file}")
+        if sev in counts:
+            counts[sev]+=1
+if violations:
+    print('Unexpected vulnerabilities detected:')
+    for item in violations:
+        print('-', item)
+    sys.exit(1)
+for key, expected_value in expected.items():
+    if counts.get(key,0) != expected_value:
+        print('Vulnerability counts changed:', counts)
+        sys.exit(1)
+print('Dependency scan matches expected Tomcat-only CVEs:', counts)
+PY
 ```
 
 ### Scheduled Scanning
@@ -471,10 +525,10 @@ jobs:
 ## Conclusion
 
 This comprehensive testing strategy ensures:
-- All 162 vulnerabilities are verified as fixed
+- The remediation gap is transparent (144/162 fixed; 18 Tomcat CVEs tracked)
 - Security improvements are measurable
 - Fixes are properly implemented
 - No regressions occur
-- Compliance requirements are met
+- Compliance requirements are met with documented residual risk
 
-Regular execution of these tests maintains security posture and provides audit trail documentation.
+Regular execution of these tests maintains security posture, proves the Tomcat CVEs are contained, and provides audit trail documentation.
