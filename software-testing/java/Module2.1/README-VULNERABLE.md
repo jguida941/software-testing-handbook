@@ -1,8 +1,8 @@
-# ⚠️ WARNING: VULNERABLE APPLICATION ⚠️
+# WARNING: VULNERABLE APPLICATION
 
-## 🚨 CRITICAL SECURITY NOTICE 🚨
+## Critical Security Notice
 
-**This application contains 162+ KNOWN SECURITY VULNERABILITIES and is FOR EDUCATIONAL PURPOSES ONLY!**
+**This application contains 162+ known security vulnerabilities and is for educational purposes only.**
 
 ---
 
@@ -26,29 +26,29 @@ This version of the application is **INTENTIONALLY VULNERABLE** and contains:
 
 ## Purpose
 
-This vulnerable version exists ONLY for:
-- 📚 **Educational demonstrations** of security vulnerabilities
-- 🔍 **Security testing tool validation**
-- 🎓 **Training on vulnerability identification**
-- 📊 **Comparison with the secure version**
+This vulnerable version exists only for:
+- Educational demonstrations of security vulnerabilities
+- Security testing tool validation
+- Training on vulnerability identification
+- Comparisons with the secure version
 
 ---
 
 ## Safe Alternative Available
 
-✅ **USE THE IMPROVED VERSION INSTEAD**: `Module2.1-IMPROVED/`
+**USE THE IMPROVED VERSION INSTEAD**: `Module2.1-IMPROVED/`
 
 The improved version has:
-- 91% of vulnerabilities fixed (15 Tomcat CVEs remain)
+- 91% of vulnerabilities fixed (18 Tomcat CVEs remain)
 - Modern dependencies (Spring Boot 3.3.5 / Java 17)
-- Security headers + validation configured
+- Security headers and validation configured
 - 54 security-focused tests that now pass
 
 ---
 
 ## If You Must Run This Version
 
-### ⚠️ Safety Precautions:
+### Safety Precautions:
 
 1. **NEVER expose to the internet**
 2. **Run only in isolated environments**:

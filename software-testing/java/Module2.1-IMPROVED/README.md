@@ -1,6 +1,6 @@
 # Module2.1-IMPROVED (formerly `Module2.1-SECURE`)
 
-## ⚠️ Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
+## Security Status: SIGNIFICANTLY IMPROVED (NOT FULLY SECURE)
 
 This is the improved version of the Spring Boot application with **91 %** of the original 162 vulnerabilities mitigated. **18 residual CVEs** (5 CRITICAL / 9 HIGH / 4 MED) remain in Tomcat 10.1.31, which ships with Spring Boot 3.3.5.
 
@@ -8,22 +8,22 @@ This is the improved version of the Spring Boot application with **91 %** of t
 
 ## Security Achievements
 
-### 🛡️ Vulnerability Remediation
+### Vulnerability Remediation
 - **5 CRITICAL vulnerabilities remain** (was 21) – Tomcat 10.1.31
 - **9 HIGH vulnerabilities remain** (was 69) – Tomcat DoS/issues
 - **18 total vulnerabilities remain** (was 162 total / 90 unique CVEs) – 91 % reduction
 - **Note**: Upstream Spring Boot 3.3.5 does not yet expose Tomcat 10.1.35+, so these CVEs persist until the dependency is released.
 - **91 % remediation rate** – Dependency-Check still fails because CVSS ≥ 7 findings remain
 
-### 🔐 Security Features Implemented
-- ✅ Modern Spring Boot 3.3.5 (upgraded from 2.2.4)
-- ✅ Java 17 LTS (upgraded from Java 8)
-- ✅ Input validation and sanitization
-- ✅ Security headers configured
-- ✅ SpEL injection prevention
-- ✅ Array bounds protection
-- ✅ Latest dependency versions
-- ✅ Comprehensive security tests
+### Security Features Implemented
+- Modern Spring Boot 3.3.5 (upgraded from 2.2.4)
+- Java 17 LTS (upgraded from Java 8)
+- Input validation and sanitization
+- Security headers configured
+- SpEL injection prevention
+- Array bounds protection
+- Latest dependency versions
+- Comprehensive security tests
 
 ---
 
@@ -320,8 +320,8 @@ mvn test
 ## License & Usage
 
 This improved version is safe for:
-- ⚠️ Production use only with compensating controls for the remaining Tomcat CVEs
-- ✅ Development, testing, and educational comparisons
+- Production use only with compensating controls for the remaining Tomcat CVEs
+- Development, testing, and educational comparisons
 
 ---
 
@@ -337,4 +337,4 @@ Security fixes implemented based on:
 
 **Version**: 1.0.0 (Improved)
 **Last Updated**: 2025-11-10
-**Security Status**: ⚠️ 18 residual CVEs (5 CRITICAL / 9 HIGH / 4 MED)
+**Security Status**: 18 residual CVEs (5 CRITICAL / 9 HIGH / 4 MED)
