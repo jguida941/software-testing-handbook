@@ -1,4 +1,4 @@
-# Software Testing Handbook: Vulnerable Version
+# Software Testing Handbook - Vulnerable Version
 <p align="left">
 <!-- Vulnerable snapshot (links to vulnerable branch) -->
   <br/>
