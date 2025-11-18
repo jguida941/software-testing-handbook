@@ -94,7 +94,7 @@ The Java Module 2.1 example perfectly demonstrates why **both** testing types ar
    - Resource leaks
 
 2. **Dynamic Testing** (what we did) found:
-   - 162 vulnerabilities across 96 CVEs in dependencies that static analysis alone wouldn't catch
+   - 162 vulnerabilities across 90 CVEs in dependencies that static analysis alone wouldn't catch
    - Runtime security vulnerabilities
    - Real exploitation risks
 
