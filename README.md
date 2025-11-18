@@ -1,9 +1,4 @@
 # Software Testing Handbook - Security Audit Educational Suite
-
-## IMPORTANT: This Repository Contains Intentionally Vulnerable Code for Education
-
-This repository demonstrates security vulnerability remediation by maintaining both vulnerable and significantly improved versions of a Spring Boot application.
-
 <p align="left">
   <!-- Secure snapshot (links to secure branch) -->
   <br/>
@@ -21,6 +16,10 @@ This repository demonstrates security vulnerability remediation by maintaining b
   <img alt="Java 17" src="https://img.shields.io/badge/Java-17-2563EB?style=for-the-badge&logo=openjdk&logoColor=white">
   <img alt="Tomcat 10.1.31" src="https://img.shields.io/badge/Tomcat-10.1.31-FACC15?style=for-the-badge&logo=apachetomcat&logoColor=black">
 </p>
+
+This repository demonstrates security vulnerability remediation by maintaining both vulnerable and significantly improved versions of a Spring Boot application.
+
+
 
 > ##### **NOTE:** This branch contains the improved, significantly hardened version of the application. A small number of residual Tomcat CVEs remain for educational transparency; do **NOT** treat this as a production security baseline without further hardening.
 
