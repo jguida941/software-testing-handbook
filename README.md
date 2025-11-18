@@ -123,7 +123,7 @@ Each lab has step-by-step instructions in its branch-specific README.
 
 | Metric | Vulnerable Version | Secure Version | Improvement |
 |--------|-------------------|----------------|-------------|
-| **Java Vulnerabilities** | 162 (21 CRITICAL) | 15 (4 CRITICAL)* | 91% reduction |
+| **Java Vulnerabilities** | 162 (21 CRITICAL) | 18 (5 CRITICAL)* | 91% reduction |
 | **Python Issues** | 18 (17 Pylint + 1 Mypy) | 0 | 100% fixed |
 | **Spring Boot** | 2.2.4 | 3.3.5 | Major upgrade |
 | **Java Version** | 8 | 17 | LTS upgrade |
