@@ -120,7 +120,7 @@ open target/dependency-check-report.html
 ### Time Investment vs Value
 | Activity | Time | Issues Found | Value |
 |----------|------|--------------|-------|
-| Python Static Analysis | 20 min | 23 | High (early detection) |
+| Python Static Analysis | 20 min | 22 | High (early detection) |
 | Java Security Scan | 45 min | 162 | Critical (security) |
 | **Total** | **65 min** | **185** | **Exceptional ROI** |
 
