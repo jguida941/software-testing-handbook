@@ -1,4 +1,4 @@
-# Software Testing Handbook - Security Audit Educational Suite
+# Software Testing Handbook - Secure Version
 <p align="left">
   <!-- Secure snapshot (links to secure branch) -->
   <br/>
