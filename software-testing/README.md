@@ -72,7 +72,7 @@ Demonstrates static testing through:
 
 #### [Java Security Testing - Module 2.1](./java/Module2.1/)
 **Real-World Impact**: Our OWASP Dependency Check scan discovered:
-- **162 total vulnerabilities** across 96 unique CVEs
+- **162 total vulnerabilities** across 90 unique CVEs
 - **21 CRITICAL vulnerabilities** (CVSS ≥ 9.0)
 - **69 HIGH severity issues**
 - Including **Spring4Shell**, **Ghostcat**, and other actively exploited vulnerabilities
