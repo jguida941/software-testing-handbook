@@ -156,7 +156,7 @@ software-testing-handbook/
 ### Intermediate Path
 1. Complete Beginner Path
 2. Run Java Module 2.1 security scan
-3. Analyze the 162 vulnerabilities / 96 CVEs found
+3. Analyze the 162 vulnerabilities / 90 CVEs found
 4. Research remediation strategies
 
 ### Advanced Path
