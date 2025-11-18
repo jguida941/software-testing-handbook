@@ -37,7 +37,7 @@ An educational security audit project showing:
 
 | Branch | Role | Key Assets |
 |--------|------|------------|
-| `master` | Documentation hub / branch map | Overview README, `agents.md`, `audit.md` |
+| `master` | Documentation hub / branch map | Overview README |
 | `vulnerable-version` | Intentionally vulnerable lab | `software-testing/java/Module2.1`, flawed Python example |
 | `secure-version` (current) | Remediated implementation & docs | `software-testing/java/Module2.1-IMPROVED`, `scripts/`, `software-testing/docs/` |
 
